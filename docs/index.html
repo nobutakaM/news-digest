@@ -60,19 +60,110 @@
 <body>
 <header>
   <h1>フロントエンドニュースまとめ</h1>
-  <p class="time">更新: 2026-07-27T21:28（毎朝6時に自動更新）</p>
+  <p class="time">更新: 2026-07-28T21:28（毎朝6時に自動更新）</p>
 </header>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/tapandhold/articles/75bbcdedb0237d">Xの「長押しで変化する画像」はなぜ成立するのか：PNGアルファ合成と再圧縮の実装メモ</a><p>Xでは、タイムライン上では一枚目の絵に見え、画像を開いた暗いビューアでは別の絵に見える透明PNGが投稿されることがあります。
-この記事では、筆者がブラウザ完結型ツール Tap and Hold を実装した際の考え方をもとに、現象を支えるアルファ合成、2つの目標画像からPNGを近似する方法、実サービスで必要になる互換性テストを整理します。
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/acntechjp/articles/9875167b9b83df">「AIが作るUI、なぜ毎回同じに見えるのか——57のチェックで潰す『Hallmark』」</a><p>AIコーディングエージェントに「ランディングページを作って」と頼むと、なぜか毎回同じ紫グラデーションのヒーローセクションと、横並びの3枚の機能カードが出てくる。
 
- 画像を切り替えているわけではない
-出力ファイルは1枚のPNGです。表示が変わる理由は、透明ピクセルが背後の背景色と合成されるためです。
-一般的なアルファ合成は、色成分ごとに次の式で表せます。
-C_out = α C_src + (1 - α) C_b...</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/pksha/articles/6cdf19e5fe8065">「Simple Made Easy」の観点から、UI/UXはどうあるべきか</a><p>要約
-Rich Hickey の講演「Simple Made Easy」の考え方を、UI/UX に当てはめて整理した記事です。「シンプル(Simple)」と「簡単(Easy)」は別物で、Simple は「モノの構造」の話、Easy は「人との親近性」の話です。Easy を優先した UI は「Easy but Complex」の罠に陥りがちです。最初こそ快適でも、育つほど絡み合いが効いてきて Hard(変更が怖い・誰も読めない)になります。典型例が Excel です。
-本文では、UI で起きる絡み合い(complect)の定番パターンを「表示と操作」など5つに整理します。そこから Si...</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/dentyu/articles/why-vite-react-router-instead-of-nextjs">Next.jsではなくVite + React Routerを採用した理由</a><p>結論
+この既視感には名前がついている。「AIスロップ」だ。Claude CodeやCursor、Codexといったツールが吐き出すUIが、機能的には正しいのに、どこかで見たようなテンプレートにしか見えない現象である。GitHubで急上昇した「Hallmark」というリポジトリは、この問題そのものを狙い撃ちにしたデザインスキルとして注目を集めている。
+https://github.com/nutlope/hallmark
+
+
+ ライ...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/zaico/articles/01b9d30a381463">ツールチップの実装方法の調査(HTML title グローバル属性, Popover API)</a><p>こんにちは！
+zaicoでWeb開発をしています、あだちです🍧
+zaicoでは、フロントエンドでUIコンポーネントライブラリ Vuetifyを使用しています。
+今回記事を書くきっかけとなったのは、Vuetifyのツールチップコンポーネント(VTooltip)のパフォーマンス問題でした。
+この問題を調査するにあたり、疑問と仮説があったので調査検証を行うことにしました。
+
+ ツールチップとは
+ツールチップは、対象要素にマウスホバー操作またはキーボードホバー操作した際に、対象についての簡潔な追加情報要素を一時的に表示するGUI(Graphical User Interface)表示要素の一つで...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/digeon/articles/e9ffeb0e2428d0">AIに既存UIの制約を守らせるAGENTS.mdとSkillとテストの役割分担</a><p>はじめに
+AIコーディングを実務で使うようになってから、既存のUIコンポーネントを前提に画面実装を進めてもらう場面が増えました。 実際、AIは既存のコンポーネントを使って、それらしい画面を実装できます。
+これなら既存の実装資産を活かせているように見えます。 ところが、コンポーネントを使うことはできても、その制約を守ることは意外とうまくいきませんでした。
+一覧画面では操作列の扱いを外しやすく、フォームでは部品の使い分けや補足説明文の置き方が崩れやすい、という問題が起きていました。 人間ならレビューで自然に拾えるようなルールでも、AIだとそれっぽい実装のまま通ってしまいます。
+検証を進め...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/kenimo49/articles/ai-ui-10colors-5-converged-3-models">AI生成UIに10色渡したら、5色しか使われなかった -- 色収束実験の実測</a><p>10色渡したのに、AIは半分しか塗らなかった
+デザインシステムに10色パレットを丁寧に整えて渡しました。AI は半分を無視しました。
+正確に言うと、Claude・GPT・Gemini の3モデルに同じ10色トークンを与えて同じダッシュボードUIを実装させたところ、実際に生成された CSS に登場したのは 平均5.3色 でした。しかも、どのモデルも「使う色」と「使わない色」の傾向がほぼ同じでした。
+「色を増やせば表現が豊かになる」というのは人間の直感です。AI にとってはむしろ逆で、選択肢が増えるほど、選ぶ幅は狭まります。
+この記事は、その現象を実測した記録です。
+
+ 実験の設計: 1...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/boyce/articles/remotion-rag-explainer-video">Reactで動画を作る！Remotionで「Enterprise RAG Engine」解説動画をプログラマブルに自動生成してみた結果と感想</a><p>最近、動画編集ソフトを起動せずに 「React のコードだけで解説動画をレンダリングする」 フレームワークである Remotion を試してみました。
+今回は、AI / エンタープライズ技術解説として 「Enterprise RAG Engine」 のアーキテクチャを説明する動画（全4シーン、35秒構成）を全編 TypeScript + React で構築し、再検証結果と知見をアップデートしました。
+実際に動くものを作ってみて得られた成果、コードの工夫点、そして After Effects などの動画編集ソフトと比べた「正直な感想」をまとめます。
+
+
+ 1. 今回試した技術と作ったもの
+...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/novareorbis/articles/typescript-cheatsheet">TypeScriptチートシート — 初心者でも読める早見表（基本文法から型まで）</a><p>TypeScriptをコード例＋やさしい解説で、変数・条件分岐・繰り返しといった基本文法から型まで並べた早見表です。用語は見出しにいきなり出さず、各章の最初の1文で「これは何をするものか」を説明しています。ページ内検索（Ctrl/Cmd+F）で引いてください。
+TSはJavaScriptに「型」を足した言語です。JSの文法はそのまま使え、そこに「この変数は文字列」といった注釈を付けられます。この型注釈はコンパイル（TS→JSへの変換）のときに消えて、実際に動くのはただのJSです。
+// hello.ts — まずはこれだけで動く
+const message: string = &quot;こんにち...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/jinjer_techblog/articles/5076d01bd1eb57">生成AIで、Webアクセシビリティ対応を開発フローに組み込めるか</a><p>はじめに
+こんにちは。jinjerでフロントエンド開発をおこなっている坂井です。
+最近の開発は、ほとんどがAIコーディングです。そのなかで気になったのはWebアクセシビリティです。専門家というわけではないのですが、いま自分にできることはないか、と考えています。
+「アクセシビリティとは何か」をきちんと解説するものではなく、専門家じゃない開発者が、生成AIを使ってどこまでやれるのかを、実際に確かめてみました。
+私はデザイン会社を経て、いまはフロントエンドエンジニアとしてプロダクト開発をおこなっています。デザインの現場と開発の現場、両方でアクセシビリティがどう扱われてきたかを見てきました。...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/chronoll/articles/bfb35b70a61d42">【Next.js 16】Dynamic RouteとDynamic Renderingを混同して、CDNキャッシュできないと思っていた話</a><p>はじめに
+Next.js 16 のApp Routerでは、app/articles/[slug]/page.tsx のようなファイルを置くと、[slug] に任意の値を指定して受け取れる Dynamic Route という機能があります。
+/articles/1234 や /articles/book-review のような URL に対して、1234, book-review という値に応じて処理や表示内容を変えられます。
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise&amp;amp;lt.</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/kanae0_0/articles/9483bed3472c81">Webレンダリング入門 — ブラウザの描画の仕組みからCSR/SSR/SSG/ISR、最適化</a><p>はじめに
+アドレスバーにURLを打ってEnterを押してから、ページが表示されるまでのほんの一瞬。
+この裏側では「レンダリング」という処理が走ってる。
+うん・・・・・・・・
+どゆこと？笑
+正直、この仕組みを知らなくてもコードは書けたので
+今まで理解するところまで深堀りしてなかった。
+でも、技術選定やページ重いの原因調査をするとぶち当たった。
+学ぶしかない。と思い腰を上げてみました。
+
+
+ わかってたらコレできたのに・・・
+
+「なんかこのページ遅いな…」の原因を、ツールの数値から遡って特定できる
+Next.js や Astro を選ぶとき、「なんとなく流行ってるから」じゃなく根拠を持っ...</p></article>
+<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/sktt_panda/articles/charset-detector-byte-pattern-browser">文字コードの自動判定はどう動くか — BOMとバイトパターンスコアリングでUTF-8/Shift_JIS/EUC-JPを見分ける</a><p>3行まとめ
+
+テキストファイルの文字コード（UTF-8 / Shift_JIS / EUC-JP / UTF-16）をブラウザ内で自動判定するツールを作った。ライブラリ不使用、Uint8Array の走査だけで実装している
+ブラウザの TextDecoder は「指定したコードでのデコード」はできるが判定はしてくれない。だから判定は自前で書くしかない
+実装は3段構え。① BOM チェック（確実）→ ② ASCII のみなら判定不能と正直に返す → ③ 各エンコード特有のバイトパターンをスコアリングして多数決。スコア比率から信頼度（高・中・低）も出す
+
+
+Excel で開いた CSV ...</p></article>
+<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/jeong/articles/4dfa08842991fd">動画編集ソフトを開かずに広告動画を納品した話 - Remotion × Claude Code</a><p>先日、実案件で30秒ほどの広告動画を作る機会がありました。Premiere ProもAfter EffectsもCanvaも使わず、最後までコードとターミナルだけで完結させています。
+最初は自前のHTML+puppeteerで動画レンダリングの仕組みを組み、その後Remotionに移行しました。この記事では、その両方をやってみて分かったことを書きます。結論だけ先に言うと、Remotionと公式Agent Skillsの組み合わせで、「プロンプト → Reactコンポーネント → MP4」のパイプラインが実用レベルで動きます。
+
+ そもそも、なぜコードで動画を作るのか
+動画制作の依頼を受け...</p></article>
+<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/kaminotk4/articles/share-without-db">DBを使わずに診断結果をシェアする──生年月日を1文字も外に出さない設計</a><p>はじめに
+占いアプリ「HoroAi」を、Claude Codeを使って副業で開発している。
+目標は月400PV。そのために、診断結果をSNSでシェアしてもらう機能を作った。
+作りながら一番悩んだのは、技術そのものより設計判断だった。画像を配るのか、リンクを配るのか。結果を再現するのにDBは要るのか。生年月日をどこまで守るのか。
+結論から書くと、DBもサーバー処理も使わずに、シェアされたリンクから診断結果を完全に再現できるようにした。しかも、生年月日はシェア画像にもURLにも1文字も含まれない。
+その設計の話を書く。
+
+
+ 1. 画像かリンクか、という最初の分岐
+シェア機能を作るとき、...</p></article>
+<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/kiyoma/articles/442f6686147860">useStateから書き換えて学ぶ、はじめてのuseReducer【React × TypeScript】</a><p>はじめに
+実務ではuseStateをよく使いますが、useReducerを書く機会はそれほど多くありません。
+そこで、タスク管理アプリをuseStateで作り、useReducerへリファクタリングしながら、両者の違いと使い分けを学びます。
+対象読者は、useStateによる配列やオブジェクトの更新はできるものの、useReducerを自分ではあまり書いたことがない人です。
+最終的に
+
+useReducerがなぜ必要なのか？
+useStateとの使い分け
+useReducerを使えるようになる
+ことを目指して、勉強していきます。
+
+※実際のuseReducerの動きに注力するため、
+...</p></article>
+<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/dentyu/articles/why-vite-react-router-instead-of-nextjs">Next.jsではなくVite + React Routerを採用した理由</a><p>結論
 今でもNext.jsが好き
 ただ、今回のアプリケーションではNext.jsはオーバースペックだと判断した
 必要な機能が揃っており、今後の変化も予測しやすいVite + React Routerを採用した
@@ -84,73 +175,6 @@ Rich Hickey の講演「Simple Made Easy」の考え方を、UI/UX に当ては�
 
  キャッチアップが少々しんどい
 これは散々言われていることですが、Next.jsはWeb標準に準拠というよりかは独自の進化...</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/kimuchan/articles/bc8e98682f8594">最近の仕事の流れ</a><p>はじめに
-ここ数ヶ月で働き方がかなり変わった。
-リファインメントで grill して認識を合わせ、実装は Claude Code に書かせ、多層モデルのレビュー と 厚い CI を通し、babysit-pr で green になるまで面倒を見させる。この流れが回り始めてから、かなりの信頼度の change list が安定して生産できるようになった。
-
- 全体の流れ
-リファインメント（grill）
-  → プランニング（順番とキャパシティを詰めるだけ）
-    → 実装（Claude Code が書く）
-      → 多層 AI レビュー（Copilot / Codex）+ 厚い ...</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/ssiwnl/articles/04-figma-to-code">Figma to Code を閉ループにする — 「目視でだいたい合ってる」を禁止する測定ファースト実装</a><p>!
-本記事はシリーズ「自己学習する開発環境」の第4回（最終回）です。
-
-AIが同じミスを二度としない開発環境（全体像）
-設計書1枚から実装・レビュー・PRまで
-AIレビューの指摘を資産化する
-Figma to Code を閉ループにする（本記事）
-
-
-!
-用語メモ
-
-
-Storybook: UI コンポーネントを1つずつ単独で表示・確認できる開発ツール。表示パターンの定義を「Story」と呼ぶ
-
-バリアント: 同じコンポーネントの状態違い（選択中・完了・エラーなど）
-
-画素計測: スクリーンショットをピクセル単位で測り、色や間隔を数値として取り出すこと
-
-デザイントークン: 色やサイズに...</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/norman6464/books/fsd-migration">Feature-Sliced Design 実践ガイド</a><p>フロントエンドのアーキテクチャ手法 Feature-Sliced Design (FSD) を体系的にまとめた本です。Layers・Slices・Segments の定義から、Public API、依存ルール、cross-import、層の判断基準、lint による強制、既存プロジェクトへの段階導入までを、公式仕様に沿って整理しました。</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/gyugyu86/articles/36bff017df4e40">バックエンドの無い静的ツールを監査したら、穴は「人からもらうファイル」だった</a><p>きっかけ
-前回、AIに1時間で作らせたNext.jsアプリを公開前に監査したら、Criticalが2件出た、という話を書きました。あれはサーバーサイドの話です。レート制限、入力検証、セキュリティヘッダ。要するに「入口を守る」コードをAIが書いていなかった、という内容でした。
-今回はその正反対のものを監査しました。
-App Storeのスクショを作る小さいツールを個人で作っていて、こちらは構成がまるで違います。サーバーなし、DBなし、ログインなし、外部通信なし、index.html 1枚。ビルドもしません。ブラウザで開いて、画像をドロップして、書き出したら終わりです。
-なので監査を始め...</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/taichi6930/books/test-strategy-book">テスト戦略：レイヤーの役割分担を先に決める</a><p>静的解析／単体／コンポーネント／結合／E2Eの5レイヤーで、何をどこまで検証するかを決めるための本。1つの機能（お気に入りにメモを付ける）を5レイヤー分すべて実装コード付きで書き分け、モック・テストデータ・CI設計まで一気通貫でカバーします。</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/taichi6930/articles/testing-strategy">テスト戦略：静的解析 / 単体 / コンポーネント / 結合 / E2E の役割分担を先に決める</a><p>テストは「たくさん書けば安心」ではありません。レイヤーごとに守るべき責務を曖昧にすると、同じロジックを単体テストでもE2Eでも検証する重複、誰もテストを書いていない空白、本来単体で済む検証をE2Eでやる遅い・脆いが同時に起きます。テストを書く前に、各レイヤーの責務境界を先に決めるというのが本記事のテーマです。
-
- 5つのレイヤー
-下に行くほど数を厚くし、上に行くほど代表ケースに絞ります。
-
-
-
-レイヤー
-何を検証するか
-傾向
-
-
-
-
-E2E
-ユーザーシナリオ全体（主要導線のみ）
-少ない・遅い・高価・本物に近い
-
-
-結合テスト
-実DB・実HTTPと繋いで I/O 境界を確認
-↑
-
-
-コンポ...</p></article>
-<article><span class="src">Zenn(フロントエンド)</span><a href="https://zenn.dev/nakagawarm/articles/mamepress-clientside-ai-background-removal">ブラウザだけでAI背景除去を実装：onnxruntime-webのCSP落とし穴とSWモデルキャッシュ</a><p>TL;DR
-
-ブラウザ内だけで動くAI背景除去（remove.bg的な切り抜き）を、サーバー送信なしで実装しました。
-ライブラリは@imgly/background-removal（ISNetをonnxruntime-webで実行）。
-一番ハマったのはCSPです。connect-srcにblob:がないとonnxruntimeがWASMをfetch()できず、「no available backend found」で落ちます。エラーメッセージが原因を隠すのが厄介でした。
-モデル（数十MB）はService Workerでクロスオリジン永続キャッシュし、「端末ごと1回DL＋オフライン動...</p></article>
 <article><span class="src">Zenn(React)</span><a href="https://zenn.dev/jamesbob/articles/next-moodle-zenn">Moodleが使いにくい！</a><p>Moodle、正直使いにくくないですか？
 大学でMoodleを使っている人なら、一度は
 
@@ -190,156 +214,150 @@ React 19
 この記事では、フィードバックを単なる本文ではなく「再現用パケット」として受け取る実装を作ります。
 
  完成条件を先に固定...</p></article>
-<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/uhyo/articles/react-profession-bench-14">【速報】Opus 5、React習熟度ベンチマークで余裕のFable 5超え</a><p>皆さんこんにちは。React習熟度シリーズの14記事目です。今回は、先日リリースされた新モデルClaude Opus 5をいつものReact習熟度ベンチマークで計測してみた回です。いつもどおりeffortはhighとmaxの2種類で、両方の結果をこの記事でお届けします。
-ちなみに、記事の後半はいつもどおりClaude執筆の生レポートとなっていますが、前回まではOpus 4.8が執筆、今回は執筆者もOpus 5となっています。書き方の違いをお楽しみください。
-前回の記事はこちらです。
-https://zenn.dev/uhyo/articles/react-profession-bench...</p></article>
-<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/ui_memo/articles/06f17e0b34fc59">AG Grid公式のAIスキル「ag-update」をClaude Codeで使ってv36に上げた</a><p>はじめに
-UI Memo というUIコンポーネント実装リファレンスサイトを運営している。ライブラリごとの実装を並べて比較できるようにしているサイトで、その中に AG Grid を使ったデータグリッドの比較ページがある。
-このページで使っている ag-grid-react を v35 から v36 に上げた。これまでのメジャーアップデートなら Codemod を流すところだが、v36 では様子が違った。AG Grid は Codemod の提供をやめ、代わりに AIエージェント向けの「スキル」 をアップグレード手段として配り始めていた。
-今回はその公式スキル ag-update を C...</p></article>
-<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/newden/articles/7360dd8740c762">Next.js を学ぶ前に固めておきたい前提知識</a><p>Next.jsの前提知識ノート
-Next.js を学ぶ前に固めておきたい React / JavaScript・TypeScript / HTML・CSS の基礎をまとめています。
-
-この記事だけでNext.jsを触るための知識基盤ができるわけではありませんが、重要な場所、つまずきやすい場所のみをピックアップしています。（特に React）
-ある程度、React等を学習された方を対象に「復習用」として利用することを想定しています。
+<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/norman6464/books/fsd-migration">Feature-Sliced Design 実践ガイド</a><p>フロントエンドのアーキテクチャ手法 Feature-Sliced Design (FSD) を体系的にまとめた本です。Layers・Slices・Segments の定義から、Public API、依存ルール、cross-import、層の判断基準、lint による強制、既存プロジェクトへの段階導入までを、公式仕様に沿って整理しました。</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/nyaomaru/articles/dsa-view-view-runtime-visualization">JavaScript の実行途中をどうやって可視化して巻き戻すんや？ (DSA View View 👀👀)</a><p>みなさん、こんにちは！
+オランダのお魚屋さんで買った zeetong (舌ヒラメ) のおいしさに腰抜かしたフロントエンドエンジニアの@nyaomaruです！ 🐟😸
+前回の記事では、DSA View View でユーザーが TypeScript を書いてから、関数や class の signature を解析して Verification form を生成するまでを紹介しました。
+https://zenn.dev/nyaomaru/articles/dsa-view-view-editor-compile
+今回は、DSA View View の心臓部分である Runtime と Visua...</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/nomi3/articles/category-theory-practice-functor-category">圏論の練習問題を作って解いてみる(関手圏)</a><p>関手を対象、自然変換を射とする「関手圏」を、TypeScriptを使った練習問題で確認します。題材は学校の成績照会です。
+圏になるには射の合成と恒等射が要るので、自然変換を合成できること、恒等自然変換があることを確かめます。
+!
+学習中の身のため、解答は必ずしも正しいとは限りません…！
 
 
- 1. React の基礎
+ 前提となる型
+3つの関手を使います。
+type Optional&amp;lt;A&amp;gt; =
+  | { hasValue: true; value: A }
+  | { hasValue: false };
 
- 1-1. コンポーネントとは
-
-UI を「部品」として分割したもの。関数として書くのが今の主流(関数コンポーネント)。...</p></article>
-<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/tonbi_attack/articles/09db226eb15e66">VueのemitとReactのコールバックpropsは何が違うのか</a><p>はじめに
-この記事では、Vue の emit と React のコールバック props の違いを整理します。
-どちらも、子コンポーネントから親コンポーネントへ「何かが起きた」と伝えるために使います。
-ただし、書き方と読み方はかなり違います。
-
-Vue は子が emit でイベントを発火する
-React は親が関数を props として渡し、子がその関数を呼ぶ
-
-この記事では、同じ親子間通信を Vue と React で比べながら、何が違って見えるのかを整理します。
-
- 先に結論
-先に結論を書くと、違いは次のとおりです。
-
-Vue は「イベント名で通知する」感覚が強い
-React は...</p></article>
-<article><span class="src">Zenn(React)</span><a href="https://zenn.dev/munenick/articles/b507a9848b6fdd">放置していた旧環境で見つけたReact2Shell攻撃の実態</a><p>はじめに
-本記事は以下のミラーです。
-https://www.munenick.me/blog/react2shell-attack-in-abandoned-kubernetes/
-私は自宅でKubernetesクラスタやゲームサーバー、いくつかのWebアプリケーションを運営しています。普段使う機能は新しいシステムへ移していましたが、旧Kubernetes環境の一部は止めず、インターネットに公開したまま残していました。使わなくなるにつれて、依存パッケージの更新や監視もしなくなっていました。
-旧環境には攻撃が繰り返し届き、気づかないうちにハニーポットのような状態になっていました。侵入...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/takuyanagai0213/articles/mcp-apps-spec-vs-shipped-sdk-traps">MCP Apps を仕様書どおりに書いたら動かなかった ── 2 ホストで描画するまでに踏んだ罠 4 件</a><p>チャットの中に自分のツールの画面を出せる、という話を聞いて、実際に書いてみました。
-結論から 3 行で書きます。
+type ApiResult&amp;lt;A&amp;gt; =
+  | { status: &quot;ok&quot;; d...</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/nomi3/articles/category-theory-practice-natural-transformation">圏論の練習問題を作って解いてみる(自然変換)</a><p>圏論の自然変換を、TypeScriptを使った練習問題で確認します。題材は学校の成績照会です。
+!
+学習中の身のため、解答は必ずしも正しいとは限りません…！
 
 
-MCP Apps は「これから来るもの」ではありません。 2026-01-26 に MCP 初の公式拡張として出荷済みで、今日ローカルで動きます
+ 前提となる型
+値が有るかもしれないし無いかもしれない、という状況を表す Optional 型と、その fmap を使います。
+type Optional&amp;lt;A&amp;gt; =
+  | { hasValue: true; value: A }
+  | { hasValue: false };
 
-仕様ドラフトの本文どおりに書くと動きません。 出荷されている SDK の型と食い違っています
+function fmapOptional&amp;lt;A, B&amp;gt;(f: (a: A) =&amp;gt; B): (fa: Optional&amp;...</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/nomi3/articles/category-theory-practice-functor">圏論の練習問題を作って解いてみる(関手)</a><p>圏論の関手を、TypeScriptを使った練習問題で確認します。題材は学校の成績照会です。
+!
+学習中の身のため、解答は必ずしも正しいとは限りません…！
 
-Claude Code(CLI)はホスト未対応です。 バイナリを走査して確かめました
 
-以下は、Factory のライン一覧を出すパネルを 1 個作って、2 つのホストで描画するまでのログです。踏んだ罠を全部書きます。
+ 前提となる型
+値が有るかもしれないし無いかもしれない、という状況を表す Optional 型と、その fmap を使います。
+type Optional&amp;lt;A&amp;gt; =
+  | { hasValue: true; value: A }
+  | { hasValue: false };
 
- そもそも...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/a1221/articles/color-utils-introduction">HEX/RGB/HSL変換とWCAGコントラスト比をライブラリなしで実装する—カラーツールを作った(TS)</a><p>はじめに
-フロントエンドの実装をしていると、色まわりでこんな作業がちょくちょく発生しませんか？
+function fmapOptional&amp;lt;A, B&amp;gt;(f: (a: A) =&amp;gt; B): (fa: Optional&amp;amp;l</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/uniquevision/articles/4359e64b17b028">TypeScript 7 時代の Vue.js ツールチェーン Vize を実プロダクトで検証した</a><p>プロダクト開発において、開発環境・CI の高速化はとても重要な要素です。
+ユニークビジョン株式会社でも、Vue.js・Hono を使った TypeScript 製の社内プロダクトにおいて、Formatter を Oxfmt に、Linter を一部 Oxlint に移行するなどして開発効率の向上を図ってきました。
+そんな中 TypeScript 7.0 がついに正式にリリースされました。コンパイラが Go 言語に移植され、型チェック速度が大幅に向上しました。
+しかし、Vue.js の型チェックを担う vue-tsc では当初、この恩恵を受けることができませんでした。vue-tsc が内部...</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/entriq/articles/dde7e19c350f78">個人開発でトレード練習ツールを作り、法人化してリリースした話</a><p>はじめに
+チャートリプレイ・トレード記録・AI分析をひとつにまとめた、個別株トレーダー向けのトレード練習ツール「ENTRIQ」のWeb版を正式にリリースしました。もともと個人開発として作りはじめ、その後に株式会社ENTRIQを立ち上げてリリースまで持っていったものです。
 
-デザインツールでもらった #3b82f6 を rgb() や hsl() に直したい
-「この文字色と背景色、WCAG的にコントラスト足りてる？」を確認したい
+この記事は宣伝ではなく、作っていて技術的に苦労した／設計判断で悩んだところを、これから個人開発でプロダクトを出す人の参考になるように書きます。具体的には、株式分割データの信頼性、14言語のhreflang、App Routerの動的化、frozen test、金融プロダクトでAIを使うときの制約、の5つです。
 
-hsl(217, 91%, 60%) を少し暗くしたバリエーションを作りたい
-
-そのたびに変換サイトを探すのも面倒なので、HEX / RGB / HSL の相互変換とWCAGコントラスト比の判定を1画面でこなすカラーツールを作りました。すべてブラウザ内（ローカル）で計算します。
-https://devtoolkits.app/ja...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/shiromizuj/articles/0068a45debd83c">[Mastra Announce] Memory Extractors で「会話を読む」から「会話を構造化して使う」へ</a><p>Mastra の 公式Blog で公開された Features 記事をもとに、今回の発表を実装者向けに解説します。今回は単なるメモリ機能の追加ではなく、会話ログを業務データとして再利用するための抽出レイヤーが入ったアップデートです。
+ ...</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/shiromizuj/articles/48e080b860529c">[Mastra Announce] Managed Workspaces でエージェントの作業環境を Platform に載せる</a><p>Mastra の 公式Blog で公開された Features 記事をもとに、今回の発表を実装者向けに解説します。今回は単なる provider 追加ではなく、Workspace という抽象 API を「Mastra Platform がそのまま面倒を見る実運用機能」に引き上げたアップデートです。
 Mastra Announcements 速報解説一覧
 
-2026年7月21日、Mastra は Introducing Memory Extractors for Mastra Agents を公開しました。
+2026年7月22日、Mastra は Introducing Managed Workspaces for Mastra Platform を公開しました。
 
-公式アナウンス: https://mastra.ai/blog/introducing-memory-extractors
+公式アナウンス: https://mastra.ai/blog/intro...</p></article>
+<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/susie/articles/2c59c2a22ee7ae">新人が当番に入っても壊れない、フィードバック一次対応を「実行可能なルール」にする</a><p>フィードバック窓口を実装できても、一次対応を引き継げるとは限りません。
+経験者は短い文章から緊急度や担当を推測できます。一方、新しく当番に入った人は「障害として扱うべきか」「仕様質問として返してよいか」「開発者を呼ぶべきか」で迷います。結果として、すべてをエスカレーションするか、逆に重要な報告を通常問い合わせとして処理しがちです。
+ここで必要なのは詳しい対応マニュアルだけではありません。受付内容を同じ基準で判定し、その判断を後から検証できる仕組みです。
+この記事では、一次対応を次のパイプラインとして実装します。
+受付
+  ↓
+安全上のフラグ検出
+  ↓
+分類候補の生成
+  ↓
+人間による...</p></article>
+<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/Gaven/items/16e6b08dda2e09f4d998">Testing Browser-Generated Tiled Poster PDFs With Geometry Invariants</a><p>Testing Browser-Generated Tiled Poster PDFs With Geometry Invariants
+A multipage poster PDF can look correct in a browser preview and st...</p></article>
+<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/Ryo-0131/items/fb41c427c5350fcdc185">【NestJS】npm run start実行時、どんな流れで起動している...？</a><p>概要
+npm run startを実行したらどんな流れで起動しているのだろう？
+と思い、調べてみました。
 
-Extractors...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/memo_color/articles/0109b17d496058">TypeScript入門：基本の型からGenerics・API通信・Reactでの使い方まで解説</a><p>TypeScript入門：基本の型からGenerics・API通信・Reactでの使い方まで解説
+NestJS CLIの仕組み
 
- はじめに
-JavaScriptで開発していると、次のような不具合に遭遇することがあります。
+nest コマンドの正体
+npm run start を実行すると、内部では以下のコマンドが走ります。
+nest start
 
-数値を想定していた変数に文字列が入る
-オブジェクトに存在しないプロパティを参照する
-関数へ想定外の引数を渡す
-APIのレスポンス構造を勘違いする
+では...</p></article>
+<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/GoSpinWheel/items/927522b1ca9d59ec47d2">公平なランダム抽選を実装する：crypto.getRandomValues()と重み付きルーレット</a><p>Web でランダムルーレットを作るとき、円を描いて CSS で回すところまでは難しくありません。実装で本当に注意すべきなのは、選択確率を偏らせず、利用者が結果を確認・説明できる状態にすることです。
+授業の指名、抽選会、チーム分けのように結果が重要な用途では、「それっぽく止ま...</p></article>
+<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/FAQuick/items/4967c69b88df55fc9574">FAQページのJSON-LDを手書きするのをやめた（URLから自動生成するツールを作った）</a><p>やりたかったこと
+クライアントワークでサイトを作ると、ほぼ毎回「よくある質問」ページが発生します。そのたびに手作業していたのが2つあって、
 
-nullやundefinedを考慮せず処理する
-関数の戻り値が想定と異なる
-コンポーネントへ誤った値を渡す
+FAQの叩き台づくり — クライアントに質問を出してもらっても埋まらないので、結局こちらで既存ページから拾って書く
 
-JavaScriptは柔軟に記述できる一方で、値の型が実行時まで確定しないため、コードの規模が大きくなるほど型に関する不具合が発生しやす...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/mutex_inc/articles/async_serialization_20260721">非同期処理版mutex</a><p>mutex, Inc. でエンジニアをしている加藤です。業務では TypeScript・Dart を書くことが多いです。
+FAQPa...</p></article>
+<article><span class="src">Qiita(React)</span><a href="https://qiita.com/teppei19980914/items/633661074e7f15e89916">Markdown textarea + プレビュー + 差分ハイライト — 業務 SaaS で「書きたくなる」入力体験を作る</a><p>この記事は約 5 分で読めます。
 
- はじめに
-当社の名前でもある mutex をタイトルに掲げるのは少し気が引けるのですが、非同期関数の競合問題を、tony の知見を借りて mutex の考え方で解決できたので、このタイトルで記事にします。詳しい方には既知の話かもしれませんが、実務でこの構造に出会った一例の紹介です。
+筆者プロフィール: ソフトウェアエンジニア。「知った気にならない。いつまでも学び続ける」を信条に、業務と個人開発の両輪で技術を磨いています。AI 駆動開発で複数の個人開発アプリを構築・運用中。
+👉 ポートフォリオ: 筆者ホームページ
+業...</p></article>
+<article><span class="src">Qiita(React)</span><a href="https://qiita.com/makuragadekasugiru810114514/items/1469190c0d64a02a7db4">React Three Fiberでブラウザ完結のボクセルエディタを作った</a><p>はじめに
+React、Three.js、React Three Fiberを使い、インストールやアカウント登録なしで動くブラウザ完結のボクセルエディタを個人開発しました。
+この記事では、ブラウザ上で多数の立方体を編集し、複数の3D形式やGIFとして出力するために採った構成...</p></article>
+<article><span class="src">Qiita(React)</span><a href="https://qiita.com/MartinDelophy/items/851c6ee800a2f57c01eb">ブラウザだけで動画を4倍高画質化する：NanoVSR × WebGPUの実装</a><p>動画の超解像はサーバーGPUで処理する構成が一般的ですが、動画のアップロード時間やプライバシー、GPUコストが課題になります。
+Timeline Studio では、NanoVSR・ONNX Runtime Web・WebGPU・FFmpeg.wasmを組み合わせ、動画の4...</p></article>
+<article><span class="src">Qiita(React)</span><a href="https://qiita.com/jinxuanlong2008/items/6fa5e2a36b7a82ea9b50">【ASP.NET Core Web API + React + TypeScript(vite)】書籍管理システム設計 ① 環境構築手順書</a><p>本記事は 書籍管理システム設計（全4回）シリーズの ① です。
 
- 前提：この記事で扱う状況
-きっかけは、Flutter アプリで record パッケージ（当時 ^6.2.0）を使った録音機能の開発でした。この記事ではこれを題材にします。この問題...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/hatsukaichi/articles/5b1bebe0addccf">GitHubに疲れたので、AIエージェントネイティブなコード管理基盤をCloudflare上に自作す【Day 0】</a><p>最近、プラットフォームの運営方針や規約変更、AI学習へのデータ利用などの懸念から「自前でコードやデータの主導権を握りたい」と考えることが増えました。
-しかし、既存のGitHubの代替（GitLabやGitea/Forgejoなど）を単にセルフホストするだけでは、どうしてもモヤモヤが残ります。なぜなら、それらはすべて「人間がブラウザや画面で操作する」ことを前提に作られた、旧時代のWebアプリだからです。
-AIエージェントがコードを書き、テストを回し、レビューまで加わる現代において、人間向けの重いUIや、15年前に設計された複雑なGitプロトコルに縛られる必要はあるのでしょうか？
-「ないなら...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/moriwo_dev_ai/articles/ama-teras-202607270845">「壊れていたのに成功を報告していた」を直す: AMA-terasの失敗ログ</a><p>エージェントは「できました」と言いたがる
-自己進化型エージェント AMA-teras(GitHub)を運用していて、一番背筋が冷えたのは派手なクラッシュではありません。壊れているのに「成功しました」と報告してくる瞬間です。
-これはモデルの嘘というより構造の問題です。LLMは「タスクを完了した」という続きを書くよう強く誘導されるし、実行環境からの失敗シグナルが弱ければ、疑う材料がそもそも無い。今回は、うちで実際に起きた「成功詐称」事件簿と、それぞれに入れた対策の記録です。
+📚 シリーズ全記事（全4回）
 
- 事件1: 幽霊スケジューラ
-運営AIの定時ジョブを止める stop() が、実は止めていませんでした。タイマー...</p></article>
-<article><span class="src">Zenn(TypeScript)</span><a href="https://zenn.dev/sen_web3/articles/soroi-oauth-magic-link-coexist">招待制ベータのまま、マジックリンクにGitHub/Google OAuthを共存させた設計</a><p>OAuth共存とは何か
-OAuth共存とは、既存の認証方式（本記事ではメールOTPによるマジックリンク）を維持したまま、GitHubやGoogleといった外部プロバイダによるOAuth2.0ログインを追加提供することです。ステーブルコイン入金消込ツールSoroiは招待制ベータとして運用しており、新規ユーザーの作成をSupabase Auth側の「Allow new users」オフで制御しています。今回、この制御を崩さずにOAuthボタンを増やす作業を行ったので、実装と設計判断をまとめます。
+【ASP.NET Core Web API + React + TypeScript(vite)】書籍管理システム設計 ① 環境構築手順書（この記事）
+【ASP.NET Cor...</p></article>
+<article><span class="src">はてブ</span><a href="https://www.itmedia.co.jp/news/article/2607/28/2000000249/">「Xが情報収集に役立たない……」熊本地震で不満の声続出　「Twitterを返して」</a><p>7月28日に発生した令和8年熊本地震。政府・自治体や通信各社などが対応や情報発信に動いている一方で、SNSでは「Xが情報収集の役に立たなくなっている」との声が散見される。障害が起きていない点を評価する声もあるが、少なくないユーザーから「Twitter（時代の利便性）を返して」という意見が上がっていた。 特に批判...</p></article>
+<article><span class="src">はてブ</span><a href="https://gigazine.net/news/20260728-pgsimcity-postgresql/">データベース「PostgreSQL」がどのように実際には内部で動いているかがシムシティっぽい3Dでわかる「PGSimCity」</a><p>PostgreSQLは世界中で広く使われているデータベース管理システムですが、SQLを実行したときに内部でどのプロセスが動き、データがどのようにメモリやディスクへ読み書きされるのかを直感的に把握するのは簡単ではありません。そんなPostgreSQLの内部構造を、シムシティのような3D都市として可視化してくれるウェブアプリ...</p></article>
+<article><span class="src">はてブ</span><a href="https://w1.zawa-lab.net/p/20260728_oobe_bypass/">Windows 11 でローカルアカウントを作成する方法【2026年7月時点】</a><p>この記事は Claude を用いて執筆しています。 ただし、実際の検証・判断は手元の Windows 環境で行った結果に基づいており、内容は実体験ベースで整理しています。 Windows 11 のセットアップで Microsoft アカウントを要求されて先に進めないとき、コマンド 1 行でローカルアカウントを作成する手順です。 まず手順だけ...</p></article>
+<article><span class="src">はてブ</span><a href="https://forbesjapan.com/articles/detail/101739">ヤモリの足裏を科学した米軍の装備、粘着剤なしで垂直壁を走る驚異の技術* | Forbes JAPAN 公式サイト（フォーブス ジャパン）</a><p>米国防高等研究計画局（DARPA）は2014年、「Z-Man」と呼ばれるプログラムの成果を公開した。それは、体重90kg超のクライマーが約23kgの荷物を背負い、ロープもハーネスも吸盤も使わず、2つの接着パドルだけを使って、ガラスでできた高さ約7.6mの垂直壁を上るというデモンストレーションだった。 こんな離れ業が可能にな...</p></article>
+<article><span class="src">はてブ</span><a href="https://speakerdeck.com/aki_iinuma/why-building-and-delivering-value-diverge">「作ること」と「価値を生むこと」はなぜズレるのか：アウトプットと価値の断絶を乗り越える / Why &quot;Building&quot; and &quot;Delivering Value&quot; Diverge</a><p>CEDEC2026招待講演</p></article>
+<article><span class="src">はてブ</span><a href="https://tajd.github.io/projektor/">Projektor</a><p>An issue tracker and wiki your AI coding agent runs as a first-class client - agent-native like a git tracker, deployed and cross-project like Jira, on a single Cloudflare Worker.</p></article>
+<article><span class="src">はてブ</span><a href="https://togetter.com/li/2725778">「AIのセキュリティリスクとしてお堅い説明するよりこれ見せた方が理解が早そう」AIずんだもんが視聴者によるプロンプトインジェクションで壊れる動画が怖い</a><p>「AIのセキュリティリスクとしてお堅い説明するよりこれ見せた方が理解が早そう」AIずんだもんが視聴者によるプロンプトインジェクションで壊れる動画が怖い</p></article>
+<article><span class="src">はてブ</span><a href="https://azukiazusa.dev/blog/focusgroup-html-attribute/">矢印キーによるフォーカス移動を宣言的に実装する `focusgroup` 属性</a><p>behavior token は、フォーカスナビゲーションの動作と ARIA ロールを結び付けます。たとえば &lt;div&gt; のように、明示的なロールもネイティブのセマンティクスも持たない汎用的な要素へ tablist token を指定すると、ブラウザはコンテナを tablist、子の &lt;button&gt; を tab としてアクセシビリティツリ...</p></article>
+<article><span class="src">はてブ</span><a href="https://pc.watch.impress.co.jp/docs/news/2128607.html">DGX Sparkと同じAI性能を激安で!?独自プロセッサで100BのLLMを走らせられるミニPC</a><p></p></article>
+<article><span class="src">はてブ</span><a href="https://speakerdeck.com/masasuzu/2026-06-18-ecspressonotfstatecan-zhao-kabian-li-sukitahua">2026-06-18 ecspressoのtfstate参照が便利すぎた話</a><p>社内勉強会の内容 ecspressoが便利すぎて勢い余って、自分もインスパイアされてコードを書いた話 https://github.com/masasuzu/clrnd</p></article>
+<article><span class="src">Qiita</span><a href="https://qiita.com/sumomoo/items/0d6667bbcf46ad59c320?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">やる気を信じず、学習習慣を仕組み化して固定せよ【三日坊主回避】</a><p>はじめまして。株式会社PRUMでエンジニアをしている、すもも🍑です
+日々、プログラミング学習や実務の中で、つまずきやすいポイントや
+考え方を整理して発信しています。
+PRUMについて気になった方は、コーポレートサイトもぜひご覧ください。
+▶コーポレートサイト
 
- 前提: マジックリンクだけだった理由
-Soroiはベータ開始時、signInWithOt...</p></article>
-<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/rana_kualu/items/7f6bb159f7d65e53620d">【ProcrastiNation】今日できることは明日でもできる、全力で先延ばしにしよう【Next.js】</a><p>あまりに素晴らしすぎるNext.jsツールスタックProcrastiNationを見つけてしまったので、これは何がなくとも全力で普及させなければならないという使命感に駆られた。
+「よし、今...</p></article>
+<article><span class="src">Qiita</span><a href="https://qiita.com/y-okayama-tb/items/0127a7c5203f44507474?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">Mac mini（M4 Pro / 48GB）で「完全ローカル」のLLM + RAG環境を構築してみた</a><p>はじめに
+こんにちは。
+トライベック株式会社の岡山です。
+ローカルでLLM + RAGを検証したく、最近 Mac mini（M4 Pro / メモリ48GB）を購入しました。
+「mini」なのは筐体だけで、価格は全くminiではありませんでしたが。
+そもそもの動機は、クラ...</p></article>
+<article><span class="src">Qiita</span><a href="https://qiita.com/prumnn/items/405f4a78ec5f0232b234?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">参考書を読んでも忘れるのは当然。大事なのは&quot;思い出す&quot;回数</a><p>はじめに
 
-以下は該当のGitHubからREADMEの紹介です。
+参考書を読んでいるとき、勉強した気になっていたぷらむんですが、実は身についているかどうかは別問題だと気づきました。
 
-ProcrastiNation — T...</p></article>
-<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/MartinDelophy/items/593ddcf40728c722cbe8">動画をアップロードせずにAIで透かしを消す：MI-GAN × ONNX Runtime Web × WebGPUによるブラウザ内動画修復</a><p>動画編集サービスにおいて、ウォーターマーク（透かし）やロゴ、不要な小物体の除去は需要の高い機能です。
-一般的な実装では、動画をサーバーへアップロードし、GPUでフレームごとに修復した後、再エンコードしたファイルをユーザーへ返します。しかし、この方式にはアップロード時間、プラ...</p></article>
-<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/Shiumano/items/b1a8d64966f4e037588c">JavaScriptで高速逆平方根</a><p>はじめに
-高速逆平方根って知っていますか？
-「世界を変えた4行のコード」とも言われる、伝説のアルゴリズムです。
-その内容はコチラ。(Wikipediaからコピペ)
-float Q_rsqrt( float number )
-{
-	long i;
-	float x2, y;...</p></article>
-<article><span class="src">Qiita(JavaScript)</span><a href="https://qiita.com/nikitapodelenko/items/60e62197f4494dea5afa">Build a Callback Capacity Margin Calculator in JavaScript</a><p>Why capacity belongs in a routing test
-A call route can work exactly as configured and still create a backlog. The missing check is capa...</p></article>
-<article><span class="src">Qiita(React)</span><a href="https://qiita.com/hiro92196/items/d3f41d541142fde6c1eb">React FlowでSVGアイコン付きノードをドラッグ&amp;ドロップで追加してみる</a><p>はじめに
-以前の業務で、React Flowを使ってノードベースのUIを実装したことがあります。
-ノードを配置し、線でつなぎ、ユーザーが画面上で処理の流れを編集できるUIは、ワークフローや処理フローの可視化と相性がよいです。
-今回は、そのときに扱っていたようなノードベース...</p></article>
-<article><span class="src">Qiita(React)</span><a href="https://qiita.com/DaokFrontier/items/a94c3ff5fe46d0a28c4e">Next.js SC/CC移行でハマる！状態管理とデータ取得の解決策</a><p>多くのNext.js開発者がApp Routerへの移行時に直面するのが、Server ComponentsとClient Componentsの適切な使い分けです。特に「Server ComponentでuseStateが使えない！」「Client Componentでデ...</p></article>
-<article><span class="src">Qiita(React)</span><a href="https://qiita.com/NekoByte/items/8f98eb37e0d44e121984">Reactのパフォーマンス改善で迷わないために。現場で学んだ「とりあえずuseMemo」が危険な理由</a><p>「コードは動いている。でも、なんだか動作がもっさりしている気がする……」
-Reactを学び始めて、コンポーネントが正しく画面に表示され、APIから取得したデータが流れるようになったとき、多くの人が一度は直面する壁があります。それは、アプリケーションが大きくなってきたときに感...</p></article>
-<article><span class="src">はてブ</span><a href="https://www.itmedia.co.jp/aiplus/article/2607/27/2000000223/">MIXI、新卒エンジニア向け研修資料＆動画を無料公開　「実践的なAI活用術」を12科目で紹介</a><p>MIXIは7月27日、2026年度入社の新卒エンジニア向けに実施した技術研修の資料とアーカイブ動画を公開した。全12科目を通じ、業務におけるAIの活用法などを紹介している。 Gitやコンテナ技術、セキュリティ、モバイルアプリ開発、データ活用などのテーマごとに実施した全12科目の研修資料と一部のアーカイブ動画を公開した...</p></article>
-<article><span class="src">はてブ</span><a href="https://zenn.dev/mixi/articles/fd62f8ddc178f6">【2026年版】MIXI 新卒向け技術研修を公開しました。</a><p>2026年度新卒向け技術研修の資料と動画を公開しました。 MIXIの新卒向け技術研修では、一部の科目を除き、実際の開発現場で活躍するエンジニアが講師を務めています。技術や開発環境の変化に合わせて毎年カリキュラムを見直し、現場で必要となる知識や技術を学べる研修を目指しています。 また、職種や配属先にかかわら...</p></article>
-<article><span class="src">はてブ</span><a href="https://www.itmedia.co.jp/news/articles/2607/27/news081.html">メルカリ、梨の転売疑惑に「盗品の出品は確認されず」　誹謗中傷には利用制限も</a><p>今回の発信の背景には、福岡県うきは市の梨農園で起きた大量盗難がある。テレ朝NEWSなどの報道によると、収穫を目前にした品種「幸水」約5000個が7月中旬に盗難に遭い、被害額は約200万円に上るという。同じ農園は前年にも同規模の被害を受けており、農園主は閉園を決めたと伝えられている。 事件がテレビやSNSで広まる...</p></article>
-<article><span class="src">はてブ</span><a href="https://mixi.co.jp/news/2026/0727/55293/">MIXI、AIと共創する次世代エンジニア育成に向けた2026年度新卒技術研修資料を公開 | ニュース| 株式会社MIXI</a><p>～現場エンジニアによる実務に基づいたAI活用ノウハウを組み入れ、実践力を育成～ 株式会社MIXI（東京都渋谷区、代表取締役社長CEO：木村 弘毅）は、2026年度入社の当社新卒社員向け技術研修資料を公開しました。当社のノウハウを広く共有し、IT業界の技術発展に貢献することを目的に継続している取り組みで、今年度は12...</p></article>
-<article><span class="src">はてブ</span><a href="https://aws.amazon.com/jp/blogs/news/bengo4com-devops-agent-case-study/">寄稿：弁護士ドットコムにおける AWS DevOps Agent の活用事例 – インシデント対応の自動化と属人化の解消 | Amazon Web Services</a><p>Amazon Web Services ブログ 寄稿：弁護士ドットコムにおける AWS DevOps Agent の活用事例 – インシデント対応の自動化と属人化の解消 本稿は、弁護士ドットコム株式会社 CTO 田中 慎司 氏、プロダクト開発本部 Platform &amp; Reliability Engineering 部 (以下、PRE 部) 部長 熊谷 晃 氏、同 PRE 部 原口 慎太郎 氏による...</p></article>
-<article><span class="src">はてブ</span><a href="https://www.itmedia.co.jp/news/articles/2607/27/news076.html">検索結果に「詐欺ではありません」と表示させる詐欺手口、警視庁が注意喚起　AI要約も餌食に</a><p>警視庁サイバーセキュリティ対策課は7月24日、SNS型投資詐欺グループがWeb検索の仕組みを悪用し、検索結果を汚染する手口を確認したとして、公式Xで「検索結果のみを過信しないよう注意しましょう」と呼び掛けた。 確認した手口では、被害者が詐欺グループに誘導されたSNSグループやWebサイトの名称を検索すると、検索結...</p></article>
-<article><span class="src">はてブ</span><a href="https://mtx2s.hatenablog.com/entry/2026/07/27/194549">周囲から頼られ、「優秀だ」と評されるソフトウェアエンジニアの6つのタイプ - mtx2s’s blog</a><p>多くの組織には、確かな実力を備え、周囲から頼られ、一目（いちもく）置かれるソフトウェアエンジニアがいる。組織の中でも限られた存在だ。純粋な技術力の高さだけでなく、仕事を通じて周囲に貢献し、確かな信頼を獲得している人物である。 “他者から頼られる”というのも、優れたエンジニアの一つの表れ方だろう。 た...</p></article>
-<article><span class="src">はてブ</span><a href="https://zenn.dev/raamenwakamatu/articles/software-architecture-fundamentals-review">「ソフトウェアアーキテクチャの基礎」を読んで設計判断の引き出しが増えた</a><p>書籍情報 書名：ソフトウェアアーキテクチャの基礎 第2版 ―エンジニアリングに基づく体系的アプローチ 著者：Mark Richards, Neal Ford 訳者：島田浩二 出版社：オライリー・ジャパン はじめに 「ソフトウェアアーキテクチャの基礎」を読んだ。 AIエージェントの普及によって、開発者一人がカバーする範囲が広がっている...</p></article>
-<article><span class="src">はてブ</span><a href="https://www.itmedia.co.jp/aiplus/article/2607/27/2000000223/2">MIXI、新卒エンジニア向け研修資料＆動画を無料公開　「実践的なAI活用術」を12科目で紹介</a><p>MIXI、新卒エンジニア向け研修資料＆動画を無料公開　「実践的なAI活用術」を12科目で紹介（2/2 ページ）</p></article>
-<article><span class="src">はてブ</span><a href="https://www.itmedia.co.jp/news/articles/2607/27/news092.html">Z世代に聞く次の流行、「AIイラスト」が1位に　「Claude Code」も上位</a><p>2026年も下半期を迎え、「Z世代」の若者たちがこれから流行ると思うものについて、市場調査会社のアスマーク（東京都渋谷区）などがインターネットでアンケートを実施した。生成AIに作成させた画像「AIイラスト」や、テレビアニメ化されたマンガ「日本三國（にっぽんさんごく）」、女子高生ロックバンドの「ねぎ塩豚丼」...</p></article>
-<article><span class="src">Qiita</span><a href="https://qiita.com/watany/items/11358e8e8966d5e48a09?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">AIエージェントがあれば技術書なんてすぐ書けるでしょ、と思ったが無理だった</a><p>はじめに
-2026年5月2日に『Agentic Coding 生成AI時代のシステム開発入門』という単著を出しました。生成AI×システム開発の情報がネットの場当たり的なものばかりで困っている人、エージェントの使い方をどこから学べばいいか分からない人、そして自分は大丈夫でも...</p></article>
-<article><span class="src">Qiita</span><a href="https://qiita.com/WdknWdkn/items/ba228da40b5d2fd1b612?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">ひとことで、言え。～スライドをAIで作り直したらわかりにくくなった話～</a><p>挨拶
-こんばんは。いえらぶGROUP執行役員の和田です。
-一時「新人のAI禁止」にてちょっとだけ話題になりました。あの会社の人です。
+こんにちわ、会社で自称マスコットキャラをやってるのに、社内で一番空気が読めない、ぷらむんです🐯
+参考書を読み進めていると、ふと手が止まるこ...</p></article>
+<article><span class="src">Qiita</span><a href="https://qiita.com/jqit_suwa/items/74a96ce83dde5245407a?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">「最後に検証して」はもう書かなくていい — Claude Opus 5 でプロンプトの常識が逆転した4つのこと</a><p>あなたのシステムプロンプトに、こんな一文が入っていませんか。
 
-今でもたまに記事とか登壇とかで引用していただいて嬉しい限りです。
-Qiita様、ご無沙汰しております。本日はコーディングエージェント...</p></article>
+最後に、出力内容を検証してください。
+
+Claude Opus 5 では、これは消したほうがいい一文になりました。
+「効かなくなった」のではありません。逆効果になったのです。
+同じように、これまで良かれと思って...</p></article>
 <article><span class="src">Qiita</span><a href="https://qiita.com/sumomoo/items/122f9a34360e256bf042?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">「経験がないから」を言い訳にしなくていい時代になった</a><p>はじめまして。株式会社PRUMでエンジニアをしている、すもも🍑です
 日々、プログラミング学習や実務の中で、つまずきやすいポイントや
 考え方を整理して発信しています。
@@ -347,51 +365,26 @@ PRUMについて気になった方は、コーポレートサイトもぜひご�
 ▶コーポレートサイト
 
 はじめに...</p></article>
-<article><span class="src">Qiita</span><a href="https://qiita.com/prumnn/items/2d7331eac0d4a01ba030?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">【全6問】ITパスポートと基本情報、実際どのくらい難しいの?比べてみた</a><p>はじめに
-
-資格の勉強に意味があると気づいたぷらむんですが、「じゃあ実際の試験問題ってどのくらい難しいの?」が気になって、プラ二郎先輩を巻き込んで実際に解いてみることにしました。
-
-こんにちわ、会社で自称マスコットキャラをやってるのに、社内で一番空気が読めない、ぷらむ...</p></article>
-<article><span class="src">Qiita</span><a href="https://qiita.com/k2_naka/items/0eceb428cb3f45bb7cfb?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">自治体におけるインターネット分離10年の総括 —— 技術類型・運用の現実・ゼロトラストへの道</a><p>筆者
-
-役割
-担当
-
-課題提示
-K⁺oji Na⁺kamura
-
-原案作成
-Claude Fable 5,GPT-5.6 Sol
-
-出典確認支援・加筆
-GPT-5.6 Sol
-
-技術面のチェック
-K⁺oji Na⁺kamura
-
-TL;DR
-
-20...</p></article>
-<article><span class="src">Qiita</span><a href="https://qiita.com/musenmai/items/b525b64882548d4aec0d?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">ハードコーディングは本当に悪なのか</a><p>つい先日、プロジェクト内に点在するハードコーディングを滅ぼすタスクを行っていました。
-滅ぼしながらも「ハードコーディングが許されるパターンはないのか？」ということが気になり、調べてみました。
-簡単にいうと、大事なのは、ハードコーディングされた値の意味・変更理由・影響範囲がコ...</p></article>
-<article><span class="src">Qiita</span><a href="https://qiita.com/ynmc0214/items/9cf96baae4b01bbeb6d6?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">非エンジニアが気楽に始める仕様駆動開発</a><p>この記事はAIと壁打ちしながら人間が書きました。
-
-流行りの仕様駆動開発、とっつきづらく感じませんか？
-サービスデザイナーという肩書きで仕事している非エンジニアの僕には、正直ちょっと難しいと感じてました。
-理解を深めるために個人で仕様駆動開発にトライしてみたのですが、...</p></article>
 <article><span class="src">Qiita</span><a href="https://qiita.com/Oyu3m/items/c5daff368bc75c79e7b0?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">「え！！Microsoft 365 Copilotでアプリ作成を！？」「出来らぁ！」</a><p>前提
 この記事は2026/7/25時点での公開情報や動作を私なりにまとめたものとなります。
 正確な情報はご自身でご確認もしくは Microsoft へお問い合わせください。
 
 え！！Microsoft 365 Copilotでアプリ作成を！？
 「開発者にとってCopili...</p></article>
+<article><span class="src">Qiita</span><a href="https://qiita.com/prumnn/items/2d7331eac0d4a01ba030?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">【全6問】ITパスポートと基本情報、実際どのくらい難しいの?比べてみた</a><p>はじめに
+
+資格の勉強に意味があると気づいたぷらむんですが、「じゃあ実際の試験問題ってどのくらい難しいの?」が気になって、プラ二郎先輩を巻き込んで実際に解いてみることにしました。
+
+こんにちわ、会社で自称マスコットキャラをやってるのに、社内で一番空気が読めない、ぷらむ...</p></article>
+<article><span class="src">Qiita</span><a href="https://qiita.com/shirok/items/6a2a3e6992ab0eb93d7a?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">oracle-ai-ready-data Skill 第2回: Databaseのメタデータを整備してAI Readyスコアを0.22から0.97へ改善し、Select AIで確認してみてみた</a><p>oracle-ai-ready-data Skill 第1回では、サンプルのHRスキーマを対象にoracle-ai-ready-data SkillでAI Ready評価を行いました。HRスキーマはテーブル名やカラム名、主キー・外部キーなどが比較的分かりやすく整備されていた...</p></article>
 <article><span class="src">Qiita</span><a href="https://qiita.com/matsudai/items/e94acdcd34f52a1bc5f1?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">RTX PRO 6000 BlackwellでAITuberを作りたい</a><p>概要
 こちらの記事は「MEDLEY Summer Tech Blog Relay」の10日目の記事です。
 
 RTX PRO 6000 Blackwellの実用的な使い方を探るべく、ローカルAI配信者を実装しました。本記事では、技術選定の背景、システム構成、および実測し...</p></article>
-<article><span class="src">Qiita</span><a href="https://qiita.com/satoshi-sugiyama/items/467e10f4af6ff5cb84d5?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">Agent Skillsを備えたAntigravity CLIとアーキテクチャ設計対決した</a><p>Google Cloud公式Skillsを備えたAntigravity CLIとアーキテクチャ設計力を競いたくなった
-AIエージェントの進化が目覚ましく、アーキテクチャ設計もある程度AIエージェントがこなせるようになってきました。
-Google CloudでもAgent ...</p></article>
+<article><span class="src">Qiita</span><a href="https://qiita.com/rana_kualu/items/7f6bb159f7d65e53620d?utm_campaign=popular_items&amp;utm_medium=feed&amp;utm_source=popular_items">【ProcrastiNation】今日できることは明日でもできる、全力で先延ばしにしよう【Next.js】</a><p>あまりに素晴らしすぎるNext.jsツールスタックProcrastiNationを見つけてしまったので、これは何がなくとも全力で普及させなければならないという使命感に駆られた。
+
+以下は該当のGitHubからREADMEの紹介です。
+
+ProcrastiNation — T...</p></article>
 </body>
 </html>
