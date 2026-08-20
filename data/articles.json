@@ -1,6 +1,36 @@
 {
-  "generated_at": "2026-08-19T21:09",
+  "generated_at": "2026-08-20T21:10",
   "items": [
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "テンプレート型ゲーム画像生成UIの状態設計を公開画面から考える",
+      "link": "https://zenn.dev/zhebuilds/articles/8e43b7bbfd8d18",
+      "summary": "テンプレート型ゲーム画像生成UIの状態設計を公開画面から考える\nこの記事は公開ページの文言から、テンプレート選択、素材入力、生成、レビュー、書き出しを状態として整理する設計メモです。ソースコード、内部API、実装フレームワーク、性能値を確認したものではありません。以下の図と型は観察結果ではなく提案です。\nテンプレートを背景画像として扱わない\n公開されている Minecraft thumbnail ページには、Hardcore 100 Days、PVP、Redstone、Survivalなどのテーマと、文字、スキン、モブ、環境を指定する流れが示されています。\nテンプレートを単なる画像URL..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "React 19 の新機能まとめ（入門）",
+      "link": "https://zenn.dev/akinori901/articles/20260816-00msv28g",
+      "summary": "React 19 の新機能まとめ（入門）\n\n 概要\nReact 19 は 2024 年 12 月に安定版がリリースされたメジャーバージョンです。フォーム処理まわりを大きく変える「Actions」、非同期処理をシンプルに扱う use API、forwardRef を不要にする ref の扱いの変更など、日々の実装に効く変更が多く入っています。\nこの記事では「まず何が変わったのか」を入門者向けに整理します。個別 API の細かい仕様は公式ドキュメントに譲り、全体像をつかむことを目的にします。\n\n 環境\n\nReact 19（安定版）\n記載のコードは概念を示すための最小例です\n\n\n 主な新機..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "<input type=\"time\"> では 26:00 が入力できない — 深夜シフトの時間入力を select 化で乗り越えた話",
+      "link": "https://zenn.dev/akinori901/articles/20260707-input-time-24h",
+      "summary": "概要\n飲食・バーなど深夜業態向けのシフト管理システムを作っていると、避けて通れないのが「日跨ぎの時刻」です。たとえば「22:00 出勤・翌 02:00 退勤」のシフト。この業界では翌 02:00 を 26:00 と表記するのが慣習で、システム側もそれに合わせて時刻を扱う必要があります。\nところが、時間入力に何気なく &lt;input type=\"time\"&gt; を使っていると、この 26:00 が どうやっても入力できない という壁にぶつかります。\nこの記事では、なぜ &lt;input type=\"time\"&gt; では 24:00 以降が入力できないのか、そしてそれを 3..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "Tree Shakingって何を消している？",
+      "link": "https://zenn.dev/zzzzzzz/articles/3f0c8d1a6e2b",
+      "summary": "JavaScriptのバンドルサイズを小さくする方法として、Tree Shakingという言葉をよく見かけます。\n説明するときは「使っていない関数を消す仕組み」と言われがちです。たしかに、次のmultiply()をimportしなければ、本番用の出力から消えることがあります。\n\nmath.js\nexport function add(a, b) {\n  return a + b;\n}\n\nexport function multiply(a, b) {\n  return a * b;\n}\n\nしかし、実際には関数だけを探して消しているわけではありません。ファイル単位とも限りません。使っていな..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "ファイルのハッシュ値（SHA-256）をブラウザで計算する — Web Cryptoに逐次digestが無い問題とMD5非対応",
+      "link": "https://zenn.dev/sktt_panda/articles/file-hash-web-crypto-no-streaming-browser",
+      "summary": "3行まとめ\n\nダウンロードしたファイルの改ざん・破損チェック用に、SHA-1/256/512 のハッシュ値をブラウザ内で計算するツールを作った。crypto.subtle.digest だけで実装できる\nWeb Crypto の digest は ファイル全体を1つの ArrayBuffer で渡す一括APIで、逐次（ストリーミング）更新のインターフェースが無い。Node の createHash().update() のようにチャンクを流し込めない。これが扱えるファイルサイズの上限を決める\n\nMD5 はブラウザ標準のWeb Cryptoに存在しない（意図的に非サポート）。SHA-1..."
+    },
     {
       "source": "Zenn(フロントエンド)",
       "title": "Web基礎 完全読本 — ビジネス職・Web初心者のためのHTML & CSS",
@@ -32,34 +62,46 @@
       "summary": "このフレームワークの話をすると、だいたい二つの反応が返ってきます。\n「重い」「難しい」。\nどちらも間違っていません。覚えることは多いし、小さな画面を作るだけなら大げさに見えます。プロジェクトが育てば、ビルドやテストの待ち時間も無視できなくなります。\nそれでも、私はAngularを選ぶ理由があります。\nコードを最短で書けるからでも、どんな用途にも合うからでもありません。Angularは、開発の初期にコストを払い、その後の迷いを減らすフレームワークです。\n特に効くのは、複数人で一つのアプリケーションを長く育てる場面です。この記事ではAngular 22を前提に、私が感じている良さと、その裏側..."
     },
     {
-      "source": "Zenn(フロントエンド)",
-      "title": "teamLab Three.js Competitive！",
-      "link": "https://zenn.dev/team_lab/articles/87f5caa545b0c2",
-      "summary": "こんにちは！チームラボ フロントエンド班です！\n先日、チームラボのフロントエンド班では、Three.js Competitiveという社内向けのThree.jsの作品のコンペ大会を開催しました。\nこの記事では、Three.js Competitiveがどのようなイベントで、どのような様子であったのかをお伝えします。実際に作成した作品も掲載しているので、ご興味のある方はぜひお読みください。\n\n Three.js Competitiveとは\nThree.jsの勉強会を今年から継続的に行っており（累計12回ほど）、その勉強会のアウトプットの場として開催したのが今回のThree.js Compe..."
+      "source": "Zenn(React)",
+      "title": "Nostr クライアント「Damustr」を Svelte で作ってみた(fiatjaf氏との会話あり)",
+      "link": "https://zenn.dev/iqbqioza/articles/16a402bef6c4fc",
+      "summary": "どうも、僕です。\n最近、大手ソーシャルメディア(X/Facebook/Instagram/Threads/TikTok/etc)から全部距離を置いて、Nostr だけに生息しています。\ndamustr.com\nその中で、Svelte で Nostr のウェブクライアント「Damustr for Web」を Svelte で書いてみた記録です。\nDamustr for Web\nhttps://app.damustr.com\n\nおや、TweetDeck...? のような UI の Nostr クライアントです。\nホーム、通知、プロフィール、スレッド、リレーごとのカラムなどを横に並べて表示でき..."
     },
     {
-      "source": "Zenn(フロントエンド)",
-      "title": "画像リサイズをCanvasで実装する — アスペクト比ロックの実装と、1パス縮小の画質トレードオフ",
-      "link": "https://zenn.dev/sktt_panda/articles/image-resize-aspect-ratio-canvas-browser",
-      "summary": "3行まとめ\n\n画像を任意サイズ・SNSプリセットにリサイズするブラウザ完結ツールを作った。中身は Canvas に drawImage(img, 0, 0, w, h) するだけの1パス縮小\nアスペクト比ロックは、比を読み込み時に useRef へ確定しておき、幅↔高さの一方を変えたらもう一方を計算する双方向バインディング。Math.round の丸め・プリセットが比を無視する点が地味な勘所\n出力は JPEG 品質0.9 固定。透過PNGをリサイズすると背景が黒く潰れるので、そこだけは注意が要る\n\n\nSNS投稿用に画像を推奨サイズへ、ブログのアイキャッチを軽くするために縮小——画像リ..."
+      "source": "Zenn(React)",
+      "title": "機能はできた。でも画面に個性がない——自作アプリを「机の上の紙の道具」に見立て直した話",
+      "link": "https://zenn.dev/tiaroka/articles/86ad099042761d",
+      "summary": "自作アプリの画面を眺めていて、あるとき気づいてしまいました。\n清潔で、読みやすくて、どこにでもある画面だな、と。\n「長い長いノート」というタスク管理アプリを個人開発しています。タスクを完了すると自動的にタイムラインに記録されて、「あれいつやったっけ？」が後から検索できるアプリです。機能は安定し、色も前回の記事でCSS変数に整理してティールに統一し、ダークモードも整えました。それでも既視感が消えない。色は自分のものになったのに、それを載せている骨格が、明るいグレーの背景に白いカード、角丸、細線アイコンという標準的な文法そのままだったからです。\n個人開発のアプリにとって、これは見た目だけの問..."
     },
     {
-      "source": "Zenn(フロントエンド)",
-      "title": "コーダーからフロントエンドエンジニアへ #1-34｜早期リターン──ネストを浅くする書き方",
-      "link": "https://zenn.dev/koenjineer/articles/634c3384059485",
-      "summary": "はじめに\n前回（#1-33）でスコープを扱い、「変数が見える範囲」を狭く保つ大切さを確認しました。今回は、関数を読みやすくするもう1つの書き方です。\nコードを書いていると、必ずこうなる瞬間があります。\n「条件が増えるたびに、if が右へ右へと深くなっていく」\nログインしているか。アカウントが有効か。カートは空じゃないか。1つずつ条件を足していくと、本当にやりたい処理が入れ子のいちばん奥に埋まってしまう。\nこれを解消するのが 早期リターン（early return） です。条件を満たさないケースを関数の入口で先に返してしまい、正常系だけを平らに書く。#1-20 で触れた「ネストを浅くす..."
+      "source": "Zenn(React)",
+      "title": "ノートPCを出さずに、現場の有線LANをスマホで確認する",
+      "link": "https://zenn.dev/pander/articles/becd4e451c6cdb",
+      "summary": "現場でも、自宅LANでも、ネットワークが怪しいとき最初に知りたいことはだいたい同じです。\n\nこの回線、生きているか\nゲートウェイは見えるか\n先の機器は並んでいるか\nSSH で入れるか\n\nPCを開くほどの作業ではない。\nでも、何も見ないまま作業を始めるのは嫌だ。\nその数十秒のために、毎回PCを出すのが、ずっと手間でした。\n\n 足りなかったこと\n手元のスマホで確認しようとすると、だいたいここで止まります。\nWi-Fi には乗れる。\nでも確認したい先は、USB-C に RJ-45 を噛ませた有線であることが多い。\nping はできる。機器一覧は別アプリ。SSH はまた別。\n結果を並べて見られな..."
     },
     {
-      "source": "Zenn(フロントエンド)",
-      "title": "ポケモンTier List UIを状態モデルから考える",
-      "link": "https://zenn.dev/rankly/articles/d17dc99dbf7276",
-      "summary": "はじめに：公開UIをブラックボックスとして読む\nこれはソースコードや内部フレームワークの解説ではありません。公開されている完成品UIをブラックボックスとして観察し、そこから状態モデル、画面遷移、要件、テスト観点を逆算する設計メモです。\n大量のカードを扱う画面では、見た目より「候補」「配置」「出力」の状態遷移が重要になります。\n観測できる状態を分ける\n公開されているRanklyのページでは、未配置一覧、S〜DのTier、検索・フィルター、Undo/Redo、保存や出力が見えます。\nここから内部フレームワークやDB構成を推測するのではなく、ユーザーが認識できる状態として分解します。候補が表示..."
+      "source": "Zenn(React)",
+      "title": "Type-Aware を Stable にし、React Compiler の lint も載せた",
+      "link": "https://zenn.dev/dress_code/articles/2b2832d66b883b",
+      "summary": "Type-Aware Linting Stable と React Compiler Support を載せた。TypeScript 7 への一本化はこれから。PR の CI の正は tsc のまま\n\n はじめに\nこんにちは。ぷーじ（@yug1224）です。\n2026年7月に Type-Aware Linting が Stable になり、8月には Oxc が React Compiler Support を出しています。フロントエンドでは、この2つを載せたので、その内容を紹介します。\nhttps://oxc.rs/blog/2026-07-22-type-aware-linting-..."
     },
     {
-      "source": "Zenn(フロントエンド)",
-      "title": "【Part3】【No.012】Reactの画面を部品に分ける最初の一歩 ― 関数コンポーネントの最小形とファイル分割",
-      "link": "https://zenn.dev/penguinengineer/articles/1bed88c2cf3e66",
-      "summary": "みなさん、こんにちは！\nペンギンエンジニアです！\n前回の011で、Part 2が完走しました。\nJSXの正体を知り、{} で値を埋め込み、className で属性を書けるようになりましたね。\n011の最後に、こう予告しました。\n「ここまで App という1つの関数だけでやってきましたが、次回は画面を部品に分けて組み立てる、Reactの本領に入ります」。\n今日はその約束を回収する回です。\n先に種明かしをすると、コンポーネントは特別な仕組みではありません。\nJSXを返す、ただの関数です。\n今日はPart 3の1本目。\n部品を「定義して・使って・ファイルに分ける」ところまでやります。\n筆者は..."
+      "source": "Zenn(React)",
+      "title": "コードが書けない会社員が、バイブコーディングでNext.js × Stripe × 地図APIのSaaSを作った話",
+      "link": "https://zenn.dev/kawasaki3/articles/17d874300b2607",
+      "summary": "コードが書けない会社員が、バイブコーディングでNext.js × Stripe × 地図APIのSaaSを作った話\n\n はじめに：エンジニアではありません\nまず最初に言っておきます。私はエンジニアではありません。\nプログラミング歴は、10年以上前にProgateでHTMLとCSSを少しかじった程度。変数もfor文もまともに書いたことがない、ほぼ完全な素人です。\nそれでも、SaaSを作りました。\nNext.jsとStripeと地図APIを組み合わせた、スマートフォンからも使えるWebアプリです。インストール不要で動き、課金機能まで実装されています。\n開発にかかったのは、週末を使って約3週間..."
+    },
+    {
+      "source": "Zenn(React)",
+      "title": "MUI の DatePicker と TextField が100個あるモーダルの初期表示を、遅延マウントで94%短縮した話",
+      "link": "https://zenn.dev/aldagram_tech/articles/f95ec27d51176b",
+      "summary": "新機能を開発していたとき、追加したモーダルの表示に数秒かかる条件がありました。モーダル内は、1行が「日付 + テキスト」で、行を自由に増やせるフォームです。構成は次のイメージ図のとおりです。\n\n数行程度では、何も問題はありませんでしたが、100行になると、モーダルを開くたびに画面が固まる事象が発生しました。そのとき、React Developer Tools の Profiler で計測すると、操作可能になるまでに約3.5秒かかっていました。\n今回は、その原因を調べて改善した話を書きます。\n\n 背景\n今回実装したモーダルのフォームは、React Hook Form（以降、RHF と表記）..."
+    },
+    {
+      "source": "Zenn(React)",
+      "title": "React 18→19.2を学ぶ #8 scriptの扱いについて",
+      "link": "https://zenn.dev/kiyoma/articles/7a2771848734b3",
+      "summary": "はじめに\nこれまで現場では、React 18以前の環境でuseStateやuseEffectを中心に使ってきました。\nそのため、React 19では何が変わり、どのような場面で便利になるのかを学んでいる途中です。\nこのシリーズでは、React 18で作ったIssue管理アプリをReact 19.2へ段階的に移行し、追加された機能の挙動を比較します。検証結果や採用時に考えたことを、自分の学習記録として残していきます。\n前回は、React 19で追加されたスタイルシートのサポートを確認しました。\n今回は、React 19の非同期スクリプトサポートを扱います。\n\n シリーズの予定\n現時点で..."
     },
     {
       "source": "Zenn(React)",
@@ -68,262 +110,160 @@
       "summary": "霊夢と魔理沙が、データフェッチ、レンダリング、Hono、Better Auth、Cloudflare Workersまで二歩手前から考える、初学者向けの実装・設計ガイド。"
     },
     {
-      "source": "Zenn(React)",
-      "title": "Cursorを使ってデザイナーがハンドコーディングでデザインシステムを作ってみた",
-      "link": "https://zenn.dev/pksha/articles/e5c8f9b2a41d73",
-      "summary": "初めまして！PKSHA Technology デザイナーの清水と申します。普段はデザイナーとしてXで発信しています。今日は、Cursor を使ってデザイナーが自分でハンドコーディングしてデザインシステムを実装した事例をご紹介します。（この記事は、デザインシステムの実装に関わるデザイナー・エンジニアを主な対象にしていますが、AI コーディングツールを使った実装に挑戦してみたいデザイナーの方にも読んでいただけるよう、専門用語には適宜補足を入れています。）\n\n用語の補足\nハンドコーディングとは、AI にコードを生成させるのではなく、自分でコードを打ちながら実装するスタイルです。この記事では「わ..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "Shadcnレジストリ集",
-      "link": "https://zenn.dev/r2727/articles/632d951d929a0f",
-      "summary": "https://ui.shadcn.com\nhttps://dninomiya.com/registry\nhttps://www.shadcnui-blocks.com\nhttps://spell.sh/docs/components\nhttps://diceui.com\nhttps://shadcnuikit.com\nhttps://magicui.design/docs/components\nhttps://ui.aceternity.com/components\nhttps://coss.com/ui\nhttps://www.cult-ui.com/docs/components/..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "Reactなどで使用できるアイコン集",
-      "link": "https://zenn.dev/r2727/articles/e51237d37bb932",
-      "summary": "ユーティリティ\nhttps://react-icons.github.io/react-icons/\nhttps://www.radix-ui.com/icons\nhttps://lucide.dev/icons/\nhttps://phosphoricons.com/?q=arrow\nhttps://heroicons.com/outline\nhttps://home.streamlinehq.com\nhttps://feathericons.com\nhttps://icon-sets.iconify.design\n\n ロゴ\nhttps://seeklogo.com\nhttps://..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "バズる仕掛けを完璧に実装したのに、ユーザーが2人だった話",
-      "link": "https://zenn.dev/shikakumikke/articles/daa74f189cbf8f",
-      "summary": "バズる仕掛けを完璧に実装したのに、ユーザーが2人だった話\n個人開発でiOSアプリを3本作った。\n1本目は性格診断から自分に合う資格を見つけるアプリ。2本目は全国の工場見学スポットを探せるアプリ。3本目は株主優待クロス取引の管理ツール。全部Expo + TypeScriptで、サーバーなし、個人で全部書いた。\n累計のWebユーザー数は2人だった。\n僕と、もう1人。\n\n\n 「実装が足りないからだ」と思っていた\n診断アプリというのは、拡散する構造を持っている。結果が出て、それをSNSに貼って、見た人がまたやる。この輪が回れば勝手に伸びる。逆に言えば、この輪が回らないなら伸びない。\nだから最..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "MUI DataGridのサーバーサイドページング・ソートをLaravel APIとつなぐ",
-      "link": "https://zenn.dev/tetsumaru_tech/articles/mui-datagrid-server-pagination-sorting",
-      "summary": "はじめに\nReact + Laravelの管理画面で、MUI DataGridのページングとソートをサーバーサイドで実装しました。\npaginationMode=\"server\" や sortingMode=\"server\" を指定するだけではなく、DataGridの状態をReact Query、API、Laravelまでつなぐ必要があります。\nさらに今回は、リロード後も一覧のページ・ソート状態を復元できるよう、URLのクエリパラメータにも状態を残しました。\nこの記事では、実際のユーザー一覧を題材に、このデータフローを整理します。\n\n 全体構成\n主な構成は次のとおりです。\nフロントエ..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "React 18→19.2を学ぶ #7 styleの読み込み方法について",
-      "link": "https://zenn.dev/kiyoma/articles/b595c2094d023f",
-      "summary": "はじめに\nこれまで現場では、React 18以前の環境でuseStateやuseEffectを中心に使ってきました。\nそのため、React 19では何が変わり、どのような場面で便利になるのかを学んでいる途中です。\nこのシリーズでは、React 18で作ったIssue管理アプリをReact 19.2へ段階的に移行し、追加された機能の挙動を比較します。検証結果や学んだことを自分の学習記録として残していきます。\n前回は、ref、Context、メタデータなど、React 19で変わったコンポーネントとDOMの書き方を確認しました。\n今回は、React 19で追加されたスタイルシートのサポー..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "Next.js（React）で Activity コンポーネントのチュートリアル",
-      "link": "https://zenn.dev/animalz/articles/f2d64ace55673c",
-      "summary": "今日は、Next.js の Activity コンポーネントのチュートリアルを作ります！\nWeb アプリには、あまり詳しくないんですが、同じページでタブを切り替えると、スクロール位置がリセットされたり、入力内容が消えてしまう問題があったようです。\nその問題を解決するために、React 19.2 で導入されたのが Activity コンポーネントです。\n今回は Next.js 16（Windows10）で、実装します！\n\n 実装\nタブ･ボタンとタブのコンテンツを実装し、コンテンツを Activity でラップします。\n状態管理は、タブの状態とテキスト･エリアで行います。\nnext-app/..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "JSX の改行が日本語を壊す — 「書き方 に」を全公開ページで検出する E2E を書いた",
-      "link": "https://zenn.dev/ukintech/articles/jsx-japanese-stray-space",
-      "summary": "日本語のサイトを JSX で書いていると、いつのまにか本文が「書き方 に」のように半角空白で割れていることがあります。ソースを読んでも見つからず、レビューでも素通りします。\n自分のサイトでは、これが 41 ページ中に 52 件たまっていました。目視では 3 回取りこぼしています。\n原因は JSX の空白処理で、2 通りの挙動が同じ見た目のコードから出ることにあります。この記事では、その規則と、E2E で検出した方法を書きます。\n\n JSX の改行は 2 通りに振る舞う\nJSX は「行頭・行末の空白を落とす」「改行を含む空白のうち、テキスト同士に挟まれたものは半角空白 1 個にする」という..."
+      "source": "Zenn(TypeScript)",
+      "title": "7種類の保存先を1つの設定型に押し込まない：Chrome拡張のCapabilityモデル",
+      "link": "https://zenn.dev/danilapryadko/articles/184624e3f3ff21",
+      "summary": "私はブラウザー拡張 Kliplet を開発している Danila Pryadko です。この記事はインストールの勧誘ではなく、性質の異なる保存先を同じ拡張機能から扱うとき、設定画面と保存処理の間にどんな契約を置くかを考える設計メモです。\n日本語の表現と構成には AI の補助を使い、公開 UI と公開説明に関する事実は私が確認しました。以下の型と疑似コードは説明用の一般モデルであり、Kliplet の非公開実装を示すものではありません。\n\n 「保存先」という名前だけが共通している\nノートサービス、ローカルの Markdown ファイル、個人用知識ベースは、利用者から見ればどれも「保存先」で..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "30個のAIターミナルを並べるのをやめた。vibe-editorをSprint Coderへ作り直した理由【マルチエージェント開発】",
-      "link": "https://zenn.dev/yusei08/articles/5eb38138d3f70f",
-      "summary": "Sprint Coderは、Claude CodeやCodex、各社のAPI、ローカルLLMを一つのTaskで扱い、必要なときだけChatをAIチームへ変えられる、オープンソースのマルチエージェント開発デスクトップアプリです。\nただし、最初からこの形だったわけではありません。\n少し前、私は vibe-editor というOSSを作りました。\nきっかけは単純です。\n\nClaude Codeを複数のターミナルで動かしていたら、誰が何をしているのか分からなくなった。\n\nそこで最大30個のターミナルを1画面に並べ、LeaderがWorkerを呼び出し、Canvas上で状況を見渡せるアプリを作りま..."
+      "title": "Laravel 6 のプロジェクトに Vue.js & TypeScript & ESLint & Jest をもりっと導入する",
+      "link": "https://zenn.dev/kotahashihama/articles/7b40816bbfe53f",
+      "summary": "はじめに\n株式会社じげんの橋濱です。\n結婚相談所の比較サービス「結婚相談所比較ネット」を開発しています。\nVue.js &amp; TypeScript でチャットボット風のフォーム作り、これを機に JS 周りの保守性を高めるため ESLint &amp; Jest を導入しました。\n導入するにあたっていくつか詰まってしまったところがあったので、手順や設定ファイルの状態を残しておきたいと思います。\nIE 対応のため、今回導入した Vue.js は2系なのでその点あらかじめご承知おきください。\n\n まずは Vue.js を使えるように\nそれでは、はじめに Vue.js から導入していき..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "DSA の勉強、退屈かい？DSA View View で見てみよ 👀👀",
-      "link": "https://zenn.dev/nyaomaru/articles/dsa-view-view-study-together",
-      "summary": "みなさん、こんにちは！\n人混みが苦手なので、9月は静かなところへ旅行しようと企んでいるフロントエンドエンジニアの @nyaomaru です！ 🏝️\nみんな、DSA View View はもう使ってみた？ 👀👀\n前回の記事では、DSA の実行過程を可視化するために作った DSA View View を紹介しました。\nhttps://dev.to/nyaomaru/i-built-a-tool-to-visualize-dsa-lets-learn-together-dsa-view-view--djo\nDSA View View は、コードがどう動いているのかを step ごとに可視化し..."
+      "title": "なぜこう書くのか分かる Next.js 16 入門",
+      "link": "https://zenn.dev/kai_kou/books/nextjs-beginner-guide-2026",
+      "summary": "Next.js 16.3 を実際に動かしながら、App Router の書き方と『なぜ今この形になったのか』を同時に学ぶ入門書です。公式の一次証言でたどる10年の進化史、実機で再現したエラー12件の逆引き、外部サービスへのサインアップをいっさい使わない実戦アプリ制作（同時保存でデータが消える競合の実測と対処、本番デプロイまで）を全18章で扱います。掲載しているコマンド・出力・エラーメッセージは Next.js 16.3.1 / React 19.2.8 で実際に動かして採取した生ログで、検証できていないものは二次情報として明示しています。最終章は完成コード全文の付録です。第1〜3章と、エラー逆"
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "Cloudflare の MCP サーバに OAuth を載せる — 公式に実例がなかったので実装を読んだ",
-      "link": "https://zenn.dev/ma2no4413/articles/cloudflare-mcp-oauth-stateless",
-      "summary": "前回まで、認証なしの MCP サーバを Cloudflare Workers 上で動かしていました。次は認証です。\n調べて、手が止まりました。\n「OAuth 付きの MCP サーバをステートレスハンドラで書く」動く実例が、公式に存在しません。\nドキュメントは McpAgent が非推奨だと言い、新規サーバは createMcpHandler を使えと書いています。認証情報の読み方も getMcpAuthContext() だと書いてあります。ところが OAuthProvider の設定例は、いまも McpAgent のものです。\nexport default new OAuthProvi..."
+      "title": "ポリモーフィズムと継承について",
+      "link": "https://zenn.dev/fujishu/articles/2c9f3cd7be9515",
+      "summary": "今回の記事は、おおよそ初学者～中級者向けです。\n本文はTypeScriptの例で書いています。\n後ろの方にC#のコード例を書いています。\n\n ポリモーフィズムの成功例と失敗例\nまずは、継承の概念を除外してポリモーフィズムを考えてみます。\n\n ・失敗例\nまずは、ポリモーフィズムが成立しない場合のクラスを見てみます。\nclass Rice {\n  public createRice() {...}\n}\n\nclass Soup {\n  public createSoup() {...}\n}\nこの時、「ごはんとスープを一緒に作りたい」となると、以下のようなコードが必要になります。\nconst r..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "\"やったのは AI だけど、バグがあったら俺の責任\" — Code w/ Claude in Tokyo 2026 に行ってきた",
-      "link": "https://zenn.dev/rb_engineering/articles/f5e5fa60ae0d96",
-      "summary": "Rebase の髙畠裕二 @_ug_ です。\nCode w/ Claude in Tokyo 2026 に参加してきました！✌️✌️\n最初から最後まで Anthropic 社員の講演を聞き通したので、中の人がどう Claude Code を使っているのか、いま何が most concern なのかを、資料ではなく肌で感じることができました。以下、印象に残ったところだけ。\n\n Boris さん 🧮\n登場からもう良かった。Claude Code のメンダコ（？）がかわいいし、DJ がめちゃくちゃかっこいい。\nhttps://youtu.be/jwZ7ZCj9H4w\nそして何より、エンジニアリ..."
+      "title": "Yarunokaの日付リストとresolverのユースケース",
+      "link": "https://zenn.dev/chatii/articles/09c1f21d0620d4",
+      "summary": "ソース・動作サンプル\nhttps://github.com/chatii/yarunoka-sample\n\n この記事について\nこの記事では、Yrnk 1.0における次の要素の使い分けと組合せを、利用者の目的に沿って整理する。\n\nYarunokaが予約している日付リスト\n\nholidays\nbusiness_holidays\nbusiness_days\n\n\nユーザーが文書内で定義する日付リスト\n\ncalendar.date_sets.&lt;name&gt;\n\n\nホストが実行時に供給する日付リスト\n\n\nresolversで宣言した名前に対するresolver binding\n\n\n\nこ..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "Structured Playwright —— 継続性から設計するE2Eテストの4層構造とハーネス",
-      "link": "https://zenn.dev/mov_ish/articles/structured-playwright-e2e",
-      "summary": "はじめに：E2Eテストは大きくなる\nE2Eテストは運用を続ければ必ず大きくなります。スプリントごとに要件が積み上がるのだからそれ自体は健全なことです。\n問題はその大きくなり方。\nPlaywrightのデフォルト構成では、テストが増えるときに同じ記述——Locator、操作手順、待機、検証——がコピーで広がっていき、結果2つの状態に誘引されていきます。\n\n\n変更追随性が下がる —— UIや手順のひとつの変更が、散らばった記述の数だけ同時に届く。1つの機能修正で変更箇所が各所にわたる。\n\nレビュー性が下がる —— どこで何が使われているかが追いにくくなり、レビューが「コードの良し悪しの主..."
+      "title": "MSW のモックをリファクタして、「迷わない設計」を目指した話",
+      "link": "https://zenn.dev/socialplus/articles/62217513340c8b",
+      "summary": "はじめに\nソーシャル PLUS のフロントエンドでは、MSW で API をモックし、テストや Storybook、ローカル開発に使っています。\n今回、モノレポで管理しているそのモックをリファクタリングしました。\nこの記事は「こう直しました」という手順書ではなく、どこで何を迷い、何を基準に決めたかを主に書いていきます 👌\n説明を簡単にするため、以降は API が1つだけの前提で書きます。\n\n 何が問題だったのか\nモックのディレクトリは、エンドポイントのパスに沿わせています。hoge/ が /hoge、hoge/draft/ が /hoge/draft、hoge/_identifier..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "レース名と走者を入れるとAIが実況してくれるだけのアプリを作った(Vercel AI SDK)",
-      "link": "https://zenn.dev/devnekoo/articles/8b8e433ee7303b",
-      "summary": "はじめに\n「結婚レース」「ダイエットレース」「出世レース」——レース名と走者（2〜5人）を入れるだけで、AIが実況・解説つきのレース展開をでっち上げてくれるだけのアプリ、なんでもレースを作りました。\n\nきっかけは単純で、「Vercel AI SDK の Structured Outputs（generateObject / streamObject）でおもちゃを作りたかっただけ」です。Zodスキーマを渡すだけでレース展開・実況・順位をまるごと生成させられました。この記事では、何を作ったか、どういう仕組みで動いているかをさらっと紹介します。\n\n 作ったもの\n\n\n/create でテーマ..."
+      "title": "[Mastra Announce] Built-in Toolsで「まず動くエージェント」を最短で作れるようになった",
+      "link": "https://zenn.dev/shiromizuj/articles/503362b5886703",
+      "summary": "Mastra の 公式Blog で発表された Announcements を速報ベースでお伝えします。ただの直訳ではなく、関連ドキュメントも参照したうえで手厚くしたり省略したりします。速報性重視で AI の力を多分に使っているので、私自身の考察は少なめです。\nMastra Announcements 速報解説一覧\n\n2026年8月13日、Mastra は Agents 向け Built-in Tools を発表しました。\n\n公式アナウンス: https://mastra.ai/blog/introducing-built-in-tools\n\nBuilt-in tools docs: ht..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "NGワードリストに「死ね」が入っていなかったので自分で作った",
-      "link": "https://zenn.dev/zentaroimai/articles/9d6e786a2e6eec",
-      "summary": "!\n記事の性質上、罵倒語や差別語や下ネタがそのまま出てきます。苦手な方はブラウザバック推奨です。\nちなみに書き上がったこの記事を自作のフィルタにかけたら、30語・31箇所が引っかかりました。ambiguous（文脈依存の語）も有効にすると54語です。自分で作ったものに自分の記事を弾かれるのは、なかなか複雑な気分になります。\nそんな感じなので、どこかのプラットフォームでこの記事が消えていたら、まあそういうことだと思ってください。\n\n\n 作ったもの\n日本語と英語のNGワードフィルタを作って npm に置きました。依存ゼロです。\n\nGitHub: https://github.com/Clas..."
-    },
-    {
-      "source": "Zenn(TypeScript)",
-      "title": "[Mastra YouTube 解説] Agents Hour：今週のAIニュースまとめ（2026年8月18日）",
-      "link": "https://zenn.dev/shiromizuj/articles/bf460fff028a09",
-      "summary": "Mastra の公式YouTubeチャンネルにアップされた動画を速報ベースでお伝えします。ただの文字起こしではなく、扱われているトピックの抽出と、トピックごとの要約をしています。速報性重視でAIの力を多分に使っているので、私自身の考察は少なめです。\nMastra YouTube動画 速報解説一覧\n\n\n 動画情報\nhttps://www.youtube.com/live/ubhM_tmC9bA?si=Qr7MOyfcwjQ0GS41\n\n\nURL: https://www.youtube.com/live/ubhM_tmC9bA?si=Qr7MOyfcwjQ0GS41\n\n\n原題: Strip..."
-    },
-    {
-      "source": "Zenn(TypeScript)",
-      "title": "UpNote をAIと繋ぐためにMCPサーバーを作った",
-      "link": "https://zenn.dev/bellx2/articles/7a078781e944a4",
-      "summary": "メモアプリの UpNote を EverNoteからの乗り換えで愛用しているのですが、いつまで経ってもAI連携が来ません。公式APIもなし。ObsidianやNotionはAIエコシステムがどんどん充実していくのを横目に、UpNoteユーザーは指をくわえて見ているだけ...。\nということで、重い腰を上げて自分でMCPサーバー（ローカル）を作りました。\nhttps://github.com/bellx2/upnote-mcp\n思ったより良い感じに動いてくれたので、npmに公開して使いやすくしたのでメモにしておきます。ClaudeやCursorから自分のノートを検索・要約して、その結果を新規..."
-    },
-    {
-      "source": "Zenn(TypeScript)",
-      "title": "TypeScript 6で「警告」だと思っていたtsconfigは、6の時点でもうビルドを止めていた",
-      "link": "https://zenn.dev/clopy/articles/typescript6-deprecated-tsconfig-already-error",
-      "summary": "はじめに\nnpm view typescript dist-tags を打ってみて、正直ちょっと焦りました。\n{\n  \"dev\": \"3.9.4\",\n  \"tag-for-publishing-older-releases\": \"4.1.6\",\n  \"insiders\": \"4.6.2-insiders.20220225\",\n  \"beta\": \"6.0.0-beta\",\n  \"rc\": \"7.0.1-rc\",\n  \"latest\": \"7.0.2\",\n  \"next\": \"7.1.0-dev.20260726.1\"\n}\nlatest が 7.0.2 です。つまり今 npm i -..."
+      "title": "Notionの「期日リマインド」を仕組みとして実装するときの設計とハマりどころ",
+      "link": "https://zenn.dev/kapsel/articles/notion-deadline",
+      "summary": "ステータスを「進行中」に変えただけで満足して、その後ずっと放置されていたタスク。あるいは cron を素朴に書いたら、期日を過ぎたタスクに毎朝まったく同じ督促メールが飛び続けた——。締切リマインドは「日付が来たら送る」だけに見えて、真面目に実装しはじめると急に厄介になります。\nこの記事では、Notionの期日を監視して自動リマインドする仕組みを 自前で組むとしたらどこがハマりどころか を、設計の観点から整理します。私自身、この課題に対して Kapsel という通知ツールを個人開発しているので、その過程で踏んだ地雷も交えます。特定のAPIの内部実装やコードそのものではなく、設計判断の勘所に..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "手動投稿の日時データを自動投稿システムへ移行してハマった「時刻フォーマット不正」と「タイムゾーン欠落」の対処法",
-      "link": "https://qiita.com/freefreefree1222/items/d0ed02689caa77e491dd",
-      "summary": "環境\n\nNode.js 18.18\nTypeScript 5.2\ndate-fns 2.30 / date-fns-tz 2.0\nPrisma 5.0 / PostgreSQL 15\n移行・バッチ処理は GitHub Actions の cron で実行\n\nはじめに\nX..."
+      "title": "VS Codeで動く推理ゲームエンジンを作った——AIが書いた事件が「ちゃんと解けるか」まで自動チェックする",
+      "link": "https://qiita.com/EitaroSeta/items/de9f171e0671b0c42ae6",
+      "summary": "生成AIに「面白い推理事件を作って」と頼むと、それらしい文章は出てきます。読むぶんには悪くない。\nところがゲームとして遊ぶと、途中で手が止まります。\n証拠Aを手に入れるには証拠Bが要る。ところが証拠Bを手に入れるには証拠Aが要る。\n鍵のかかった箱の中に、その箱の鍵が入ってい..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "JSONからスキーマを起こすとき、required は積集合にしないと嘘になる",
-      "link": "https://qiita.com/hashito/items/9b322a984c51e22f90a5",
-      "summary": "背景\nJSON Schema を手で書くのが好きではありません。\n型を書き写すだけの作業なのに、キーが20個あると必ずどこかで打ち間違える。\nかといって生成ツールを使うと、今度は出てきたスキーマが信用できなくて、結局手で読み直すことになる…。\nそれで今日、自分用に JSO..."
+      "title": "source付きURLだけでは媒体流入を証明できない：Cloudflare D1・PostHogで24h/72hを計測する",
+      "link": "https://qiita.com/alpaca_patrol/items/25455e10250269f0017b",
+      "summary": "複数の紹介記事やSNS投稿から同じWebアプリへ誘導すると、ページビューの合計だけでは「どの媒体から来て、どこまで使われたか」を分けられません。\n小規模なブラウザゲームで、媒体ごとに異なる source を付け、Cloudflare D1とPostHogへ同じカスタムイベン..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "kViewer標準検索では足りない絞り込みをJavaScriptで補う",
-      "link": "https://qiita.com/Harshey/items/a2f94c6904b9099d19d9",
-      "summary": "はじめに\n単純に「レコードを検索したい」だけであれば、まずは標準機能で実現できるかを確認するのがよいと思います。\n一方で、業務で使う検索画面として考えると、標準検索フォームだけでは使いにくい場面があります。\nたとえば、次のようなケースです。\n\n複数の条件を1つの画面でまと..."
+      "title": "Yellowfinのダッシュボードに配置したボタンでレポートをCSV出力する",
+      "link": "https://qiita.com/hadatuna/items/a5bfacd14ff92729c476",
+      "summary": "はじめに\nYellowfin に関して以下のご相談をいただきました。\n\nダッシュボードの画面上で売上データを参照できるようにしたい\nそこに 「CSV出力」ボタン を置いて、押したら CSV ファイルが保存されるようにしたい\n既存アプリの UI に合わせて、明示的なボタン ..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "華氏（℉）と摂氏（℃）の変換方法｜計算式とJavaScriptでの実装例",
-      "link": "https://qiita.com/nenkajp/items/a855fb88d13af6b1f187",
-      "summary": "海外の天気予報やAPI、海外製品の仕様書を見ていると、\n\n68°F\n86°F\n100°F\n\nのように、温度が「華氏（℉ / °F）」で表示されていることがあります。\n日本では摂氏（℃ / °C）が一般的なので、\n\n68°Fは何℃？\n\nと、その都度換算したくなることもありま..."
+      "title": "JavaScript for AutoCAD",
+      "link": "https://qiita.com/Dhichisutto/items/774ce962eacb864f617a",
+      "summary": "この文書\nメジャーなCADソフトである，AutoCADの自動化を考えている人向けです。\nAutoCADのヘルプを見ると，右方に リソース &gt; 開発者用ドキュメント というリンクがあります。リンク先にはAutoLISP，Managed .NET，といったものが並んでいますが..."
     },
     {
       "source": "Qiita(React)",
-      "title": "「Event handlers cannot be passed to Client Component props」は 'use client' を付けても直らない。原因は境界を越えて渡したもの",
-      "link": "https://qiita.com/kai_kou/items/31edab0b35b2ce93f1e1",
-      "summary": "Next.js 16.3.1 でこのエラーを実際に出して、なぜ「'use client' を付けたのに直らない」が起きるのか を確かめました。\n検証環境は Next.js 16.3.1 / React 19.2.8 / Node.js v22.22.2 です。\n対象読者: ..."
+      "title": "学生団体のエンジニア研修をRuby on RailsからFlutterへ変えるべきか――フルスタック経験を残す技術選定",
+      "link": "https://qiita.com/takumi1227/items/a9dba52bd5a53f28be91",
+      "summary": "はじめに\n\nご挨拶\n皆さんこんにちは。\n工業大学3年のすーどぅーです。\n今回は、私が所属している課外活動「CirKit(サーキット)」にて毎年実施しているエンジニア研修について、「研修内容を変更することに対する是非」という観点で考えてみたので、ここでアウトプットします。\n..."
     },
     {
       "source": "Qiita(React)",
-      "title": "Next.jsで考える高速Webサービス設計：パフォーマンス改善の基本と実践ポイント",
-      "link": "https://qiita.com/jiliphilti/items/3c7830201d70fee25ba0",
-      "summary": "はじめに\nWebサービスの品質を左右する要素のひとつが「表示速度」です。\nどれだけ多くの機能を持つサービスでも、ページ表示が遅ければユーザー体験は大きく低下します。特にモバイル環境では、通信速度や端末性能の違いも考慮する必要があります。\nそこで注目されているのが、Reac..."
+      "title": "Shadcn Tooltip Examples and Best Practices for React",
+      "link": "https://qiita.com/wrappixel/items/5834768aef7cf27ed533",
+      "summary": "Tooltips are not designed for every type of message or interaction. They are commonly used for icon buttons, navigation items, keyboard ..."
     },
     {
       "source": "Qiita(React)",
-      "title": "MUI DataGridのserver pagination・sortingをReact Query＋Laravelで実装する",
-      "link": "https://qiita.com/tetsumaru-tech/items/dba44fbf98d7adee4751",
-      "summary": "はじめに\nReact + Laravelの管理画面で、MUI DataGridのページングとソートをサーバーサイドで実装しました。paginationMode=\"server\" や sortingMode=\"server\" を指定するだけではなく、DataGridの状態を..."
+      "title": "写真ライブラリの重複・ブレ写真を自動検出するデスクトップアプリを作った話",
+      "link": "https://qiita.com/Skimrr/items/603befaa1f8b991eafa8",
+      "summary": "きっかけ\n旅行から帰ってきて写真フォルダを整理しようとしたとき、重複した写真やピンボケ写真が\n大量にあることに気づきました。既存のツール（Google Photos、digiKamなど）は機能が\n豊富すぎたり、クラウド送信が必須だったりして、シンプルに「重複とブレだけ検出..."
     },
     {
       "source": "Qiita(React)",
-      "title": "MCP AppsのAgent UIは、チャット欄より先にtool stateを型にする",
-      "link": "https://qiita.com/heftykoo/items/3305cf9878a1c5c08650",
-      "summary": "MCP toolをReactへ載せると、chat bubbleの見た目より先に困ることがあります。承認待ちなのか、実行を始めてよいのか、処理中なのか止まったのか。その区別がUIから消えます。\ntranscriptにはtool callと結果が残っていても、ユーザーが知りたい..."
+      "title": "Next.js App Routerのデータフェッチで詰まった！RSCとキャッシュの挙動と解決策",
+      "link": "https://qiita.com/DaokFrontier/items/558003b5ad64d7c54e2c",
+      "summary": "Next.js App Routerのデータフェッチで詰まった！RSCとキャッシュの挙動と解決策\nNext.js App Routerを導入したものの、「データが更新されない」「なぜかAPIが何度も呼ばれる」「ハイドレーションエラーで困っている」といった経験はありませんか..."
     },
     {
       "source": "はてブ",
-      "title": "当社システムへの不正アクセスに関するお知らせ（第二報）（2026年8月19日 18:40更新） | さくらインターネット",
-      "link": "https://www.sakura.ad.jp/corporate/information/newsreleases/2026/08/19/1968225633/",
-      "summary": "2026年8月17日に公表した「当社レンタルサーバーサービスの一部環境に対する不正なアクセスについて」に関して、調査を継続しておりましたところ、新たに判明した事項がありますのでお知らせいたします。 このたびは、お客さま、お取引先、パートナー企業その他関係者の皆さまに、多大なるご心配とご迷惑をおかけしてお..."
+      "title": "はてなパークス",
+      "link": "https://p.hatena.ne.jp/",
+      "summary": "本日（2026/8/20）より「はてなパークス」を正式サービスとして公開しました。 はてなから久しぶりの個人ユーザー向けサービスのリリースです。新サービス「はてなパークス」は、趣味・カルチャーから、生活・仕事など身の回りの話題について、意見を共有・交換するディスカッションフォーラムです。スレッドやコメント..."
     },
     {
       "source": "はてブ",
-      "title": "いいねもコメントもない文章投稿サービスを作った",
-      "link": "https://anond.hatelabo.jp/20260819180816",
-      "summary": "文章だけの投稿サービスを作ってみた。 いいねもコメントもないし、見出しや太字とかの装飾すらできない。広告もない。無料。 トップページ：https://hellotext.jp/ 思想ページ：https://hellotext.jp/about 投稿例（見なくていい）：https://ritsu.hellotext.jp/ 最初は自分用のブログをつくろうとしてたんだけど、web..."
+      "title": "はてな、創業25周年を迎えた節目に新サービス「はてなパークス」を正式リリース - プレスリリース - 株式会社はてな",
+      "link": "https://hatena.co.jp/press/release/entry/2026/08/20/163000",
+      "summary": "株式会社はてな（代表取締役社長：栗栖義臣／本社所在地：京都市中京区）は、本日2026年8月20日、ディスカッションフォーラム「はてなパークス」を正式リリースしました。2026年5月26日より事前登録ユーザーを対象に提供していたクローズドベータを経て、本日よりはてなIDをお持ちのすべてのユーザーにご利用いただけま..."
     },
     {
       "source": "はてブ",
-      "title": "CRE だけど「SREの知識地図」を読んだ - えいのうにっき",
-      "link": "https://blog.a-know.me/entry/2026/08/19/174450",
-      "summary": "発売されて間もなくくらいに買うだけ買っておいて積ん読状態になっていた「SREの知識地図」を、今更ながらに読みました。 SREの知識地図——基礎知識から現場での実践まで 作者:北野 勝久,近藤 健司,小林 良太郎,渡部 龍一,齊藤 拓朗,柘植 翔太,横山 達男技術評論社Amazon 僕は普段は CRE（SRE ではなく）をやっていて、自..."
-    },
-    {
-      "source": "はてブ",
-      "title": "第923回　DockgeでDocker Composeをブラウザから手軽に管理しよう | gihyo.jp",
-      "link": "https://gihyo.jp/admin/serial/01/ubuntu-recipe/0923",
-      "summary": "Dockerでアプリケーションを動かすのであれば、コンテナやネットワークなどの構成をYAMLファイルにまとめられる、Docker Composeを使うのがお勧めです。しかし複数のアプリを動かしていると、Composeファイルも徐々に増えていきます。SSHでサーバーへログインし、各ディレクトリで「docker compose up」や「docker compo..."
-    },
-    {
-      "source": "はてブ",
-      "title": "フードデリバリーサービス「menu」の提供終了およびmenu株式会社の解散・清算について | KDDI ニュースルーム",
-      "link": "https://newsroom.kddi.com/news/detail/kddi_nr_s-75_4679.html",
-      "summary": "KDDI株式会社 KDDIは、子会社であるmenu株式会社（以下 menu）が提供するフードデリバリーサービス「menu」の提供を終了し、menuを解散および清算することを決定しました。 サービス終了に伴う関係の皆さまへの対応や各種手続につきましては、影響を十分に考慮しながら順次進めていきます。 KDDIは、これまで株式会社レ..."
-    },
-    {
-      "source": "はてブ",
-      "title": "青空文庫収録の厳選された名作古典を初版の活字まで再現「灯火文庫」　ほか ～25件を掲載（8月19日のダイジェストニュース）【ダイジェストニュース】",
-      "link": "https://forest.watch.impress.co.jp/docs/digest/2134019.html",
+      "title": "アマゾンに新機能「購入して配送に追加」 購入手続きが不要に",
+      "link": "https://www.watch.impress.co.jp/docs/news/2134299.html",
       "summary": ""
     },
     {
       "source": "はてブ",
-      "title": "Docker社、コンテナ向けの高性能な新ハイパーバイザ「Docker VMM」パブリックベータ公開",
-      "link": "https://www.publickey1.jp/blog/26/dockerdocker_vmm.html",
-      "summary": "Docker社は独自開発したコンテナ向けの高性能な新ハイパーバイザ「Docker VMM」をパブリックベータとして公開しました。WindowsとmacOSに対応した最新の「Docker Desktop v4.86」で利用可能です。 Today we're announcing the public beta of a fully rebuilt Docker VMM. This is a new first-party virtualization lay..."
+      "title": "「僕の60年分のデータを入れた」開始から1週間のnoteが大バズしている松浦勝人氏、ほぼほぼAIまかせで自分がやったのはパスワード入力くらいと明かす",
+      "link": "https://togetter.com/li/2735209",
+      "summary": "松浦勝人 @maxmatsuuratwit 1週間前、AIが僕の指令で、noteのアカウントをAIが自分で作って、最初の記事を自動投稿しました。 冗談みたいですが、本当の話です。僕がやったのは、パスワードを入力したことくらい。 そこから1週間で、4本出ました。 第1回は、お金の話。100万円でも100億円でも、なくなる時は一瞬だという..."
     },
     {
       "source": "はてブ",
-      "title": "さくらインターネットの販売管理システムに不正アクセス、最大約136万アカウントの契約情報が閲覧された可能性",
-      "link": "https://internet.watch.impress.co.jp/docs/news/2133984.html",
+      "title": "東京都が「Tokyo Map」公開　防災・暑さ対策・Wi-Fiマップを重ねて表示",
+      "link": "https://www.watch.impress.co.jp/docs/news/2134323.html",
       "summary": ""
     },
     {
       "source": "はてブ",
-      "title": "大規模言語モデル（LLM）は「次の単語を当てる」だけなのに、なぜ思考しているように見えるのか…その理由を解説したnoteに様々な反応「現代AIの本質を端的に語っている」",
-      "link": "https://togetter.com/li/2734953",
-      "summary": "LLMは「次の単語を当てる」だけなのに、なぜ思考しているように見えるのか？｜中島聡 これは私のメルマガ「週刊Life is beautiful」で紹介している記事の要約・解説です。要約をこちらに書き、リンクを貼った上で私のコメントを書くというスタイルで、メルマガ本体のボリュームを減… 389 users note（ノート） Satoshi N..."
+      "title": "AI Agentに社内知識をオンボーディングする：SkillsとEvalの設計",
+      "link": "https://zenn.dev/mkj/articles/aad5698672aef3",
+      "summary": "こんにちは、松尾研究所 データサイエンスチームのマネージャーの浮田です。 最近のAI Agentは、一般的な調査や実装であればかなり高い水準でこなせるようになってきました。一方で、実際の社内業務に必要な社内固有の知識は持っておらず、非常に優秀だが、まだオンボーディングを受けていない新入社員に近い状態です。 ..."
     },
     {
       "source": "はてブ",
-      "title": "道徳問う「トロッコ問題」、AIの反論で3割が判断覆す　神戸大が実験 - 日本経済新聞",
-      "link": "https://www.nikkei.com/article/DGXZQOUF184C90Y6A810C2000000/",
-      "summary": "神戸大学の研究グループは明確な正解がない道徳問題に生成AI（人工知能）がどの程度人間の心理に影響するか調べる実験をした。回答した後に生成AIが反論すると3割以上の人が判断を覆していた。研究を実施した神戸大の増本康平教授は「生成AIの反論が人の道徳的判断に無視できない影響を及ぼしうることが示された」と解説..."
+      "title": "シェアサイクル「借りられない・返せない」を防ぐ新手法　千葉市で実証",
+      "link": "https://www.watch.impress.co.jp/docs/news/2134167.html",
+      "summary": ""
     },
     {
-      "source": "Qiita",
-      "title": "Cursor Originを触った。第一印象は「Cursor版GitHub」",
-      "link": "https://qiita.com/Kinopee/items/639d401573c09ab24667?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "Cursor Originは、Cursorが出しているGitホスティングです。リポジトリを置いて、レビューして、マージする。GitHubやGitLabと同じ役割です。公式のコピーは \"A git forge for the agentic era\"。人間が1本ずつPull ..."
+      "source": "はてブ",
+      "title": "「FastCopy」のシェル統合が強化、D&D・コピペで「エクスプローラー」の代わりに高速ファイル処理／「CET」「CFG」の有効化などによるセキュリティ強化も図られたv5.12.0が公開",
+      "link": "https://forest.watch.impress.co.jp/docs/news/2134059.html",
+      "summary": ""
     },
     {
-      "source": "Qiita",
-      "title": "AIセキュリティ何から勉強すりゃええの？",
-      "link": "https://qiita.com/mikihitooooo/items/ced6a0aa744379d338b6?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "AIセキュリティ何から勉強すりゃええの？\n\n目次\n\nはじめに\n軽く自己紹介\n調べたソース・用語\n\n直近の学習計画\n\n1. 論文の読み込み（一次ソースの収集）\n2. 検証環境の構築\n3. ブログ・技術記事によるアウトプット\n\n理想の学習サイクル\nさいごに\n\nはじめに\n「..."
+      "source": "はてブ",
+      "title": "Bun 1.4",
+      "link": "https://bun.com/blog/bun-v1.4",
+      "summary": "Per-module pass counts from Bun’s vendored copy of Node’s test/parallel suite, Bun 1.3 → 1.4. The tick marks the 1.3 baseline.Bun is not 100% compatible with Node.js yet. In practice, much of the existing JavaScript ecosystem just works. You can more closely track Bun's Node.js test suite progres..."
     },
     {
-      "source": "Qiita",
-      "title": "Claude Code のタスクリストが出ない — 原因は環境変数 ENABLE_TASKS=0 だった",
-      "link": "https://qiita.com/jqit_suwa/items/dda364cfccd770e110d6?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "複数手順の作業を頼むと、Claude Code は進捗をチェックリストで見せてくれます。\nその TodoWrite が、手元の環境ではツールごと存在しない状態でした。\n2.1.233 の changelog にこうあります。\n\nTodo/task-tracking tool..."
-    },
-    {
-      "source": "Qiita",
-      "title": "Claude Code をやめて Codex で続きから作業できた — ただし引き継がれたのは要約ではなかった",
-      "link": "https://qiita.com/jqit_suwa/items/90f0c5866fb3516c909b?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "AI エージェントを乗り換えると、前提の説明をやり直すことになります。\nClaude Code で「このプロジェクトは Node 18 では動かない」「認証は Cognito」と伝えてから、\n別の理由で Codex に移ると、また同じ説明から始まります。\nこれを解決するとい..."
-    },
-    {
-      "source": "Qiita",
-      "title": "Claude Code に spellcheck が付いた — 日本語だと9割に下線が引かれる",
-      "link": "https://qiita.com/jqit_suwa/items/94b96d15c9c031e39b3f?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "Claude Code 2.1.235 に spellcheck 設定が付きました。changelog の1行がこれです。\n\nAdded an optional spellcheck setting that underlines misspelled words in t..."
-    },
-    {
-      "source": "Qiita",
-      "title": "Claude Code の fork、既定ONのはずが使えなかった — 環境変数1つで決まっていた",
-      "link": "https://qiita.com/jqit_suwa/items/11f46a9fc9cb429ceaf5?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "Claude Code 2.1.232 で、サブエージェントの fork が既定で有効になりました。\nfork は、親の会話をまるごと引き継ぐサブエージェントです。前提を説明し直さずに作業を投げられます。\n使ってみようとしたら、こうなりました。\nAgent type 'fo..."
-    },
-    {
-      "source": "Qiita",
-      "title": "オントロジーについて",
-      "link": "https://qiita.com/kurogoma939/items/565588e1b1dc66012b79?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "AI時代のオントロジー入門\n\n文書検索を「組織の意味と行動の基盤」へ変える実装ガイド\n生成AIを社内文書へ接続すると、最初のデモはたいていうまくいく。\n規程を要約し、議事録を探し、過去の提案書から似た事例を見つけられるからだ。\nところが、利用者が「この顧客に適用される契約..."
+      "source": "はてブ",
+      "title": "エムスリー QAチームのこれから2026 - エムスリーテックブログ",
+      "link": "https://www.m3tech.blog/entry/qa2026",
+      "summary": "エンジニアリンググループ GM の窪田です。 生成AIの急速な進化により、ソフトウェア開発のあり方は大きく変わりつつあります。開発の生産性が飛躍的に向上する一方で、コードレビューやテスト工程などレビュー・テストの必要なコードやドキュメントの量はどんどん増えています。量が増えたにも関わらず求められる品質に..."
     },
     {
       "source": "Qiita",
@@ -333,15 +273,57 @@
     },
     {
       "source": "Qiita",
-      "title": "Oracle AI Database Private Agent Factory を構築してみてみた",
-      "link": "https://qiita.com/shirok/items/283df4e144ad785ad99b?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "Oracle AI Database Private Agent Factory（以下、Private Agent FactoryまたはPAF）は、LLM、Database、文書、API、Toolなどを組み合わせてAI Agentを構築できるノーコード・プラットフォーム..."
+      "title": "AWSでYouTube的サービスを検証してたら、電気通信事業法と著作権法の壁にぶつかった話",
+      "link": "https://qiita.com/yama3133/items/e60cb25d3b10d7a2f316?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "今、AWS環境でYouTube的な動画配信サービスがどこまで作れるかを検証している。\n動画のアップロード、トランスコード、配信基盤あたりはEC2やS3、CloudFrontを組み合わせれば技術的には普通に動く。\nところがコメント欄やユーザー間のDM機能を足そうとしたところで..."
     },
     {
       "source": "Qiita",
-      "title": "Claude Codeに毎日3回「挨拶ハラスメント」して5時間の使用枠で作業を止まらなくするClaude活用術",
-      "link": "https://qiita.com/inoyu-qiita/items/1953d640bc0a7c0b16fc?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "日頃からお世話になっている社内のUさん(@haru-qiita)と一緒に業務をしていて教えていただいた最強Claude活用術です！\n\nはじめに\nClaude Codeのクラウドルーティン（定期実行エージェント）で、平日の7時・12時・17時に「挨拶を返すだけ」の超軽量なジョ..."
+      "title": "AIも人も、ただ褒めるだけでは変わらない。大事なのは\"時間を惜しまない一言\"",
+      "link": "https://qiita.com/sumomoo/items/195c278d026657c6618f?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "はじめまして。株式会社PRUMでエンジニアをしている、すもも🍑です\n日々、プログラミング学習や実務の中で、つまずきやすいポイントや\n考え方を整理して発信しています。\nPRUMについて気になった方は、コーポレートサイトもぜひご覧ください。\n▶コーポレートサイト\n\n褒め言葉よ..."
+    },
+    {
+      "source": "Qiita",
+      "title": "基本情報｜科目B「アルゴリズム問題」、パズルが好きな人はたぶん好き",
+      "link": "https://qiita.com/prumnn/items/8f439ca399b08a925cba?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "はじめに\n\n基本情報の必須出題範囲「疑似言語（アルゴリズム問題）」という響きを聞いただけで身構えていたぷらむんですが、実は科目Bで覚えるべきルールは拍子抜けするくらいシンプルでした。\n\nこんにちわ、会社で自称マスコットキャラをやってるのに、社内で一番空気が読めない、ぷ..."
+    },
+    {
+      "source": "Qiita",
+      "title": "IT企業の面接、私服で本当に大丈夫？採用担当が考える「清潔感」のライン",
+      "link": "https://qiita.com/m__ikeda/items/edc03c11a477f5ecbfc2?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "自己紹介\nこんにちは。株式会社PRUMで採用広報を担当している池田です。\n未経験からIT業界を目指している方と話していると、かなりよく聞く共通した悩みがあります。そういった内容を皆さんにシェアしていくので、役立てていただけたらと思います😊\nもしIT業界に興味があるけど、..."
+    },
+    {
+      "source": "Qiita",
+      "title": "Claude Code の設定でハマる箇所まとめ",
+      "link": "https://qiita.com/jqit_suwa/items/d49739b934606d4abdbd?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "Claude Code を使っていて、こういう目に遭ったことはないでしょうか。\n\n公式に「既定でON」と書いてある機能が、なぜか使えない\n昨日まで出ていたタスクリストが、いつの間にか出なくなった\n設定を書いたのに、何も起きない。エラーも出ない\n\n原因の多くは、公式ドキュメン..."
+    },
+    {
+      "source": "Qiita",
+      "title": "AIセキュリティ何から勉強すりゃええの？",
+      "link": "https://qiita.com/mikihitooooo/items/ced6a0aa744379d338b6?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "AIセキュリティ何から勉強すりゃええの？\n\n目次\n\nはじめに\n軽く自己紹介\n調べたソース・用語\n\n直近の学習計画\n\n1. 論文の読み込み（一次ソースの収集）\n2. 検証環境の構築\n3. ブログ・技術記事によるアウトプット\n\n理想の学習サイクル\nさいごに\n\nはじめに\n「..."
+    },
+    {
+      "source": "Qiita",
+      "title": "社内の発表会をすっぽかしたので、MTGの30分前にAlexaが教えてくれる仕組みを整備した話",
+      "link": "https://qiita.com/I635230/items/ed5423f7f6a13fb9c2d0?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "1. はじめに\n先日、社内の発表会をすっぽかしてしまいました。\n弊社はフレックス制なので朝の出社時間が日によって異なり、いつもなら寝る前に「明日早めの予定合った気がするな」という感覚に頼ってカレンダーを確認するという風にしていました。\nしかし、その日はいつもは別の曜日に予..."
+    },
+    {
+      "source": "Qiita",
+      "title": "Claude Coworkの定期タスクが4回止まった。原因は全部承認の設定だった話",
+      "link": "https://qiita.com/I635230/items/390d20b6c6e3eef92f45?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "1. はじめに\nConfluenceに毎日の作業メモページを作る、という定期タスクを動かしています。\n平日の朝7時に走って、翌営業日分のページをテンプレートから1枚作っておく、それだけの仕事です。ローカルで動かしていたものを、PCを開いていなくても走るようにクラウド(Cl..."
+    },
+    {
+      "source": "Qiita",
+      "title": "「5年後どうなりたい？」に答えられないのを、自身のキャリア意識が低いからだと責めないでほしい",
+      "link": "https://qiita.com/ssaita/items/dd81ec692840a3bb6303?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "過去の自分自身と、同じ経験をしたことのある人を救いたい。\n\nTL;DR\n\n目標面談の「5年後どうなりたい？」に答えられなくても、あなたに何かが欠けているわけではない\n山に登る人間は3種類いると思っています\n\n① 登らないと危険が迫るから登る人\n② 頂上に目的があるから登る人..."
     }
   ]
 }
