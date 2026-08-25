@@ -1,6 +1,48 @@
 {
-  "generated_at": "2026-08-24T21:10",
+  "generated_at": "2026-08-25T21:09",
   "items": [
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "Astro 7 に上げたら「画像が無い」でビルドが落ちた — import.meta.url 基準のパス解決をやめた",
+      "link": "https://zenn.dev/ukintech/articles/astro7-import-meta-url-build-check",
+      "summary": "Astro 4 から 7 へ上げたところ、画像は確かに存在するのに「画像が無い」でビルドが落ちました。\n原因は自分が書いたビルド時チェックで、import.meta.url を基準にプロジェクト直下を指していたことでした。\n\n 何をしていたか\nサイトのヒーロー画像は、データ（profile.ts）に置いたパスと、スクリプトが生成する実ファイルの 2 つで成り立っています。データだけ増やしてスクリプトを回し忘れると、本番で 404 になります。\n目視では気づけないので、コンポーネントの frontmatter で存在を検査していました。\n---\nimport { existsSync } ..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "見えない `.sr-only` がページを191px伸ばしていた",
+      "link": "https://zenn.dev/roughfts/articles/47c0f7e67cca15",
+      "summary": "画面の一番下に、なぜか余計な空白ができていました。\nコンテンツがはみ出しているようにも見えない。主要なレイアウト要素の高さも正常。それなのに、ページ全体だけが少し余計にスクロールできる。\n調べてみると、犯人は画面上には見えない .sr-only でした。\n\n 起きていたこと\n対象の画面は、ざっくり次のような構造です。\n&lt;div class=\"app-shell\"&gt;\n  &lt;main class=\"content\"&gt;\n    &lt;div class=\"artifact-view\"&gt;\n      &lt;!-- ... --&gt;\n\n      &lt;sp..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "CSSでliquid glassを作る — backdrop-filterだけでは灰色の板にしかならない",
+      "link": "https://zenn.dev/takagit/articles/css-liquid-glass-backdrop-filter",
+      "summary": "iOS や macOS のすりガラス風の表現を CSS でやろうとして、backdrop-filter: blur() を書いてみたものの、なんとなく濁っているだけの板ができて終わった、という経験はないでしょうか。私はそうなりました。\n原因は単純で、ぼかす対象がなかったからです。\n実際に動くものがあります。\n\n\nデモ: https://takahirogitlab.github.io/gcal-entry-log/\n\n\nソース: https://github.com/TakahiroGitLab/gcal-entry-log （MIT）\n\nこの記事では、それらしく見せるために必要な 5 ..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "Angularのプロジェクト構成を読む",
+      "link": "https://zenn.dev/zzzzzzz/articles/c8a1f3d6b52e07",
+      "summary": "ng new my-appを実行すると、20を超えるファイルが一度に生成されます。\nmy-app/\n├── .vscode/\n├── public/\n├── src/\n├── .editorconfig\n├── .gitignore\n├── angular.json\n├── package.json\n├── package-lock.json\n├── README.md\n├── tsconfig.app.json\n├── tsconfig.json\n└── tsconfig.spec.json\n正直に言うと、最初に見たとき私はtsconfigが3つある時点で少し引きました。\n最初に手を付..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "HTMLで`img`を`div`で囲むのはなぜ？ ブロック要素とインライン要素を理解する",
+      "link": "https://zenn.dev/kntte/articles/461132ea16917f",
+      "summary": "はじめに\nHTMLでは、要素をdivで囲むことがあります。\n以前、とある書籍の練習問題の解答例を見ていたところ、imgに回り込み（float）の設定をするために、divで画像を囲んでいるコードがありました。\n&lt;div class=\"float-left\"&gt;\n  &lt;img src=\"sample.png\" alt=\"サンプル画像\"&gt;\n&lt;/div&gt;\n私はこのコードを見て、\n\nimgに回り込み用のクラスを設定して、直接floatを指定すればよいのでは？\n\nと疑問に思いました。\n例えば、次のように書くこともできます。\n&lt;img class=\"floa..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "JetBrains Mono に「℃」の字形は無い",
+      "link": "https://zenn.dev/hosa97/articles/636399389c9c3d",
+      "summary": "等幅フォントで数字を並べていたら、℃ のところだけ桁が揃わなくなった。\n小さい字では潰れて、欠けたようにも見える。\n原因は単純で、JetBrains Mono に U+2103（℃）の字形が無かった。\nそこだけ和文フォントへ落ちていた。\n以下は、それを目視ではなく実測で特定した手順と、対処のメモ。\n\n 症状\n温度を並べる UI だった。等幅にしているのは数字の桁を揃えるためで、\nここが崩れると「数字が主役の画面」という前提そのものが壊れる。\n 82℃    ← ℃ のぶんだけ幅が違う\n100℃\nletter-spacing を疑い、font-feature-settings を疑い、\n親..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "CSVを縦・横に結合する — Papaparseで作るブラウザ完結のCSVマージと地味な落とし穴",
+      "link": "https://zenn.dev/sktt_panda/articles/csv-merge-vertical-horizontal-papaparse-browser",
+      "summary": "3行まとめ\n\n複数のCSVを縦（行追加）または横（列追加）に結合するブラウザ完結ツールを作った。パースと書き出しは全部Papaparseに任せて、結合ロジックだけを自前で書いた\n\n縦結合は「1つ目のヘッダーだけ採用、2つ目以降は先頭行を捨てる」、横結合は「一番行数が少ないファイルに合わせて切り詰める」。実装は数行だが、この割り切りに落とし穴がある\nパースは Papa.parse(skipEmptyLines)、書き戻しは Papa.unparse。クォート・カンマ・エスケープの面倒を全部ライブラリに寄せた\n\n\n複数のCSVを1つにまとめたい場面は地味に多い。月次売上（1月.csv, ..."
+    },
     {
       "source": "Zenn(フロントエンド)",
       "title": "コーダーからフロントエンドエンジニアへ #1-36｜高階関数とコールバック入門──関数を引数に渡す",
@@ -20,46 +62,10 @@
       "summary": "ドメイン検索UIをブラックボックスから状態設計する\n本稿は公開UIと公開説明だけを観察した設計メモです。ソースコード、非公開API、内部構成、性能値を確認したものではありません。以下の図と型は、同種UIを議論するための提案です。\n\n 検索を単一の真偽値にしない\nドメイン検索では「空いている／いない」だけでなく、問い合わせ中、登録済み、販売中、要確認、取得失敗などを分けたい。さらに、複数TLDを同時に調べるなら、行ごとに完了時刻も異なる。\nCheck Domain の公開ページは、対応TLDを登録局RDAPへ問い合わせ、可用性・公開レコード・価格を分離して表示すると説明している。この分..."
     },
     {
-      "source": "Zenn(フロントエンド)",
-      "title": "AliExpressによる無音の音を再生することでユーザーのデバイスを特定する技術とその対策",
-      "link": "https://zenn.dev/dentyu/articles/aliexpress-webaudio-fingerprinting",
-      "summary": "はじめに\nXを眺めていたらこんなポストが目に入ってきました。\nhttps://x.com/yousukezan/status/2091325427151446234\n「AliExpressを開いた際に、オーディオシステムを利用した無音の音が再生されて、処理結果を元にフィンガープリント（ユーザーを特定するための情報）を作成していたことがわかったよ。Braveではこの処理をブロックしたよ。」といった内容をBraveブラウザの公式がツイートしていました。\nこの件について、フィンガープリントとは一体何か。なぜ無音の音声を再生することでユーザーを特定することができるのか。Braveを含むブラウ..."
-    },
-    {
-      "source": "Zenn(フロントエンド)",
-      "title": "成功しているVitestが、毎回15秒タイムアウトしていた",
-      "link": "https://zenn.dev/hiro_cactus/articles/1ef34c60024259",
-      "summary": "Vitest Browser Modeで、あるテストファイルだけ毎回約15秒かかっていました。\nテストはすべて成功しています。それでも遅い原因を調べると、次の1行が見つかりました。\nawait userEvent.click(button).catch(() =&gt; {});\n\n なぜ成功するのに遅いのか\nこのテストでは、無効なボタンをクリックしても処理が実行されないことを確認していました。\nawait userEvent.click(button).catch(() =&gt; {});\n\nexpect(onCopy).not.toHaveBeenCalled();\nVitest ..."
-    },
-    {
-      "source": "Zenn(フロントエンド)",
-      "title": "ログイン不要の「ゲスト用デモモード」を作った話 〜1秒で試せて、でも壊されないUIの作り方〜",
-      "link": "https://zenn.dev/em_os/articles/14d186cf138d4ebab13d",
-      "summary": "1. はじめに\n個人開発で SaaS を作っていると、必ずぶつかる壁があります。「アカウント作成のハードル」です。\n自分が作っている EM-OS というプロダクトも例外ではありませんでした。せっかく Twitter( X )や Zenn の記事を見て興味を持ってくれた人がいても、「メールアドレスを入力して」「パスワードを設定して」「確認メールを踏んで」という 3 ステップの間に、だいたいの人はブラウザを閉じてしまいます。これは本業で to B SaaS の EM をやっていても痛感することで、営業の商談化率を見ても「試すまでの距離」がとにかく重要だと分かっていました。\nとはいえ、じゃ..."
-    },
-    {
-      "source": "Zenn(フロントエンド)",
-      "title": "全部ブラウザで完結する変換ツールを作ったら、CSSとSEOで盛大にハマった",
-      "link": "https://zenn.dev/tamatamatama/articles/b08993f901c556",
-      "summary": "PDFを結合したいだけなのに\n仕事の契約書を1つのPDFにまとめたい。ただそれだけなのに、検索して出てきた無料ツールに契約書をアップロードするのは、正直かなり抵抗があります。\n\nそのファイルがサーバー上でいつ消えるのか、書いてあっても確かめようがない\n会社によっては、外部サービスへのアップロードがそもそも規約で禁止されている\nフリマに出す写真に位置情報(EXIF)が残っているのを消したいのに、消すために写真をアップロードするという矛盾\n\n「変換のためにファイルを預ける」という前提を、そもそも無くせないだろうか。\nブラウザの上でWebAssemblyもCanvasも動く今なら、変換処理..."
-    },
-    {
-      "source": "Zenn(フロントエンド)",
-      "title": "行を仮想化したグリッドを、スクリーンリーダーに正しく読ませる",
-      "link": "https://zenn.dev/teraaa12/articles/01866408d1082c",
-      "summary": "はじめに\n数万行を表示するグリッドでは、行の仮想化（表示範囲のみをDOMに描画する手法）が必要です。10万行分の &lt;div&gt; をすべて描画すると、ブラウザの負荷が耐えられなくなるためです。\n一方で、仮想化とアクセシビリティには課題があります。スクリーンリーダーなどの支援技術はDOMを参照して行数や現在位置を判定するため、DOM上に数十行しか存在しない場合、その行数のみを認識してしまいます。\nこの記事では、React用スプレッドシートコンポーネント MasumeGrid において、仮想化とアクセシビリティを両立させた実装方法をまとめます。WAI-ARIA仕様に基づいた、フレ..."
-    },
-    {
-      "source": "Zenn(フロントエンド)",
-      "title": "Tailwind v4 で leading-* が勝つようになった — v3 では lg:text-6xl が行間を上書きしていた",
-      "link": "https://zenn.dev/ukintech/articles/tailwind-v4-leading-vs-responsive-text",
-      "summary": "Tailwind CSS を v3 から v4 へ移行したとき、マークアップを一行も変えていないのに、トップページの総高が 35px 伸びました。\n原因は leading-* とレスポンシブな text-* を併記していた箇所です。この 2 つを併記したときの勝ち負けが v4 で逆になっていました。\n\n 症状\n該当のマークアップはこれです。h1 に leading-tight と lg:text-6xl が同居しています。\n&lt;h1 class=\"text-4xl font-bold leading-tight md:text-5xl lg:text-6xl\"&gt;…&lt;/h1..."
-    },
-    {
-      "source": "Zenn(フロントエンド)",
-      "title": "Excelとコピペで相互運用するために、TSVで踏んだ罠を全部書く",
-      "link": "https://zenn.dev/teraaa12/articles/5818424f15b8c1",
-      "summary": "はじめに\n業務系のWebアプリで一覧編集画面を作ると、ほぼ確実に「Excelからコピペしたい」という要望が出ます。\n実装前は「クリップボードのテキストをタブと改行で split すればよい」と考えていましたが、実際に試すとセルの中身が単純な文字列のときしか動かないことがわかりました。\nこの記事では、React用スプレッドシートコンポーネント MasumeGrid の開発中に遭遇した問題と、その実装コードをまとめます。フレームワークに依存しない、クリップボードとテキスト処理の話です。\n\n 前提: Excelがクリップボードに載せているもの\nExcelやGoogleスプレッドシートで範囲..."
+      "source": "Zenn(React)",
+      "title": "Next.js 16.3 の PPR で、動的ページを待たせたない。Arkor の実践",
+      "link": "https://zenn.dev/romanark/articles/arkor-nextjs-ppr",
+      "summary": "オープンモデルのファインチューニングとデプロイを TypeScript で扱う Arkor の Web アプリには、性質の異なる画面が同居しています。\n\n誰にでも同じ内容を返せるマーケティングサイトと Docs\n\ncookies() からログイン状態を読むヘッダー\n組織やプロジェクトごとに内容が変わるダッシュボード\n外部 API から最新情報を取得するステータスページ\n\n静的なページだけなら事前生成し、動的なページだけならリクエストごとにレンダリングすれば済みます。しかし、実際の画面はその中間です。ヘッダーや見出しは全員に共通でも、右上の認証ボタンや一覧データだけはリクエストが来るまで確..."
     },
     {
       "source": "Zenn(React)",
@@ -104,160 +110,166 @@
       "summary": "はじめに\nPlaywright 1.62 のリリースノートに「Component testing moves to a stories and galleries model」という項目があって、気になったので手元で一から組んでみました。\n自分は Playwright のコンポーネントテスト（以下 CT）を触るのは今回が初めてです。旧方式の @playwright/experimental-ct-react を実務で使ったことはないので、「旧方式との比較」にあたる部分は公式の移行ドキュメントを読んだ上での見立てになります。そこは断って進めます。\nやったのは、Vite + React..."
     },
     {
-      "source": "Zenn(TypeScript)",
-      "title": "anyとunknownの違いについて",
-      "link": "https://zenn.dev/afternoon_green/articles/b679b33e785c19",
-      "summary": "any と unknown の違い\n\n はじめに\nライブラリの型定義を眺めていて、よく unknown を見かけた。any と何が違うのか当時はよく分からなかったので、改めて整理する。\n\n 一言で\n\n\nany: 何が入っていてもよく、そのまま何をしても通る\n\nunknown: 何が入っていても良いが、中身を確かめるまで使えない\n\nunknown は「安全なany」です。\n\n 比較\n\n\n\n\nany\nunknown\n\n\n\n\n導入\nTypeScript初期から\nTypeScript 3.0\n\n\n型\n型チェックを放棄する\n型が未確定だと宣言する\n\n\n任意の値を代入できる\n○\n○\n\n\n他の型へ..."
+      "source": "Zenn(React)",
+      "title": "行を仮想化したグリッドを、スクリーンリーダーに正しく読ませる",
+      "link": "https://zenn.dev/teraaa12/articles/01866408d1082c",
+      "summary": "はじめに\n数万行を表示するグリッドでは、行の仮想化（表示範囲のみをDOMに描画する手法）が必要です。10万行分の &lt;div&gt; をすべて描画すると、ブラウザの負荷が耐えられなくなるためです。\n一方で、仮想化とアクセシビリティには課題があります。スクリーンリーダーなどの支援技術はDOMを参照して行数や現在位置を判定するため、DOM上に数十行しか存在しない場合、その行数のみを認識してしまいます。\nこの記事では、React用スプレッドシートコンポーネント MasumeGrid において、仮想化とアクセシビリティを両立させた実装方法をまとめます。WAI-ARIA仕様に基づいた、フレ..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "LLM の従量課金に上限を付ける ── 素直に作ったら7つの欠陥があった",
-      "link": "https://zenn.dev/ferretcode/articles/quota-holes-when-limiting-llm-api",
-      "summary": "LLM を叩く API を公開すると、原価がこちら持ちになります。\n上限を付けるだけの話だと思っていました。\ncount して、超えていたら弾く。10行で済むはずでした。実際に作ったら、その10行に欠陥が7つありました。同じものを作る人が踏むと思うので、1つ1つ紹介します。\n書いている立場を先に明かしておくと、Ferret というコードリーディングの練習サイトを個人で作っています。回答を LLM に採点させる作りで、1回あたり約 ¥0.04 かかります。無料で公開しているので、上限が無いと使われるほど赤字になる、という状況で入れたものです。\n呼び出しの履歴を保存しているテーブルがあれば、..."
+      "title": "iOS Safariから写真を送ると3枚目で必ず失敗する — Vercelの4.5MB上限と、縮小が黙って無効になる罠",
+      "link": "https://zenn.dev/shinsei99/articles/ios-safari-vercel-upload-413",
+      "summary": "紙の書類をスマホで撮って Dropbox に送るだけの Next.js アプリを、Vercel に置いて使っています。\n撮影は iPhone、送信先は API Route (/api/upload)、そこから Dropbox API で保存する、という素直な作りです。\n現場から来た報告はこうでした。\n\n1枚か2枚なら送れる。3枚以上にすると必ず失敗する。\n\n原因は1つではなく、iOS Safari 固有の罠が2つと、プラットフォームの上限が1つでした。\nしかも2つ目と3つ目は、エラーを出さずに無効化される種類のものです。\n\n 罠1：iOS Safari は FormData のファイル名..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "個人開発投資ツールで、最も設計を変えたのは法律だった",
-      "link": "https://zenn.dev/solunadev/articles/615b4b83539e22",
-      "summary": "ここ2カ月個人で株式スキャナツールを作っています。　\n公開リンク下記にございます。\n最も設計を変えたのは技術ではなく法律でした。\nツール名　Pulsar — 日本株の全銘柄を毎日スキャンして、\n　　　　　「いま候補になる銘柄」と「その根拠」を出すツールです。\n\nチャート形状から買いや売りの時期を検討するのは時間がないと難しい\n→チャートをシグナルに変換して、見たタイミングでわかるように再現しています。\n\n•\t東証の約4,400銘柄・34業種を毎日まるごとスキャンして、条件に合った銘柄だけを残す\n•\t残った銘柄それぞれに、なぜ残ったのかの根拠（どの軸で・どのくらいの強さで）が付く\n•\t候補..."
+      "title": "BitBrowser Local APIをTypeScriptで型安全にラップする",
+      "link": "https://zenn.dev/digitalpro/articles/cb46f714ec1933",
+      "summary": "アンチディテクトブラウザ(BitBrowser、Multilogin、AdsPowerなど)をコードから制御して、複数プロファイルの一括起動やPlaywright統合を実現したい場面がある。E2Eテストの並列実行、Webスクレイピング、複数アカウント管理などのユースケースで需要が高い。\n本記事ではBitBrowserのLocal APIをTypeScriptで型安全にラップする実装方法を解説する。BitBrowserを選んだのはローカルAPIが無料枠でも使え、REST仕様がシンプルで、Playwright/Puppeteerとの相性が良いためだ。同様の設計は他ツールにも応用できる。\n対..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "D1 の batch() は本当に原子的か — 公式ドキュメントが矛盾していたので6項目を実測した",
-      "link": "https://zenn.dev/katsuo_dev/articles/202608-d1-batch-atomicity-test",
-      "summary": "JPYC（日本円ステーブルコイン）の決済リンクサービスを Cloudflare Workers + D1（SQLite）で作っています。決済の冪等性設計が全面的に D1 の挙動に依存するのに、batch() が本当に原子的なのか公式ドキュメントの記述だけでは判断できませんでした。推測で決済ロジックを書くわけにいかないので、実際に叩いて仕様を固定しました。\nこの記事だけで分かること\n\nD1 の公式ドキュメントに、batch() の原子性について矛盾して読める2つの記述が同居していること(2026-08-02時点で確認済み)\nUNIQUE制約違反・ON CONFLICT DO NOTHING..."
+      "title": "OxlintのESLint互換ルールを実装する",
+      "link": "https://zenn.dev/soramarjr/articles/e09445fbb93e22",
+      "summary": "VIVANTとイコラブで夏を消化してます。\nfujitani soraです。\n\noxlintにいくつかPRを出してmergeされているので、実装や学びについてまとめます。\nhttps://github.com/oxc-project/oxc/pull/23589\noxcは、Rustで書かれた高速なJavaScript/TypeScriptツールチェーンです。\nParserやLinterなど複数のツールを提供しており、そのうちLinterにあたるのがoxlintです。\nNode.js向けESLintルールの一つであるno-sync の基本的な仕様を確認したうえで、\noxlintへの互換実装..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "microCMSとRSS：自分のサイトにブログを掲載するために使った2つの方法",
-      "link": "https://zenn.dev/roba_97/articles/7597a4e29e2a87",
-      "summary": "前提\nコード例示は、TypeScriptを使ったNext.jsのプロジェクトを前提としたものです。\n\n microCMS\nAPIベースの日本製のヘッドレスCMS。「記事を書く場所」と「それをAPIとして配信する仕組み」をセットで提供してくれるサービス、みたいな解釈でいいと思う。\n実際に使ってみて便利と感じたのは大きく3つ。\n\n公式のSDKがあるため、学習・実装が容易である\nAPIスキーマを自由に定義できる\nブログのデザインを自分で作成できる\n\n1つ目については、例えば以下のURL。\nhttps://document.microcms.io/tutorial/next/next-app..."
+      "title": "YouTube動画の文字をコピペしたくて、Chrome拡張機能を作ってみた",
+      "link": "https://zenn.dev/enknot96/articles/fbd405c20c4dd5",
+      "summary": "作ったきっかけ\nYouTubeのプログラミング動画を見ながら写経して勉強しているとき、地味に面倒な作業がありました。\n「じゃ、これで進めていきましょ！」\nと動画の中の人は言ってるのですが、\n\nコード\nシステムプロンプト\nその他諸々\n\nが、どこにも配布されていない。\n\n「先生、コピペさせてくれよぉ...」という訳です。\nなので、仕方なく、\n\n動画の該当シーンのスクショを撮る\nClaudeにアップロードする\n「この画像の文字を書き出して」と頼んで文字起こしする\nそれをVscodeにコピペする\n\n...ということを何度も繰り返していました。\nさすがに毎回これをやるのは面倒くさすぎる！\n「..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "[Mastra YouTube 解説] Trace Intelligenceで大量のエージェントトレースを行動マップに変える",
-      "link": "https://zenn.dev/shiromizuj/articles/4e5b358e5a172d",
-      "summary": "Mastra の公式YouTubeチャンネルにアップされた動画を速報ベースでお伝えします。ただの文字起こしではなく、扱われているトピックの抽出と、動画の論理展開に沿った要約をしています。速報性重視でAIの力を多分に使っているので、私自身の考察は少なめです。\nMastra YouTube動画 速報解説一覧\n\n\n 動画情報\nhttps://youtu.be/UNsclTdgnfM?si=4veywF0QBugDMOB2\n\n\nURL: https://youtu.be/UNsclTdgnfM?si=4veywF0QBugDMOB2\n\n\n原題: Turn millions of traces i..."
+      "title": "市場価値診断を8問60秒に削るまで — LLMを使わない設計と、ボットに騙された計測の話",
+      "link": "https://zenn.dev/sakuraba_hk/articles/ace3ab5886ca0b",
+      "summary": "無料の市場価値診断サービスを1人で作って運用している。8問・約60秒・登録不要で、年齢や職種などの回答から推定年収レンジを出す。スタックは Next.js (App Router) + Supabase + Vercel + LINE Messaging API。\n先に正直な数字を書くと、公開から7週間で実ユーザーの診断は3件。一方で自社DBのクリックログは300件あった。うち人間は0件だった。\nこの記事は成功譚ではない。「診断を8問60秒まで削った設計判断」と「動いているのに届いていないことを、計測がどう隠すか」の記録だ。同じものを作る人が同じ穴に落ちないための実装と判断を、実コードで..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "ライブラリーを使わずに Next.js App Router で多言語対応する",
-      "link": "https://zenn.dev/romanark/articles/arkor-nextjs-i18n",
-      "summary": "Arkor のマーケティングサイトは英語と日本語の 2 言語に対応しています。next-intl も next-i18next も negotiator も使っていません。追加したランタイム依存はゼロで、使っているのは Next.js App Router の機能（動的セグメントと proxy）、TypeScript の satisfies、そしてもともと依存に入っていた Zod だけです。\nこの記事では、その実装を「ルーティング」「辞書」「長文コンテンツ」の 3 層に分けて紹介します。構成は Next.js 16 + Vercel へのデプロイが前提ですが、考え方自体は App Rou..."
+      "title": "Domain SchemaをSKILL.mdにして、TypeScriptで実践してみる",
+      "link": "https://zenn.dev/shuent/articles/d50a6aee61ba13",
+      "summary": "前の記事で、Domain Schema = domainに対して公開するread/write operationとそのcontract、というメンタルモデルを書いた。\nhttps://zenn.dev/shuent/articles/e8c49f58edcac3\n今回はその続きとして、この考え方をAgent SkillのSKILL.mdに落とし込み、実際にNode.js + TypeScriptで簡単な請求書管理APIを作って検証した。\nSkillとサンプル実装はここに公開している。\nhttps://github.com/shuent/domain-schema-typescript\nリ..."
+    },
+    {
+      "source": "Zenn(TypeScript)",
+      "title": "[Mastra YouTube 解説] エージェントに「最新の真実」を渡す",
+      "link": "https://zenn.dev/shiromizuj/articles/2f1abf3d8bf631",
+      "summary": "Mastra の公式YouTubeチャンネルにアップされたワークショップ動画をベースに、今回も読み物として整理します。扱われるテーマは派手な新機能の発表ではなく、もっと足元の、しかし本番運用ではかなり重要な問題です。人間が途中で直した内容を、エージェントが古い文脈で平気で上書きしてしまう。今回の動画は、そのズレを Mastra の input processor でどう扱うかを、Mora の実例で見せた回でした。\n単に「SQL クエリを直すデモ」ではありません。複数の人やエージェントが同じオブジェクトを触るとき、何を authoritative context と見なすべきか、そしてその..."
+    },
+    {
+      "source": "Zenn(TypeScript)",
+      "title": "Notionの期日リマインドを「仕組み」で実装する — 冪等性・重複送信・完了判定の設計メモ",
+      "link": "https://zenn.dev/kapsel/articles/notion-due-date-notify",
+      "summary": "Notionの日付プロパティに締切を入れているのに、「気づいたら期限が過ぎていた」が減らない。標準の @remind は便利ですが、あれは基本的に Notionを開く本人向け の通知です。ワークスペース外の相手や、Notionを普段開かないメンバーに確実に届けたい、となると、途端に「自前で通知を回す」話になります。\nこの記事は、その「Notionの期日を監視して外部へリマインドを飛ばす仕組み」を実装するときの設計とハマりどころを、エンジニア視点で整理したものです。私自身、この用途の通知ツール Kapsel を個人開発していて、そこで踏んだ地雷が元ネタです。宣伝はこの2文だけにして、あとは..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "Pythonスクレイピングを「動くコード」から「実用的なツール」にする3つの壁と対処法",
-      "link": "https://qiita.com/freefreefree1222/items/da674016874ed1f9f99c",
-      "summary": "環境情報\n\nPython 3.11.4\nrequests 2.31.0\nbeautifulsoup4 4.12.2\nsqlite3（Python標準ライブラリ）\nOS: Ubuntu 22.04 LTS / Windows 11 両対応\n\nはじめに\nPythonでスクレ..."
+      "title": "WebGPUを試してみる：線画と面描画を別パイプラインで混在させて立方体を回してみた",
+      "link": "https://qiita.com/NAS6mixfoolv/items/2c870ebd4b8658662f10",
+      "summary": "WebGPUを試してみる：線画と面描画を別パイプラインで混在させて立方体を回してみた\n\nはじめに\nこんにちは。今回は、自作の3D計算・タイマー管理ライブラリ（nas6lib）をベースに、モダンブラウザの標準となりつつある WebGPU を使って、線と面が混在する立方体の..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "JavaScriptで日本語の文字数を数えるときにハマった5つの罠",
-      "link": "https://qiita.com/jyxwant/items/cf13b0a63991e2ba8fc3",
-      "summary": "文章入力フォームに「文字数」を表示するだけなら、最初は text.length で十分に見えます。しかし、日本語・絵文字・改行・IME入力まで考えると、文字数は意外に曖昧です。\nブラウザで動く文字数カウントツールを作ったとき、特に迷ったポイントを5つに整理します。\n\n1. ..."
+      "title": "【備忘録】Salesforce Multi-Framework GA の要点 - ReactアプリをSalesforce上で動かす前に整理する",
+      "link": "https://qiita.com/Tadataka_Takahashi/items/a7706ee62643b8174f91",
+      "summary": "はじめに\n\nSalesforce Developers Blog で、Salesforce Multi-Framework が GA（General Availability）になったという記事が公開されていました。\n\n米国版：2026年7月16日公開\n日本語抄訳：202..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "【JavaScript】Promise.all()をハッシュで受け取れるようになる",
-      "link": "https://qiita.com/rana_kualu/items/99daf86aff272a9671fc",
-      "summary": "await Promise.all([\n  foo(),\n  bar(),\n  baz(),\n]);\n\n// 返り値は[1, 2, 3]\n\nこのPromiseの返り値は配列です。\nどういうことかって、並列実行なのだから本来順番なんて関係ないはずなのに、返り値を意識した瞬間に..."
+      "title": "自分が立ち寄った温泉マップの可視化",
+      "link": "https://qiita.com/gokabo/items/de8d3f3cf725ac323b1d",
+      "summary": "温泉♨が好きでよく出掛けるのですが、特にドライブ＋温泉♨＋呑みの旅で泊まった温泉や、単に出掛けた日帰り温泉なども含めて地図上に可視化してみました。＃自分の忘備録39\n\n可視化するもの\n\n温泉に立ち寄った「日付」と「温泉」のリストをCSVファイルにしておく\n「温泉」の「位置l..."
     },
     {
       "source": "Qiita(JavaScript)",
-      "title": "Vueを勉強していたら、`class`があまり出てこないことに気が付いた",
-      "link": "https://qiita.com/yuki_crossroad/items/a4a6ed8ae01b3ec28484",
-      "summary": "JavaScriptを勉強していたときは、classという言葉をよく見かけました。ゲームなら、プレイヤーのHPやお金をまとめるものとして考えると分かりやすい、と聞いたこともあります。\nところがVueを触り始めると、よく出てくるのはref、関数、v-if、v-forです。cl..."
+      "title": "p5.jsでErrorクラスを継承して遊ぶ",
+      "link": "https://qiita.com/inaba_darkfox/items/d9cd93fe4669f525dbe2",
+      "summary": "はじめに\n　Errorというクラスを継承してみよう。OpenProcessingにコードが置いてあります。\n\np5にも出番があるのでここで遊びます。現行バージョンは2.3.2です。\n\nコード全文\n/*\n  messageはErrorの第一引数がそのまま入る。\n  na..."
     },
     {
       "source": "Qiita(React)",
-      "title": "プログラミング初心者の私が、AIと一緒にライフプランアプリを作り始めた話",
-      "link": "https://qiita.com/pitbully-works/items/ef9a76929dea62ffdd90",
-      "summary": "プログラミング初心者の私が、AIと一緒にライフプランアプリを作り始めた話\nはじめに\n私はプログラマーではありません。\nアプリ開発の仕事をしているわけでもありません。\nReact、JavaScript、GitHub、Vercel。\n今では普通に目にするようになった言葉ですが、..."
+      "title": "isLoading が真なのに isError も真...みたいなのやめたい（判別可能なユニオン型で）",
+      "link": "https://qiita.com/faable01/items/1e47a86d55e11cd64bd5",
+      "summary": "単一のAPIコールの状態管理で、 isLoading &amp;&amp; isError な状態ってあると思う？　ないよね。\nそういう矛盾したありえない状態って、ありえない状態だからこそ、本当はコード上でそもそも書けない状態にしておきたい。今回は、TypeScript の「判別可能なユニ..."
     },
     {
       "source": "Qiita(React)",
-      "title": "ブラウザ動画編集ソフトの「使いにくい」を直した話 ― タイムラインUI改善で学んだ設計原則",
-      "link": "https://qiita.com/MartinDelophy/items/a6effeaa2af648c1ba4f",
-      "summary": "はじめに\nTimeline Studio は、ブラウザ上で動作するローカルファーストのオープンソース動画編集ソフトです。\nプロジェクトを公開したばかりの頃、GitHub Star は80前後でした。WebCodecsによる動画書き出し、複数トラック、字幕、音声、エフェクト..."
+      "title": "Next.js App RouterでのColocation：大規模開発のフォルダ設計術を深掘り",
+      "link": "https://qiita.com/DaokFrontier/items/2e587723243d3e6ddd9a",
+      "summary": "多くのNext.js開発者がApp Routerへの移行時に直面するのが、**「大規模開発における最適なフォルダ設計とは何か？」**という問いです。特に、Server ComponentsとClient Componentsが混在する環境で、コンポーネント、テスト、データ取..."
     },
     {
       "source": "Qiita(React)",
-      "title": "動画を作りたい Web Developer におすすめ。「Remotion」を紹介するよ",
-      "link": "https://qiita.com/faable01/items/764fbfaebdebe16e1138",
-      "summary": "Remotionっていう「Reactで動画を作れるパッケージ」があって、すごく面白かったからその紹介をするよ。\n記事中の画像はみんな、自分が Remotion で作った動画からのスクショなんだ。その動画（の縦長版）はこれ\n\nRemotionのこと１つずつ書いていくね。\n..."
-    },
-    {
-      "source": "Qiita(React)",
-      "title": "なぜAIは「React Coder」を最初に置き換えるのか（そしてシニアになる方法）",
-      "link": "https://qiita.com/TOMOSIA-HieuNT/items/8cf78d564cd0a8fe8c81",
-      "summary": "※ この記事の日本語には、少し不自然な部分があるかもしれません。AIの言語サポートを利用しながら作成しています。\n\n目次\n\nはじめに\n1. システム思考のフレームワークを築く（寄り道学習ではなく）\n2. 技術的思考を明確に表現する\n3. エンドツーエンドの思考を育てる\n4..."
+      "title": "フェンリル株式会社 5dayインターンシップ参加レポート",
+      "link": "https://qiita.com/tanahiro2010/items/686b6787a4bff136f190",
+      "summary": "はじめに\nフェンリル株式会社のインターンシップ 2026 で、フロントエンドコースに参加しました。\nフェンリル株式会社：https://fenrir.co.jp\n絶賛就活中（？）の高校1年生こと、tanahiro2010です。\n大学には進学するつもりなのですが、就活向けの..."
     },
     {
       "source": "はてブ",
-      "title": "アンソロピック、AIの使い方を学べる「Claude Academy」　日本語対応",
-      "link": "https://www.watch.impress.co.jp/docs/news/2134964.html",
-      "summary": ""
+      "title": "povo、「5G SA(スタンドアローン)」サービスを提供開始",
+      "link": "https://povo.jp/news/newsrelease/20260825_01/",
+      "summary": "KDDI、沖縄セルラー、KDDI Digital Lifeは2026年8月25日から、オンライン専用ブランド「povo2.0」の「通話＋データ」プランをご契約のお客さまを対象に、「5G SA(スタンドアローン)」サービス(以下5G SA)(注1)の提供を開始します。これにより、au/UQ mobile/povo(powered by the KDDI network)のマルチブランドで、5G SA..."
     },
     {
       "source": "はてブ",
-      "title": "優秀なエンジニアが書くDesign Docは何が違うのか? - pospomeのプログラミング日記",
-      "link": "https://www.pospome.work/entry/2026/08/24/223309",
-      "summary": "株式会社カミナシで VPoE を務めている pospome です。 (´・ω・`) 自分はここ数年いろんなエンジニアが書いたDesign Docをレビューする機会があるんですけど、その中で「優秀なエンジニアであれば、ここは押さえて欲しい」「ここでエンジニアとしてのスキルが分かる」というポイントがありまして、今回はそれを言語化し..."
+      "title": "「まるでキャバクラ」――「ライザのアトリエ」主人公と話せるAIアプリに「課金圧強すぎ」の声　「10日に会話15回」で月額980円",
+      "link": "https://www.itmedia.co.jp/news/article/2608/25/2000000774/",
+      "summary": "人気RPG「ライザのアトリエ」の主人公「ライザ」と会話できるAIアプリ「RyzaChat ライザと創るあなただけのひと夏の夢物語」の配信が8月25日に始まった。人気作、しかも生成AIを使ったアプリとあってリリース前から注目を浴びていたが、無料で会話できる回数が少なく、有料プランにも利用枠の上限があることからユーザー..."
     },
     {
       "source": "はてブ",
-      "title": "「うるう秒」27年に事実上廃止へ　自転とのずれ「1時間」まで容認　10月に国際会議で採決",
-      "link": "https://www.itmedia.co.jp/news/article/2608/24/2000000718/",
-      "summary": "1秒単位で世界の標準時を調整する「うるう秒」を事実上廃止する案について、10月13～15日にフランスで開催する国際度量衡総会（CGPM）で審議する。国際度量衡局（BIPM）の決議案では、採択されれば2027年5月20日から、うるう秒による調整を行わない「連続的な協定世界時（continuous UTC）」に移行する。 うるう秒は、原..."
+      "title": "新API「HTML-in-Canvas」を紹介 - CanvasにHTMLを描くAPIは何を解決するのか？ - ICS MEDIA",
+      "link": "https://ics.media/entry/260825/",
+      "summary": "新API「HTML-in-Canvas」を紹介 CanvasにHTMLを描くAPIは何を解決するのか？ 波打つ入力フォームや発光するボタン、ウェブページ全体の派手なグリッチ表現やトランジション……。最近SNSでこうしたウェブページデモを見かける機会が増えてきました。こうしたデモの多くに利用されている新しい技術がHTML-in-Canvasと呼ばれ..."
     },
     {
       "source": "はてブ",
-      "title": "なぜいま30Bクラスのオープンモデルが“熱い”のか　「27BパラメータでOpus 4.6超え」も",
-      "link": "https://www.itmedia.co.jp/aiplus/article/2608/24/2000000723/",
-      "summary": "米Metaの「Muse Glimmer」、米NVIDIAの「Nemotron 3.5 Lightning」、中国Alibaba Cloudの「Qwen3.8-27B」──8月10日からの9日間で、海外大手3社がパラメータ数30B（300億）クラスのオープンウェイトモデルを相次ぎ公開した。18日には国立情報学研究所（NII）も約332億パラメータの「LLM-jp-4 33B」を投入し「国産モデル」..."
+      "title": "自分が \"コントロールできる\" と思い込んで \"引き出しを増やす\"",
+      "link": "https://speakerdeck.com/konifar/jibun-ga-kontororu-dekiru-to-omoikon-de-hikidashi-o-fuyasu",
+      "summary": "シンプレクス株式会社の社内イベント Simplex Biz Day 2026 にて話した内容"
     },
     {
       "source": "はてブ",
-      "title": "“SQL”で事件の真相に迫るミステリーゲーム『Ghost in the SQL Data』が面白そう。データベースを操作するプログラミング言語を操り、事件の証拠を特定する",
-      "link": "https://news.denfaminicogamer.jp/news/260824f",
-      "summary": "SteamにてSQLで事件の真相に迫るゲーム『Ghost in the SQL Data』のストアページが公開されている。日本語にも対応予定のタイトルだ。 本作において、事件の捜査はデータベースを操作するためのプログラミング言語「SQL」を操ることで行う。検索機能や銀行の明細、表計算ソフトなど、日常的に触れる仕組みの裏側で使われ..."
+      "title": "Apple、新しいM6とM5 Proを搭載し、さらにパワフルになったMac miniを発表",
+      "link": "https://www.apple.com/jp/newsroom/2026/08/apple-unveils-a-more-powerful-mac-mini-featuring-the-all-new-m6-and-m5-pro/",
+      "summary": "M6とM5 Pro搭載の新しいMac mini、AIパフォーマンスを飛躍的に向上。常時稼働のエージェント型コンピューティングで業界をリードするデスクトップに驚異的なパワーを Mac miniは、最大4倍高速なAIパフォーマンス、最大2倍高速なグラフィックスとストレージ、強化された接続性のすべてを、超コンパクトなボディで提供しま..."
     },
     {
       "source": "はてブ",
-      "title": "お前らが毎日必ず見るサイトってなに？",
-      "link": "https://anond.hatelabo.jp/20260824185046",
-      "summary": "ワイ ・はてブ ・キニ速 ・ザイーガ 終わってる？"
+      "title": "マイクロサービス間の認可伝搬をどう解くか？独自実装と IETF Transaction Tokens を見比べてみた",
+      "link": "https://zenn.dev/layerx/articles/e01465a15e79c2",
+      "summary": "マイクロサービス間の認可伝搬をどう解くか？独自実装と IETF Transaction Tokens を見比べてみた こんにちは。アカウント基盤開発部でエンジニアをしている tkmt (たくまつ) です。 今回は、IETF で標準化が進んでいる Transaction Tokens について調査してまとめてみました。というのも、この Transaction Tokens が解..."
     },
     {
       "source": "はてブ",
-      "title": "LinuxのLinus Torvalds、AIが3度「解決不能」と諦めるたびに押し返し1行のバグを修正——24パッチ・18回再起動の全記録",
-      "link": "https://techfeed.io/entries/6a8b65fa877bc8b0b7d64da3",
-      "summary": "8月21日、Phoronixが「Linus Torvalds Endures A Debug Session From Hell, \"Enormously Helped\" By AI」と題した記事を公開した。Linuxカーネルの生みの親であるLinus TorvaldsがAIを相棒にしながら、Intel XeグラフィックスドライバのバグをLinuxカーネルに自らパッチとして取り込んだ経緯を詳細に紹介している。 修正..."
+      "title": "敵対的検証をLLMコードレビューで試すと何が起きるのか",
+      "link": "https://zenn.dev/knowledgesense/articles/0cb441713c9fee",
+      "summary": "導入 こんにちは、株式会社ナレッジセンスの須藤英寿です。 AIでコードのレビューをする際に敵対的検証をすることで性能が上がるとされています。そこにさらに、その検証を監視する役を付けることでレビューの精度を上げる手法「Adversarial Review」について紹介します。 サマリー 最近、敵対的検証という言葉を耳にす..."
     },
     {
       "source": "はてブ",
-      "title": "シングルバイナリなOLAP DBの次期版「DuckDB 2.0」プレビュー。クライアント／サーバ機能が安定版に、スキーマレスのVARIANT型、トリガー、非同期I/Oなど新機能",
-      "link": "https://www.publickey1.jp/blog/26/olap_dbduckdb_20variantio.html",
-      "summary": "シングルバイナリなOLAP DBの次期版「DuckDB 2.0」プレビュー。クライアント／サーバ機能が安定版に、スキーマレスのVARIANT型、トリガー、非同期I/Oなど新機能 オープンソースとして開発されているOLAPデータベース「DuckDB」の開発を主導しているDuckDB Foundationは、今年の秋にリリース予定の「DuckDB 2.0」にどのよ..."
+      "title": "Apple、パフォーマンスとAI演算の大幅な向上をもたらすM6とM5 Ultraを発表",
+      "link": "https://www.apple.com/jp/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/",
+      "summary": "Apple初の2ナノメートルチップであるM6は、より大きくよりパワフルな12コアCPU、12コアGPU、デュアル16コアNeural Engineを搭載し、M5 Ultraは、Apple初のクアッドダイアーキテクチャを採用したApple史上最もパワフルなチップです M6により、毎日のパフォーマンスと電力効率が劇的に向上します。M5 Ultraは比類のないデ..."
     },
     {
       "source": "はてブ",
-      "title": "【全文無料公開】「できるChatGPT」や動画生成AIの入門書など30冊が全文無料公開、1週間限定／「世界一やさしいCanva」「できる はじめてのマインクラフト建築」なども【Book Watch/ニュース】",
-      "link": "https://forest.watch.impress.co.jp/docs/bookwatch/news/2134897.html",
-      "summary": ""
+      "title": "Anthropicの最上位AIモデル「Claude Fable 5」は企業需要が伸びず苦戦、AI企業のビジネスモデルが覆される可能性も",
+      "link": "https://gigazine.net/news/20260825-anthropic-best-ai-model-struggles/",
+      "summary": "AI開発企業のAnthropicは2026年6月、記事作成時点で最上位となるAIモデル「Claude Fable 5」をリリースしました。ところが、Claude Fable 5の利用量は伸び悩んでおり、より大規模で高度なAIモデルを追求するAI開発企業のビジネスモデルを根本的に変える可能性もあると、経済紙のフィナンシャル・タイムズが報じています..."
     },
     {
       "source": "はてブ",
-      "title": "消費者庁、「ダークパターン」規制へ　特商法改正視野に中間取りまとめ案",
-      "link": "https://www.itmedia.co.jp/news/article/2608/24/2000000728/",
-      "summary": "消費者庁は8月24日、有識者会議「デジタル取引・特定商取引法等検討会」の第8回会合で、消費者の意思決定をゆがめる表示・UI、いわゆる「ダークパターン」への規律を盛り込んだ中間取りまとめ案を公表した。特定商取引法の改正を視野に入れる。 取りまとめ案では、「お試し」と表示しながら実際は定期購入が条件になって..."
+      "title": "東京23区で「徒歩10分以内」に駅がない地域はどこ？　駅空白地帯マップが話題",
+      "link": "https://www.itmedia.co.jp/news/article/2608/25/2000000759/",
+      "summary": "東京23区周辺を対象に、徒歩10分内・15分内に駅がない地域をそれぞれ赤色で示した2枚の地図が、Xで話題だ。統計データの地図表示サービス「47maps」の公式Xアカウント（@47maps）が投稿したもので、鉄道網が発達した都心部でも、徒歩10分圏では駅に届かない地域が広範囲に残る様子が見て取れる。 徒歩10分内の地図では、..."
     },
     {
       "source": "Qiita",
-      "title": "個人開発をiOSアプリで半年やって「勝てない」と悟った話",
-      "link": "https://qiita.com/gts/items/8c94ac8b76d7caa1b530?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "「個人開発したアプリがバズって、会社に辞表を叩きつけるんだ…！」——そんな夢を見たことがある人は、私だけではないはずです。\n結論から言います。個人開発、半年やってみたけど、勝てる気が全くしません。AI時代到来でアプリ開発は「ちょろい」と思っていたのに、実際にぶつかったのはア..."
+      "title": "【ローカルLLM】国産LLM「LLM-jp-4-33B」と「Qwen3.8-27B」の推論性能比較（RTX 5070 Ti + RTX 3070 Ti）",
+      "link": "https://qiita.com/h-nabata/items/b80484406e839ee6507b?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "はじめに\n先週、LLMCが大規模言語モデル「LLM-jp-4 33B」を公開した。これは約332億パラメーターのDense型のモデルで、今年4月に公開されたMoE型のモデルのDense版に対応する。\n以前、性能比較検証に関してLLMCが以下のような声明を発表している。確か..."
     },
     {
       "source": "Qiita",
@@ -267,51 +279,51 @@
     },
     {
       "source": "Qiita",
-      "title": "新人エンジニア、「言いたいことがある」がいつも遅すぎる",
-      "link": "https://qiita.com/prumnn/items/15c75c024c4b38011afd?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "はじめに\n\n会議で発言しようと考えをまとめている間に、いつも話が次の議題に進んでしまい、結局黙って終わっていたぷらむんが気づいたのは、話す準備の仕方そのものが間違っていたということでした。\n\n会社で自称マスコットキャラをやってるのに、社内で一番空気が読めない、ぷらむん..."
+      "title": "文系上司が知りたいのは「仕組み」ではなく、「どう影響するか」のことが多い",
+      "link": "https://qiita.com/sumomoo/items/4912f4efa2e2a5cd49d5?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "はじめまして。株式会社PRUMでエンジニアをしている、すもも🍑です\n日々、プログラミング学習や実務の中で、つまずきやすいポイントや\n考え方を整理して発信しています。\nPRUMについて気になった方は、コーポレートサイトもぜひご覧ください。\n▶コーポレートサイト\n\n技術的に..."
     },
     {
       "source": "Qiita",
-      "title": "「これで進めますね」と自分から言ってしまうと、後で仕様がひっくり返る",
-      "link": "https://qiita.com/sumomoo/items/e5065bd0e6daaf38ac62?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "はじめまして。株式会社PRUMでエンジニアをしている、すもも🍑です\n日々、プログラミング学習や実務の中で、つまずきやすいポイントや\n考え方を整理して発信しています。\nPRUMについて気になった方は、コーポレートサイトもぜひご覧ください。\n▶コーポレートサイト\n\n「これで進..."
+      "title": "新人エンジニア、先輩ごとに言う内容が違って「何が正解かわからない」",
+      "link": "https://qiita.com/prumnn/items/001b49e080f580aea96b?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "はじめに\n\nプラ二郎先輩に言われた通りに書いたコードを、別の先輩に「それは違うよ」と言われて混乱していたぷらむんが気づいたのは、どちらかが間違っているわけではなかったということでした。\n\n会社で自称マスコットキャラをやってるのに、社内で一番空気が読めない、ぷらむんです..."
     },
     {
       "source": "Qiita",
-      "title": "入社1ヶ月目、「全然役に立てていない」と焦るときに考えてほしいこと",
-      "link": "https://qiita.com/m__ikeda/items/caac6a305b6f190676da?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "title": "プロも毎日ググっている。エラーで固まらないための「検索力」の話",
+      "link": "https://qiita.com/m__ikeda/items/5da484e533d0d574045d?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
       "summary": "自己紹介\nこんにちは。株式会社PRUMで採用広報を担当している池田です。\n未経験からIT業界を目指している方と話していると、かなりよく聞く共通した悩みがあります。そういった内容を皆さんにシェアしていくので、役立てていただけたらと思います😊\nもしIT業界に興味があるけど、..."
     },
     {
       "source": "Qiita",
-      "title": "Claude Codeのセッション間通信、Windowsでも動きます（v2.1.234から）",
-      "link": "https://qiita.com/jqit_suwa/items/137a2810fb3fa3f773e8?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "Claude Code には、自分の別セッションにメッセージを送る cross-session messaging という機能があります。ターミナルを2枚開いて並行作業しているとき、片方の変更をもう片方に伝えるやつです。\nこれ、「Windowsでは使えない」と思っている人が..."
+      "title": "/model を1度でも押すと ANTHROPIC_DEFAULT_MODEL は効きません",
+      "link": "https://qiita.com/jqit_suwa/items/7ecdfc6067e09aed00a1?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "Claude Code v2.1.236 に ANTHROPIC_DEFAULT_MODEL という環境変数が入りました。新しいセッションが開始するモデルを決めるものです。\nチームで初期モデルを揃えたくて設定したんですが、まったく効きませんでした。\nANTHROPIC_DE..."
     },
     {
       "source": "Qiita",
-      "title": "わかったようでわからない非同期処理の完全理解①",
-      "link": "https://qiita.com/yuki_crossroad/items/a99f0d9f0db6ebd87c00?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "非同期処理は、すぐに答えが返らない仕事を待つための書き方です。\n今回はVue 3を使って、ゲーム世界で剣（ソード）の情報をファイルから読み込み、届いたら画面へ表示する流れをつくってみます。まずは「普通に書くと何が起きるのか」と、async / await を使う理由を小さな..."
+      "title": "AIにテストを書かせると、決まって同じ場所が抜ける",
+      "link": "https://qiita.com/jqit_suwa/items/a0fa9752528e2b3def71?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "AI にテストを書かせると、AI は「問題ありません」と言います。\nそこで多くの人が次にやることは決まっています。別の AI にレビューさせることです。\nただ、それは独立したレビューになっているのでしょうか。そして、そもそも何が抜けているのでしょうか。\nこの記事では、AI ..."
     },
     {
       "source": "Qiita",
-      "title": "anthropic SDK が httpx をやめました。移行しても動くので気づけません",
-      "link": "https://qiita.com/jqit_suwa/items/5edf6037203a15c3fdfd?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "anthropic の Python SDK が 1.0.0 になりました。移行ガイドで手が止まります。\n\nThe SDK's HTTP layer moved from httpx, which is no longer actively maintained, to h..."
+      "title": "※この記事は人の手で書かれています",
+      "link": "https://qiita.com/kyuko/items/3380b85d0b52ea01f449?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "こんにちは！ひさふるです。\n最近、QiitaでもAIを使って書かれた記事が増えてきましたね。\nAIで記事を効率的に書くこと自体も素晴らしいのですが、私としては、特に新卒で会社に入られた方などには「ぜひ自分の手で記事を書いてもらいたい！」と想うことも多く...\n今回は、そんな..."
     },
     {
       "source": "Qiita",
-      "title": "APIとは何か調べてみた｜REST・SOAP・JSON・XML・CRUD…用語を業務の言葉に置き換える",
-      "link": "https://qiita.com/songchong/items/4b1502b6bcc69c459baa?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "API連携の説明を読むと、10行目くらいで用語に当たります。REST、SOAP、JSON、XML、CRUD、エンドポイント、Webhook。\n\n「REST とか JSON とか、業務の判断に関係あるのか」\n\nこれが、この記事で答えたい問いです。\nこのうち業務の判断に関係する..."
+      "title": "Oracle AI Database Private Agent Factory 26.4 を 26.7 へ Upgrade してみてみた",
+      "link": "https://qiita.com/shirok/items/de8732a3d1ebc441af10?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "Oracle AI Database Private Agent Factory 26.4 を 26.7 へ Upgrade してみてみた\n\nOracle AI Database Private Agent Factory（PAF）26.7 がリリースされました。\n\nリリ..."
     },
     {
       "source": "Qiita",
-      "title": "Grill-me に丸コゲにされた俺は、もっと軽くて速いスキルを作った",
-      "link": "https://qiita.com/magicant/items/0f93dd0b38fda076174f?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "ご安心ください、この記事は 100% 手打ちです \nこの記事の内容は筆者自身の開発スタイルに基づくものです。効果・効能には個人差があります。スキルは各自が自分のためにカスタマイズすることを推奨します!\n\nしばらく前にコーディングエージェントに何かを実装させる前に gr..."
+      "title": "BrunoでAPIテストを自動化してみよう― Postmanのコレクションをそのままgit管理し、Cursor(AIエージェント)のターミナルでCIまで回す",
+      "link": "https://qiita.com/sewiihidekikudo/items/1c835d5d1f0a8b3dbf65?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "はじめに\nこんにちは！ソーイ株式会社の工藤です。\n日常業務でAPIを実装し、Postmanで動作確認、手動のAPI単体テストを行っています。テスト量が増え、工数が膨大になっていることに課題を感じ、自動化したいと思うようになりました。\n本記事では、Postmanと比較しなが..."
     }
   ]
 }
