@@ -34,6 +34,20 @@ TEMPLATE = """<!DOCTYPE html>
   }}
   h1 {{ font-size: 1.5rem; margin: 0; letter-spacing: .02em; }}
   .time {{ color: var(--muted); font-size: .85rem; margin-top: .25rem; }}
+  .overview {{
+    background: #f1ede3;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+  }}
+  .overview h2 {{
+    font-size: 1rem;
+    letter-spacing: .04em;
+    margin: 0 0 .5rem;
+  }}
+  .overview p {{ margin: .6rem 0 0; font-size: .92rem; }}
+  .overview p:first-of-type {{ margin-top: 0; }}
   article {{
     border-bottom: 1px solid var(--line);
     padding: 1rem 0;
@@ -67,10 +81,19 @@ TEMPLATE = """<!DOCTYPE html>
   <h1>フロントエンドニュースまとめ</h1>
   <p class="time">更新: {generated_at}（毎朝6時に自動更新）</p>
 </header>
+{overview}
 {articles}
 </body>
 </html>
 """
+
+
+def _overview_html(paragraphs: list[str]) -> str:
+    paras = [p for p in paragraphs if p and p.strip()]
+    if not paras:
+        return ""
+    inner = "".join(f"<p>{html.escape(p)}</p>" for p in paras)
+    return f'<section class="overview"><h2>今日のフロントエンド</h2>{inner}</section>'
 
 
 def build() -> None:
@@ -88,6 +111,7 @@ def build() -> None:
         )
     page = TEMPLATE.format(
         generated_at=html.escape(data["generated_at"]),
+        overview=_overview_html(data.get("overview") or []),
         articles="\n".join(blocks),
     )
     pathlib.Path("docs").mkdir(exist_ok=True)
