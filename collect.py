@@ -109,44 +109,53 @@ def ai_filter_and_overview(items: list[dict]) -> tuple[list[int], list[str]] | N
         print("ANTHROPIC_API_KEY が未設定のため、AI処理をスキップします")
         return None
 
-    import anthropic
-    from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
-    from anthropic.types.messages.batch_create_params import Request
-
-    client = anthropic.Anthropic(api_key=api_key)
-
-    listing = "\n\n".join(f"[{i}] {it['title']}\n{it['excerpt']}" for i, it in enumerate(items))
-    batch = client.messages.batches.create(
-        requests=[
-            Request(
-                custom_id="digest",
-                params=MessageCreateParamsNonStreaming(
-                    model="claude-haiku-4-5",
-                    max_tokens=2500,
-                    messages=[{"role": "user", "content": _PROMPT_HEAD + listing}],
-                ),
-            )
-        ]
-    )
-    print(f"バッチ投入: {batch.id}（完了待ち、最大 {BATCH_TIMEOUT_SEC // 60} 分）")
-
-    deadline = time.monotonic() + BATCH_TIMEOUT_SEC
-    while time.monotonic() < deadline:
-        time.sleep(BATCH_POLL_SEC)
-        if client.messages.batches.retrieve(batch.id).processing_status == "ended":
-            break
-    else:
-        print("バッチが時間内に完了しませんでした。総括なしで公開します")
+    try:
+        import anthropic
+        from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+        from anthropic.types.messages.batch_create_params import Request
+    except ImportError as e:
+        print(f"anthropic SDK を読み込めません（総括なしで公開）: {e}")
         return None
 
-    text = ""
-    for result in client.messages.batches.results(batch.id):
-        if result.custom_id == "digest" and result.result.type == "succeeded":
-            text = next(
-                (b.text for b in result.result.message.content if b.type == "text"), ""
-            )
+    client = anthropic.Anthropic(api_key=api_key)
+    listing = "\n\n".join(f"[{i}] {it['title']}\n{it['excerpt']}" for i, it in enumerate(items))
+
+    try:
+        batch = client.messages.batches.create(
+            requests=[
+                Request(
+                    custom_id="digest",
+                    params=MessageCreateParamsNonStreaming(
+                        model="claude-haiku-4-5",
+                        max_tokens=2500,
+                        messages=[{"role": "user", "content": _PROMPT_HEAD + listing}],
+                    ),
+                )
+            ]
+        )
+        print(f"バッチ投入: {batch.id}（完了待ち、最大 {BATCH_TIMEOUT_SEC // 60} 分）")
+
+        deadline = time.monotonic() + BATCH_TIMEOUT_SEC
+        while time.monotonic() < deadline:
+            time.sleep(BATCH_POLL_SEC)
+            if client.messages.batches.retrieve(batch.id).processing_status == "ended":
+                break
+        else:
+            print("バッチが時間内に完了しませんでした。総括なしで公開します")
+            return None
+
+        text = ""
+        for result in client.messages.batches.results(batch.id):
+            if result.custom_id == "digest" and result.result.type == "succeeded":
+                text = next(
+                    (b.text for b in result.result.message.content if b.type == "text"), ""
+                )
+    except anthropic.APIError as e:
+        print(f"AI呼び出しに失敗しました（総括なしで公開）: {e}")
+        return None
+
     if not text:
-        print("バッチ結果を取得できませんでした")
+        print("バッチ結果を取得できませんでした。総括なしで公開します")
         return None
 
     parsed = _parse_ai_json(text, len(items))
