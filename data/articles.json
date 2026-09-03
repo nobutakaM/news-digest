@@ -1,12 +1,24 @@
 {
-  "generated_at": "2026-09-03T12:56",
+  "generated_at": "2026-09-03T21:17",
   "overview": [
-    "フロントエンド開発の現場では、ブラウザ互換性への対応がますます重要になっている。Chrome中心の開発では見落とされがちだが、SafariやFirefoxなどのブラウザでは同じコードが予期しない挙動を示すことがある。また、Chrome拡張機能についてもManifest V2からV3への移行が進行中で、広告ブロッカーなどの既存拡張機能にも大きな影響を与えている。",
-    "フレームワーク選択の議論も進化しており、React、Vue、Svelteの単純な性能比較よりも、各フレームワークが前提とする設計思想がプロジェクトと合致するかどうかが重要とされている。同時に、Next.jsのApp RouterやServer Componentsなど、サーバー側での処理をより深く活用する傾向が強まっており、SSR・SSG・SPAといった概念の理解がより実装レベルで求められるようになった。",
-    "開発効率の改善では、Turborepoなどのモノレポツール、PlaywrightなどのE2Eテスト、そしてAIアシスタントの活用が急速に進展している。APIドキュメント完成前のフロントエンド開発、UIの仕様変更への対応、テストコードの自動生成といった場面でAIが開発フローに組み込まれつつあり、エンジニアの価値はコード生成能力からより高度な設計判断や品質保証へシフトしている。",
-    "Web標準の進展も加速しており、`using`文によるリソース管理の自動化がStage 4に到達するなど、JavaScriptの言語仕様が継続的に強化されている。また、ブラウザで完結する画像処理やファイル変換、LAN環境でのブラウザベースの協力ゲーム開発など、WebとクライアントサイドJavaScriptの可能性の活用範囲が広がっている。"
+    "フロントエンド開発の実践的課題がクローズアップされている。ブラウザ互換性の問題が顕在化しており、Chrome依存の開発がSafariやFirefoxで予期しない不具合を生じさせる事例が報告されている。同時に、React・Vue・Svelteといった主要フレームワークの設計思想の根本的な違いが改めて認識されており、単なる性能比較ではなく、プロジェクトの世界観との適合性を重視する傾向が強まっている。",
+    "Next.jsのServer Components（RSC）とServer-Side Rendering（SSR）の実装パターンが進化している。Firebase認証をサーバー側に引き継ぎSSRを実現する手法や、RSC Payloadの動作をDevToolsで確認する方法など、クライアント・サーバー間の責務分離がより精密になってきた。また、バックエンドAPI仕様が未確定でも開発を進めるためのリポジトリパターンなど、実装の疎結合化に関する実践知が蓄積されている。",
+    "TypeScriptコンパイラがTypeScriptで書き直されず、Rustベースに刷新されてTypeScript 7で10倍高速化するなど、言語処理の基盤が大きく変わっている。テスティングフレームワークではVitestが5.0に到達し、Vite生態系の成熟度が高まっている。一方でAIエージェントによるUI修正の自動化が進み、E2Eテストの自動生成やブラウザ要素への直接プロンプト入力（Agentation）といった新しい開発ワークフローが登場している。",
+    "パフォーマンス最適化の事例が多く報告されており、import.meta.globによる大量Markdownの一括読み込みがSPA遷移を重くする問題や、モック管理とAPI仕様変更への対応など、スケーリングに伴う実装上の課題が具体的に議論されている。基礎的なJavaScript知識（ループ、参照と値、null/undefined処理）の定着から、Next.js・Tauri・Canvas APIなどを用いた応用的な実装まで、幅広いレベルでの知見共有が活発化している。"
   ],
   "items": [
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "コーダーからフロントエンドエンジニアへ #1-43｜for文──決まった回数をくり返す基本",
+      "link": "https://zenn.dev/koenjineer/articles/3f2bd4687e7c8d",
+      "summary": "はじめに 前回までで、配列を「作る・見る・出し入れする・コピーする」が一通りそろいました。ただ、まだ肝心なことができません。全部の要素に、同じ処理をすることです。 const items = [\"りんご\", \"みかん\", \"ぶどう\"]; console.log(items[0]); console.log(items[1]); console.log(items[2]); 3件ならこれで済みます。では、APIから返ってきた100件は？ 件数が毎回変わる商品リストは？ 手で並べる方法は、ここで完全に破綻します。 そこで登場するのが**くり返し（ループ）**です。今日扱う for 文は..."
+    },
+    {
+      "source": "Zenn(フロントエンド)",
+      "title": "Agentation で Web ページ上の UI に直接プロンプトを入力",
+      "link": "https://zenn.dev/kozoka_ai/articles/agentation-usage",
+      "summary": "AI とフロントエンドの開発を行う上で、ちょっとした修正の依頼も意図がうまく伝わらないことが多々あります。 一方で、AIに直接ブラウザを操作させる方法もありますが、「このボタンの角を丸めて欲しい」というような要望を伝えるためだけに利用するには時間やコンテキストの面からオーバースペックに感じる人もいるのではないでしょうか。 そんな時に便利なのが、ブラウザの要素に直接プロンプトを添付できる Agentation です。 Usage 導入方法より先に実際に使ってみるのが良いかと思います。 公式サイトで利用可能になっています。 まず、画面右下に表示される黒いボタンをクリックすると以下のように..."
+    },
     {
       "source": "Zenn(フロントエンド)",
       "title": "Chromeでしか動作確認していなかったので、3つの機能が壊れていた話",
@@ -50,10 +62,16 @@
       "summary": "みなさん、こんにちは！ ペンギンエンジニアです！ 前回の012で、Greeting という部品を定義して、3つ並べて使って、ファイルに分けるところまでやりました。 ただ、3つ並べても表示は全部「こんにちは、React！」のまま。 同じ表示にしかならないという物足りなさを、あえて持ち帰ってもらう回でしたね。 予告どおり、今日はその物足りなさを解消します。 先に種明かしをすると、Propsも特別な仕組みではありません。 コンポーネントがただの関数なら、Propsはただの引数です。 筆者はSES現場で、同じ見た目のUIをコピペで3つ作って、仕様変更のたびに3箇所を直す羽目になったコードを何度も..."
     },
     {
-      "source": "Zenn(フロントエンド)",
-      "title": "【Chrome】Manifest V2拡張機能が全廃へ。MV3移行で知っておくべき変更点と実装例",
-      "link": "https://zenn.dev/ament3/articles/ai-digest-2026-09-01-0102",
-      "summary": "GoogleがChrome Web StoreからManifest V2（MV2）ベースのブラウザ拡張機能の削除を開始したことが海外のテックコミュニティ（Hacker News等）で大きな話題となっています。これには、広く使われている広告ブロック拡張機能「uBlock Origin」などの主要なMV2拡張機能も含まれています。 本記事では、このニュースの背景と、Webエンジニアや拡張機能開発者が知っておくべきManifest V3（MV3）への移行ポイントおよび具体的な実装例を解説します。 なぜ今注目されているのか（背景） Googleは数年前からブラウザ拡張機能の新規格である**..."
+      "source": "Zenn(React)",
+      "title": "Tauriの状態値は責務を持つ側に定義すべき",
+      "link": "https://zenn.dev/ayaextech_fill/articles/tauri-reactivity-state-management",
+      "summary": "Tauri アプリにおける状態値管理を整理する Tauri アプリでは、Rust 側のアプリケーション状態と、 React や Vue などのUIライブラリ側のUI状態という、 2つの状態管理領域が存在します。 なぜ2つの領域が存在するのか そもそもTauri側にState管理の機能がある Tauri は State Management の仕組みを提供しています。 これは、Mutex などでラップしたRustのデータ構造をアプリ全体で保持し、コマンドハンドラーの呼び出しをまたいで共有するためのものです。 これはUIライブラリ側の状態管理を代替する仕組みではなく、 Rust ..."
+    },
+    {
+      "source": "Zenn(React)",
+      "title": "雑にSEOコンテンツを量産していたら、TanstackのSPA遷移が激遅になった",
+      "link": "https://zenn.dev/tenkei/articles/fe06cfc30df0d2",
+      "summary": "概要 SEO目的で用語集や記事ページを増やしていたら、SPAの画面遷移が目に見えて重くなった。 原因はシンプルで、Markdownコンテンツを雑に import.meta.glob(..., eager: true) で読み込んでいたことだった。 起きていたこと 構成はだいたいこう。 const modules = import.meta.glob(\"../data/articles/*.md\", { eager: true, query: \"?raw\", import: \"default\", }); そして一覧取得時に、全MarkdownをパースしてHTML化してい..."
     },
     {
       "source": "Zenn(React)",
@@ -74,52 +92,22 @@
       "summary": "はじめに 以前の記事では、Next.jsのApp Routerを使ってReact Server Components（RSC）を実際に動かしながら確認しました。 https://zenn.dev/kiyoma/articles/a8266597684e36 前回は主に、 React Server Componentsはサーバー側で実行されるComponent Server Component自身のJavaScriptをブラウザへ送る必要がない RSCとSSRは別の概念 ということを確認しました。 Server ComponentのJavaScriptをブラウザへ送らないなら、ブ..."
     },
     {
-      "source": "Zenn(React)",
-      "title": "Vue3 → React移行を、テストを先に置いて進める",
-      "link": "https://zenn.dev/elements/articles/c8105a4b12c047",
-      "summary": "はじめに ELEMENTS 開発部 eKYCフロントエンドチームの速水です。 私たちのチームは4つのプロダクトを開発しています。今回はそのうち1つで進めている改善プロジェクトのReact移行について紹介します。 チームの紹介 オンライン本人確認システムeKYCのフロントエンドを担当しており、主にWebでの撮影システムと管理画面を開発しています。eKYCがらみでWeb技術が絡むときにも一枚噛みます。 eKYCそのものの説明は本筋からずれるため割愛します。興味のある方はぜひとも弊社のサイトをご覧ください。 https://liquidinc.asia/liquid-ekyc 移行..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "Googleが読み込めない「ユーザートリガーコンテンツ」について｜クリック時生成コンテンツ編",
-      "link": "https://zenn.dev/satohiroeguchi/articles/93371b8aecf8ad",
-      "summary": "Webサイトの技術構成や演出が複雑化するなかで、SEO担当者やエンジニアが意外と落とし穴にはまりやすいのが「クローラーがどこまでのコンテンツを認識できているか」という点です。 アコーディオンUIや無限スクロールといったリッチなJavaScript実装は、ユーザーの利便性を高める一方で、作り方を誤るとGoogleにコンテンツを一切読んでもらえなくなります。 結論から言うと、Googleは「ユーザーがクリックした後に初めて生成されるHTMLコンテンツ」を読み込むことができません。 今回は、クローラーが認識できるコンテンツの境界線と、FAQや無限スクロールを実装する際の具体的なSEO回避策に..."
-    },
-    {
-      "source": "Zenn(React)",
-      "title": "TanStack StartとTanStack Router、結局何が違うのか？ SSR/CSR/SSG/SPAの基礎から整理する",
-      "link": "https://zenn.dev/tomoki33/articles/tanstack-start-vs-router-ssr-csr",
-      "summary": "はじめに 実務の技術選定で「TanStack Startという選択肢もあるのでは」と言われ、TanStack StartとTanStack Routerの違いを調べることになりました。ところが、いざ調べ始めると、前提となるSSR・CSR・SSG・SPAの理解が自分の中で曖昧なことに気づきました。 そこでこの記事では、まずSSR・CSR・SSG・SPAという言葉を整理し、その上でTanStack RouterとTanStack Startの違いをまとめます。 1. SSR・CSR・SSG・SPAの違い この4つを整理する上で一番大事なのは、そもそも同じ軸の話をしていないと気づくこと..."
+      "source": "Zenn(TypeScript)",
+      "title": "string[] では長さが分からない。じゃあ型に長さを入れてみよう",
+      "link": "https://zenn.dev/socialplus/articles/04443e5dac874e",
+      "summary": "モチベーション TypeScriptを書いていると、たまにこんな型が欲しくなる type Vector<T, N extends number> = ... Tは要素の型、Nは配列の長さで、 例えば、 Vector<string, 3>; なら、必ず3つのstringを持つ配列になる。普通のstring[]より、少しだけ多くの情報を型に持たせているわけだ。 こういう型があると、面白いことができる。 例えば head 関数は function head<T>(values: T[]): T { return values[0]; } 一見問題なさ..."
     },
     {
       "source": "Zenn(TypeScript)",
-      "title": "モノレポの「毎回ビルド」から解放されたい！Turborepoの基礎と導入手順",
-      "link": "https://zenn.dev/asuene/articles/b7f82354e02000",
-      "summary": "はじめに アスエネでバックエンドエンジニアをしている吉田です。 アスエネでは、日々タスクを効率よく進めるための改善をチーム間連携も含めて、積極的に行なっています！ 今回は、その改善で行ったことをまとめてみました。 Turborepo とは Turborepo は、JavaScript/TypeScript環境におけるモノレポ（Monorepo）向けのビルドシステム（ビルドツール）です。Next.jsなどを開発しているVercel社によって立ち上げられました。 モノレポ運用で発生しがちな「ビルドが遅い」「タスク管理が複雑」といった課題を、高速なキャッシュ機構と並列処理によって解決し..."
+      "title": "TypeScript自身がTypeScript製ではなくなった？!",
+      "link": "https://zenn.dev/monyyy/articles/3c55e83a596ccb",
+      "summary": "TypeScript自身がTypeScript製ではなくなった？ TypeScript 7が約10倍速くなった理由 はじめに TypeScriptを使っていると、型エラーの確認やビルドで次のコマンドを実行することがあります。 npx tsc --noEmit 小さなアプリでは、すぐに処理が終わります。 しかし、ファイル数が増えたプロジェクトでは、型チェックを待つ時間も少しずつ長くなります。 そんなTypeScriptのコンパイラが、TypeScript 7で大きく作り直されました。 変わったのは、新しい型構文だけではありません。 これまでTypeScriptで書かれていたコンパイ..."
     },
     {
-      "source": "Zenn(TypeScript)",
-      "title": "スマホ4台がブラウザで集まる協力クッキングゲームを作った —— 「オンラインで」を一度 LAN に閉じ、12日後に戻すまで",
-      "link": "https://zenn.dev/maruhana/articles/lan-party-cooking-game-overview",
-      "summary": "子どもがまだ小さかった頃、家族で Overcooked をよく遊んでいた。その思い出話が出て、久しぶりにみんなでやりたいね、となったのが発端である。 ところが、いざやろうとしたらソフトが見当たらなかった。どこかで売ってしまったのかもしれない。買い直せば済む話ではあるが、それもはばかられて、じゃあ作るか、となった。 当時テレビの前に全員で集まれたのは、コントローラーが人数分あったからだ。同じことをやるなら、まず「全員が持っている入力機器」が要る。それで出てきたのがスマホだった。ただし家族の端末は iPhone と Android に分かれている。 ここが効いてくる。 そういうわけで、Ove..."
-    },
-    {
-      "source": "Zenn(TypeScript)",
-      "title": "typescript-eslint の strictTypeChecked を後から入れる — glob 単位の緩和ゾーン",
-      "link": "https://zenn.dev/kodomo_news/articles/53-strict-type-checked-gradual",
-      "summary": "こんにちは。小学生向けのニュースサイト、こどもニュースをつくっています。 このプロジェクトは、途中から typescript-eslint の strictTypeChecked を入れました。型情報を使う lint で、no-floating-promises や no-unsafe-assignment といった強めのルールが含まれます。 既存のコードに一気に当てると、エラーが数百件出ます。どう段階導入したか、という話です。 最初にやったこと: グローバル off を並べる 素朴な導入は「うるさいルールを全部 off にして、あとから 1 つずつ on にする」です。最初はそうし..."
-    },
-    {
-      "source": "Zenn(TypeScript)",
-      "title": "バス釣り用語辞典『BassTerms』のアーキテクチャと個人開発の裏側",
-      "link": "https://zenn.dev/st_systems/articles/7bbf7ea8042c8d",
-      "summary": "はじめに バス釣り初心者向けの専門用語辞典サイト「BassTerms」を個人開発しました。 https://bassterms.com/ タックル・ルアー・リグ・釣法・魚の生態・フィールド用語などを検索・閲覧できる辞典に加えて、インチ⇔cmやギア比などの単位換算早見表も備えています。この記事では、プロダクト全体のアーキテクチャと、設計で意識したポイントをまとめます。 ! 本記事はソースコードの構造をもとにした技術解説であり、リポジトリ自体は非公開です。 全体構成 BassTermsは Next.js(App Router)の output: \"export\" によるフル静的サイ..."
-    },
-    {
-      "source": "Zenn(TypeScript)",
-      "title": "npm install は何をしている？ package.json とロックファイルから理解する依存解決",
-      "link": "https://zenn.dev/makoto1995/articles/node_package_manager",
-      "summary": "1. はじめに 私はプロジェクトで TS・JS 系言語を使った開発をしています。 パッケージの更新や CI 高速化に取り組む中で、Node.js の依存関係やパッケージマネージャを曖昧なまま使っていたことに気づきました。そこで、今回自分の言葉で記事にまとめて理解を深めてみようと思いました。 普段見慣れているファイルやコマンドでも意外と奥が深いので、ぜひ Node.js 開発をしている方に読んでいただきたいです！ この記事で扱う主な内容 パッケージマネージャとは？そしてその役割 直接依存と推移的依存 ロックファイルとは？ CI での運用 ちなみに もう少し発展的な内容（npm、Ya..."
+      "source": "Qiita(JavaScript)",
+      "title": "Vitestの特徴と基本的な使い方",
+      "link": "https://qiita.com/uhooi/items/2101536af5a172708391",
+      "summary": "本記事の執筆にはAIを使用しています。 はじめに Vitestの特徴、基本的な使い方、主要な関数を紹介します。 初めてVitestを使う方が、テストを書いて実行できるところまでを扱います。 「Vitest」とは？ Viteを利用したJavaScript・Type..."
     },
     {
       "source": "Qiita(JavaScript)",
@@ -128,10 +116,16 @@
       "summary": "猫種と毛柄は、どちらも猫の話ですが別のものです。「メインクーン」は猫種で、「キジトラ」は毛柄です。 その2つに、猫のからだとしぐさの言葉を加えて、猫に関する言葉だけが出てくるタイピングゲームを作りました。名前はねこタイプ、全120語で、30秒・60秒・90秒から時間を選べま..."
     },
     {
-      "source": "Qiita(JavaScript)",
-      "title": "画像処理をブラウザの中で完結させる — 何を移し、何が移せなかったか",
-      "link": "https://qiita.com/cheng_pm8/items/5160e4dc6e97333e81ce",
-      "summary": "画像を処理する前にまずアップロードする——この習慣はサーバー側ツールに慣らされたものです。日常的にやること、つまり縮小、形式変換、背景の切り抜き、短いアニメーションの作成、画像内の文字の抽出を数え上げてみると、その大半はブラウザ自身で完結できます。私たちはそれを一つずつ移し..."
+      "source": "Qiita(React)",
+      "title": "Next.jsとCanvasで画像をパーラービーズ図案に変換する方法",
+      "link": "https://qiita.com/zhuwei9362/items/d8d81e1cf82cfdcd0f04",
+      "summary": "はじめに 画像からパーラービーズの図案を作る場合、単純に画像を縮小するだけでは、色が不自然になったり細部が消えたりすることがあります。 そこで今回は、Next.js、TypeScript、Canvas APIを使い、画像をグリッド化して実際のビーズカラーに近い色へ変換する..."
+    },
+    {
+      "source": "Qiita(React)",
+      "title": "【個人開発】迷った判断を未来のヒントに変える「まよログ」を作りました【React / Supabase / Gemini】",
+      "link": "https://qiita.com/suneo46/items/b5d11970c2690bb1dd77",
+      "summary": "※本アプリは、企画・設計・実装・テストまでの一連の開発工程を経験することを目的として制作した個人開発アプリです。公開せず、ローカル環境で動作確認を行っています。 はじめに 実際に企画から立ち上げて個人開発をしてみたいと思い、Webアプリを作成しました。 日々の生活をも..."
     },
     {
       "source": "Qiita(React)",
@@ -140,22 +134,10 @@
       "summary": "React + TypeScript + TailwindCSS 構成のWebアプリ開発を、Cursor・GitHub Copilot・Antigravityなどの AIエージェントで進める際に使えるプロンプト・仕様書テンプレート集をGitHubで公開しました。 新規プロ..."
     },
     {
-      "source": "Qiita(React)",
-      "title": "Shadcn Switch Components and Examples for React",
-      "link": "https://qiita.com/wrappixel/items/2f448e9b125e9bd68dbc",
-      "summary": "Switch components are a common UI for controlling basic settings such as light-dark mode, privacy preferences, feature flags, and accoun..."
-    },
-    {
-      "source": "Qiita(React)",
-      "title": "reactチュートリアル＃２",
-      "link": "https://qiita.com/langhuanamacha/items/5347fb3d91ddc6ed4805",
-      "summary": "今日やったこと ・Propsとは ・買い物リスト作成 学んだこと ・propsとは親コンポーネントから子コンポーネントへ値を渡すための仕組み 次やること ・613コンポーネント作成"
-    },
-    {
-      "source": "Qiita",
-      "title": "【JavaScript】usingがStage4になったので、ようやくリソース解放忘れから解放されるよ",
-      "link": "https://qiita.com/rana_kualu/items/83783c6dd3b4b51fa77f?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "だめ function hoge(){ const handle = exampleResource(); // なんかのリソース /* なんか長い処理 */ handle.release(); // リソース解放 } hoge(); うっか..."
+      "source": "はてブ",
+      "title": "Announcing Vitest 5.0",
+      "link": "https://vitest.dev/blog/vitest-5.html",
+      "summary": "Announcing Vitest 5.0 Vitest 5.0 is out! ​September 3d, 2026 The next Vitest major is here ​Today, we are thrilled to announce Vitest 5! Quick links: DocsTranslations: 简体中文Migration GuideGitHub ChangelogIf you've not used Vitest before, we suggest reading the Getting Started and Features guides firs"
     },
     {
       "source": "Qiita",
