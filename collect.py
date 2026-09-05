@@ -74,15 +74,21 @@ _PROMPT_HEAD = (
     "1. フロントエンド開発（JavaScript/TypeScript、React/Vue/Svelte等のフレームワーク、"
     "CSS、ブラウザ、Web UI/UX実装、ビルドツール、Web標準、パフォーマンス）に"
     "関連する記事の番号を挙げてください。\n"
-    "2. その記事群を踏まえ、『今日のフロントエンド界隈で何が話題か』を日本語の"
+    "2. 選んだ記事それぞれについて、本文抜粋をもとに日本語2〜3文の要約を書いてください。"
+    "その記事が具体的に何をした/何を説明しているかが分かる内容にし、"
+    "「〜という記事」などの前置きは不要です。\n"
+    "3. 選んだ記事群を踏まえ、『今日のフロントエンド界隈で何が話題か』を日本語の"
     "プレーンテキストで2〜4段落にまとめてください。具体的な技術名や出来事に触れ、"
     "記事タイトルの丸写しや「〜という記事がある」の羅列は避けること。\n\n"
     '出力は次のJSONのみ（前後に説明を付けない）:\n'
-    '{"frontend": [番号, ...], "overview": ["段落1", "段落2", ...]}\n\n'
+    '{"frontend": [番号, ...], "summaries": {"番号": "要約", ...}, '
+    '"overview": ["段落1", "段落2", ...]}\n\n'
 )
 
 
-def _parse_ai_json(text: str, n: int) -> tuple[list[int], list[str]] | None:
+def _parse_ai_json(
+    text: str, n: int
+) -> tuple[list[int], dict[int, str], list[str]] | None:
     try:
         start, end = text.index("{"), text.rindex("}") + 1
         data = json.loads(text[start:end])
@@ -96,14 +102,24 @@ def _parse_ai_json(text: str, n: int) -> tuple[list[int], list[str]] | None:
             continue
         if 0 <= i < n and i not in idxs:
             idxs.append(i)
+    summaries: dict[int, str] = {}
+    for k, v in (data.get("summaries") or {}).items():
+        try:
+            ki = int(k)
+        except (TypeError, ValueError):
+            continue
+        if 0 <= ki < n and isinstance(v, str) and v.strip():
+            summaries[ki] = v.strip()
     overview = [p.strip() for p in data.get("overview", []) if isinstance(p, str) and p.strip()]
     if not idxs:
         return None
-    return idxs, overview
+    return idxs, summaries, overview
 
 
-def ai_filter_and_overview(items: list[dict]) -> tuple[list[int], list[str]] | None:
-    """Batch APIで frontend 記事番号と総括を1リクエストで得る。失敗時 None。"""
+def ai_filter_and_overview(
+    items: list[dict],
+) -> tuple[list[int], dict[int, str], list[str]] | None:
+    """Batch APIで frontend 記事番号・各記事の要約・総括を1リクエストで得る。失敗時 None。"""
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         print("ANTHROPIC_API_KEY が未設定のため、AI処理をスキップします")
@@ -127,7 +143,7 @@ def ai_filter_and_overview(items: list[dict]) -> tuple[list[int], list[str]] | N
                     custom_id="digest",
                     params=MessageCreateParamsNonStreaming(
                         model="claude-haiku-4-5",
-                        max_tokens=2500,
+                        max_tokens=6000,
                         messages=[{"role": "user", "content": _PROMPT_HEAD + listing}],
                     ),
                 )
@@ -173,9 +189,14 @@ def collect() -> None:
     if USE_AI:
         result = ai_filter_and_overview(items)
         if result is not None:
-            keep, overview = result
-            items = [items[i] for i in keep]
-            print(f"AIフィルタ: {len(items)}件 / 総括 {len(overview)}段落")
+            keep, summaries, overview = result
+            items = [
+                {**items[i], "summary": summaries.get(i, items[i]["summary"])}
+                for i in keep
+            ]
+            print(
+                f"AIフィルタ: {len(items)}件 / 要約 {len(summaries)}件 / 総括 {len(overview)}段落"
+            )
 
     for it in items:
         it.pop("excerpt", None)
